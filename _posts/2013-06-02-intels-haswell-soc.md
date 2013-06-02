@@ -41,10 +41,10 @@ Coarse-grained locking (ví dụ như khóa toàn bộ 1 cấu trúc dữ liệu
 phát triển đơn giản, đặc biệt là với chương trình đơn luồng. Tuy nhiên
 fine-grained locking (ví dụ khóa một phần của cấu trúc dữ liệu như một nút trên
 B-tree) thì có hiệu năng cao hơn. Lướt qua khoá phần cứng (Hardware Lock
-Elision - HLE) [hle][] sử dụng các lệnh tiền tố gợi ý (hint prefixes) để cung cấp hiệu năng và thông
+Elision - HLE) [^3] sử dụng các lệnh tiền tố gợi ý (hint prefixes) để cung cấp hiệu năng và thông
 lượng của fine-grained locking cho chương trình một cách trong suốt, thậm chí khi lập trình viên sử dụng coarse-grained lock.
 
-Giao dịch bộ nhớ giới hạn (Restricted Transactional Memory - RTM) [^3] là một mô
+Giao dịch bộ nhớ giới hạn (Restricted Transactional Memory - RTM) là một mô
 hình lập trình mới trong đó người ta phải chỉ ra các giao dịch một cách tường minh
 qua các chỉ dẫn lệnh mới. Những giao dịch này có thể mở rộng các cấu trúc dữ
 liệu phức tạp và có thể được tổ hợp lại dễ dàng. Tuy nhiên, việc này yêu cầu
