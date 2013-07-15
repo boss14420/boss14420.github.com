@@ -1,0 +1,570 @@
+15:07:51 <boss14420> #startmeeting
+15:07:51 <hubkbot> Meeting started Sun Jul 14 15:07:51 2013 UTC.  The chair is boss14420. Information about MeetBot at http://wiki.debian.org/MeetBot.
+15:07:51 <hubkbot> Useful Commands: #action #agreed #help #info #idea #link #topic.
+15:09:10 <heroandtn3> hi
+15:09:13 <boss14420> Sơn đâu rồi
+15:09:50 <Chien> hô
+15:10:48 <heroandtn3> chắc lại đang dùng uynh
+15:11:05 <boss14420> thì liên quan gì ?
+15:11:21 <heroandtn3> chưa cài irc
+15:11:33 <boss14420> hình như có giao diện web
+15:12:08 <Chien> à, t cài irc rồi nhưng mà cũng vào win vì vừa đến HN xong, hẹn Sang 10h, chưa kịp chọn vào fedora :v
+15:12:54 <heroandtn3> báo cáo đi Chiến
+15:13:04 <heroandtn3> hôm nọ báo là có báo cáo mà chưa thấy gì
+15:13:15 <Chien> uh, t nói phần của t luôn
+15:13:33 <Chien> t đang gặp khó khăn trong quá trình tìm hiểu
+15:13:43 <boss14420> cụ thể
+15:13:49 <Chien> tuần vừa rồi lại về quê sớm thành ra ko có tiến triển gì lắm
+15:14:05 <Chien> mông lung về cách sử dụng disqus API
+15:14:10 <qwebirc11911> alo
+15:14:16 <Chien> chưa xác định đc cơ chế hoạt động của nó
+15:14:24 <boss14420> cơ chế ?
+15:14:39 <Chien> vẫn chỉ có cách đăng nhập vào disqus để quản lí bình luận
+15:14:55 <Chien> uh, cơ chế, tức là xác định theo link kiểu gì ấy
+15:15:35 <boss14420> Thì đúng là nó xác định bằng link, khi nào di chuyển blog thì phải migrate.
+15:16:20 <boss14420> Guest91364: sao đổi tên suốt thế ?
+15:16:48 <Chien> uh, t hiểu cái ấy, nhưng cách xây dựng 1 module để gọi nó ra t chẳng biết làm tnao
+15:17:05 <Chien> còn unittest, t cũng chưa biết xây dựng
+15:17:10 <boss14420> Thử ví dụ một hàm trong disqus API xem nào
+15:17:26 <heroandtn3> Chien: thế này nhé
+15:17:31 <Chien> đơn giản là hàm getPost()
+15:17:35 <Chien> có nhiều hàm get lắm
+15:17:46 <heroandtn3> cái Disqus API nó có 1 hàm, ví dụ getComment(id)
+15:17:58 <heroandtn3> trong đó id là id của bài viết
+15:18:03 <heroandtn3> hàm này trả về các comment
+15:18:39 <heroandtn3> thì cậu chỉ cần gọi hàm kiểu như thế là lấy đc comment, vậy còn vấn đề gì nữa đâu?
+15:18:41 <Chien> uh, t biết chức năng, cái file t đưa vào demo cũng đủ các hàm rồi
+15:19:03 <Chien> ý t là làm sao để sau này Jekit sẽ dùng đc nó?
+15:19:10 <Chien> người dùng gọi bằng lệnh sao?
+15:19:43 <Chien> heroandtn3: hôm trc t bảo là báo cáo
+15:19:51 <Chien> là t đăng nhập vào disqus
+15:20:13 <Chien> đăng kí đc cho cái Jekit thành công (lấy trang của t)
+15:20:35 <Chien> t tưởng là bước tiến nhưng hóa ra đăng kí vs cái tên Jekit hay gì gì đều đc cả
+15:21:08 <Chien> hôm trc boss14420 có nói demo bằng unittest nhưng mà t chưa hiểu nó lắm
+15:22:25 <boss14420> Chien: http://getpython3.com/diveintopython3/unit-testing.html
+15:22:29 <heroandtn3> Chien: ồ, tức là cậu lấy đc comment rồi và bây giờ đang tìm hiểu làm sao để Jekit dùng được comment đó?
+15:22:32 <boss14420> Quyển sách này khá ổn
+15:23:14 <Chien> heroandtn3: uh, t lấy đc comment rồi nhưng ko biết cho vào Jekit thế nào?
+15:23:29 <boss14420> Mà cũng không phải khi nào cũng cần unittest, cứ mở shell, import rồi test kiểu gì thì tùy thích
+15:23:39 <Chien> à, nhưng mà t chưa thử trên môi trường net, dùng unittest như boss14420  bảo
+15:23:40 <heroandtn3> comment đó là 1 object
+15:23:45 <boss14420> Lấy được comment rồi thì có thể trả về quan giá trị hàm
+15:24:31 <boss14420> môi trường net là sao ?
+15:24:50 <boss14420> #topic Module bình luận sử dụng disqus API
+15:25:22 <Chien> boss14420: tức là t chưa thử vs web, chỉ thử vs IDLE bình thường như 1 chương trình biên dịch binh thường ấy
+15:25:51 <heroandtn3> Chien: tớ vẫn ko hiểu thử với web là thử cái gì
+15:26:19 <heroandtn3> cậu chỉ tương tác với trang disqus thôi mà?
+15:26:26 <heroandtn3> kiểu như api.disqus.com gì đó
+15:26:29 <Chien> heroandtn3: c có thể xem qua các hàm get
+15:26:31 <Chien> http://paste.ubuntu.com/5874413/
+15:27:40 <Chien> heroandtn3: nếu mà chỉ đăng nhập vào disqus mà lấy được bình luận thì là công việc bình thường mà?
+15:27:57 <Chien> boss14420: c gửi tài liệu cho t hay làm gì thế?
+15:28:33 <boss14420> gui quyen sach luc nay
+15:28:50 <boss14420> Pidgin không hỗ trợ gửi file
+15:29:30 <Chien> t ko biết cách lấy về :D
+15:29:34 <boss14420> Mà đổi tên file đi, có dấu '-' không import được
+15:29:40 <Chien> ok ok
+15:29:54 <Chien> t tưởng lấy cái mã số kia paste vào github ^_^
+15:29:56 <heroandtn3> hôm nay thống nhất luôn code style nhé
+15:30:20 <heroandtn3> Chien: tớ thấy mấy hàm đó ok rồi mà
+15:30:24 <heroandtn3> có vấn đề gì đâu
+15:30:34 <heroandtn3> bây giờ cậu cần xác định module của cậu làm những việc gì
+15:30:42 <Chien> đấy là t demo để cho dễ hiểu, ok, đổi đây
+15:30:44 <heroandtn3> sau đó đưa ra thiết kế rồi lập trình
+15:31:40 <boss14420> Chien: Nếu không tự download được thì có lẽ là client không hỗ trợ. Download trực tiếp từ trang web lúc nãy kia cũng được
+15:31:43 <Chien> t đổi rồi
+15:32:04 <Chien> heroandtn3: t tưởng phải làm 1 module riêng, như kiểu 1 phần mềm r cho ng dùng chọn cài đặt?!
+15:32:57 <heroandtn3> ko
+15:33:04 <Chien> ok boss14420, nhờ primo pdf đã get đc :D
+15:33:06 <heroandtn3> tức là nó là 1 thành phần của hệ thống
+15:33:20 <heroandtn3> mỗi đứa code 1 module
+15:33:28 <heroandtn3> sau đó các module sẽ giao tiếp với nhau
+15:34:09 <Chien> bằng cách import của nhau?
+15:34:57 <Chien> nếu vậy t nghĩ là file của t ok, chỉ cần tìm hiểu thêm để đưa vào docs
+15:35:43 <heroandtn3> uh đúng
+15:35:59 <heroandtn3> nhưng trước tiên mình phải có thiết kế để có thể thống nhất với nhau
+15:36:18 <boss14420> Chien: ImportError: No module named 'urllib2'
+15:37:05 <Chien> t có 1 thắc mắc thế này
+15:37:23 <Chien> boss14420: c dùng bản python mấy?
+15:37:26 <heroandtn3> ?
+15:38:16 <Chien> tạm thời hôm trc t chưa chuyển hết code sang python 3 đc đâu, t vẫn dùng quen 2.7.3 nên chuyển sang khó mà :D
+15:38:42 <boss14420> python3
+15:38:45 <Chien> t ms chuyển lệnh sang chứ chưa chuyển thư viện
+15:39:03 <Chien> thư viện của python3 cũng bị đổi khác, t chưa đổi lại đc hết
+15:39:09 <boss14420> Mà mình ra ngoài khoảng 30ph, có gì mọi người cứ bàn tiếp.
+15:39:21 <boss14420> Nếu có gì quan trọng thì nhớ note lại
+15:39:39 <boss14420> dùng mấy lệnh #action, #info, #topic, #idea, ...
+15:40:53 <Chien> ok boss14420
+15:41:30 <Chien> heroandtn3: còn hỏi gì t nữa ko? T sẽ chuyển sang python3 sớm nhất có thể, nhưng chắc ko đc ngay vì còn phải tìm hiểu thư viện
+15:41:54 <Chien> vậy là t ko phải tìm cách cho vào Jekit ra sao mà việc đó đã có ng khác à heroandtn3 ?
+15:42:39 <heroandtn3> Chien: giờ tớ muốn biết hướng làm của cậu
+15:42:48 <heroandtn3> module của cậu sẽ làm những gì?
+15:42:58 <Chien> hướng làm của t?
+15:44:08 <heroandtn3> đúng
+15:44:18 <Chien> như c thấy, dựa vào các thông số(id) của bài viết/bình luận/user mà sẽ quản lí bình luận theo các thông số(id) ấy
+15:45:43 <heroandtn3> đấy là phần bên dưới
+15:45:49 <heroandtn3> chỉ là các hàm
+15:45:57 <Chien> có thể lấy/hiển thị/ quản lí bình luận của 1 bài viết, của 1 user hay theo từng bình luận riêng
+15:45:59 <heroandtn3> tớ nghĩ cậu phải lập trình cả phần GUI hco nó
+15:46:03 <heroandtn3> đúng rồi
+15:46:10 <heroandtn3> hiển thị lên rồi quản lý nó
+15:46:23 <Chien> hix, ý t là t gawph khó khăn phần ấy
+15:46:41 <Chien> t tưởng là c vừa bảo chỉ cần đăng nhập vào disqus, ko cần làm thế?!
+15:47:41 <heroandtn3> nếu để người dùng mở trình duyệt lên đăng nhập vào disqus
+15:47:46 <Chien> nếu công việc của t bao gồm cả phần GUI cho n thì t sẽ làm - trước đó t đã nghĩ là ng làm editor sẽ làm
+15:47:47 <heroandtn3> thì cần gì module của cậu nữa
+15:47:49 <heroandtn3> :P
+15:48:09 <Chien> t tưởng là ng lập trình phần GUi editor sẽ làm phần ấy chứ
+15:48:10 <Chien> hix
+15:49:04 <Chien> cũng thích, làm GUI bao giờ cũng hứng thú nhất mà ban đầu giao việc t cứ tưởng những ng còn lại cứ viết hàm cho boss14420  gọi vào viết GUI rồi :D
+15:50:19 <heroandtn3> GUI thì có gì đâu
+15:50:21 <heroandtn3> đơn giản
+15:50:31 <heroandtn3> tạo cái frame
+15:50:35 <heroandtn3> tạo mấy cái nút
+15:50:35 <Chien> heroandtn3: vậy t sẽ viết phần gui đăng nhập vào disqus bằng cách hiện ra pop up ngay trên giao diện quản lí của user khi 1 user muốn quản lí bình luận thay vì phải mở web vào disqus?
+15:50:39 <heroandtn3> textbox, label,...
+15:51:07 <heroandtn3> Chien: đúng rồi
+15:51:15 <heroandtn3> nhưng chỉ yêu cầu ng dùng đăng nhập 1 lần thôi
+15:51:27 <Chien> uh, t học java tạo GUI rồi, còn Python thì chưa, nhưng ko ngại :)
+15:52:13 <Chien> ok heroandtn3 , t biết phải làm gì rồi :)
+15:52:27 <Chien> phần của t còn yêu cầu gì nữa ko?!
+15:52:56 <heroandtn3> theo cậu thì có yêu cầu gì nữa o?
+15:54:21 <Chien> công việc thì chắc chỉ có thế, nhưng để tương thích với phần editor thì có lẽ cũng phải xem GUI mà boss14420  sẽ làm như thế nào
+15:54:28 <Chien> tức là về thẩm mĩ nữa thôi ^_^
+15:55:26 <heroandtn3> cậu phải cố gắng thiết kế cho nó chung nhất
+15:55:30 <boss14420> OK
+15:55:38 <heroandtn3> để sau này implement cho các hệ thống bình luận khác
+15:55:40 <heroandtn3> ví dụ fb
+15:55:53 <boss14420> Về phần tạo GUI với python thì còn tùy vào thư viện
+15:56:20 <Chien> cái này sẽ dùng thư viện đồ họa QT ấy hả heroandtn3 ? Khi trc t đc dạy tkinter
+15:56:43 <boss14420> QT, cụ thể là PySide
+15:56:49 <Chien> đúng rồi boss14420 , t đang thắc mắc sẽ dùng thư viện đồ họa nào?
+15:57:02 <Chien> ok boss14420
+15:57:03 <boss14420> Đã bàn từ đầu rồi còn thắc mắc gì nữa
+15:57:21 <Chien> ok ok, tại chưa làm đến nên thắc mắc mà :D
+15:57:28 <boss14420> Với Qt thì dùng Qt Designer để tạo GUI, file .ui
+15:57:45 <boss14420> rồi dùng tool kèm theo để sinh ra file python từ file ui đó
+15:57:49 <heroandtn3> có lẽ hôm nào offline 1 phát rồi Thành hướng dẫn
+15:58:01 <heroandtn3> mà Thành ở quê nhỉ
+15:58:03 <heroandtn3> khó rồi
+15:58:04 <heroandtn3> :))
+15:58:14 <boss14420> Không cần hướng dẫn, dễ mà
+15:58:20 <Chien> à mà theo tiến độ dự kiến thì thời gian này làm đc đến phần nào rồi?
+15:59:00 <Chien> boss14420:  cho ae cái tài liệu nữa nào ;))
+15:59:48 <boss14420> PySide thì hầu như không có tài liệu nào cả, chủ yếu là mấy cái tutor trên mạng.
+16:00:06 <boss14420> Qt (C++) thì có quyển C++ Programming in Qt4
+16:00:30 <Chien> toàn thế, trình tiếng Anh của m.ng chắc khủng lắm :v
+16:01:13 <Chien> ok boss14420 , gg có ngay phần GUI :D
+16:01:27 <heroandtn3> Chiến dự định tuần sau làm đc cái gì mới nào?
+16:02:02 <Chien> đến chủ nhật tuần sau chắc sẽ có GUI show cho ae rồi!
+16:02:34 <Chien> thêm 1 ít docs về cách quản lí bình luận vs disqus cho vào wiki ổn ko?
+16:02:59 <heroandtn3> tớ cần 1 cái thiết kế cho module của cạu
+16:03:21 <Chien> còn wiki sử dụng module bình luận chắc phải làm xong phần GUI ms cho vào đc
+16:04:13 <heroandtn3> thế này nhé
+16:04:22 <heroandtn3> bây giờ giai đoạn tìm hiểu đã qua rồi
+16:04:39 <heroandtn3> các vấn đề cốt lõi cũng gần như tìm đc hết hướng giải quyết
+16:04:42 <Chien> demo bằng GUI luôn ko đc mà phải viết hả heroandtn3 ?
+16:04:58 <heroandtn3> giờ còn 2 việc là thiết kế và lập trình
+16:05:16 <heroandtn3> Chien: vì các module phải giao tiếp với nhau nên phải có thiết kế để thống nhất
+16:05:41 <heroandtn3> ví dụ module của Thành cần object này thì cậu lại trả về object khác thì ko đc
+16:05:49 <Chien> ok heroandtn3 , t ko đc học về cái này nên có gì nhờ các cậu hướng dẫn :)
+16:06:11 <heroandtn3> thiết kế thì ko có gì, tớ quen Java nên sang Py hơi khó thiết kế
+16:06:30 <heroandtn3> chỉ là mình liệt kê các thành phần của module mình code
+16:06:31 <Chien> vậy cụ thể phần thiết kế của t sẽ phải làm tương tự cái thiết kế cho Jekit đã nộp đấy hả?
+16:06:48 <heroandtn3> jekit đã thiết kế thì mấy đâu
+16:06:54 <heroandtn3> giờ cần bản thiết kế cho từng module
+16:07:11 <Chien> c có thể cho cái mẫu ko? :-ss
+16:07:21 <heroandtn3> https://github.com/JeKitProject/MHST2013/wiki/Module-Jekyll:-Thi%E1%BA%BFt-k%E1%BA%BF
+16:07:28 <heroandtn3> ví dụ đây là cái tớ đang thiết kế
+16:07:45 <heroandtn3> mặc dù tớ chưa code nhưng nhìn vào các cậu có thể biết trong module có những gì
+16:08:17 <Chien> à ok ok, vậy chỉ là 1 cách đọc code cho dễ hình dung
+16:08:24 <Chien> t sẽ làm theo mẫu ấy :)
+16:08:53 <heroandtn3> :))
+16:08:55 <heroandtn3> ko
+16:09:13 <heroandtn3> cái này ko phải là docs của code
+16:09:23 <heroandtn3> mà là thiết kế để code
+16:09:31 <heroandtn3> tức là cậu phải có cái này trước rồi code theo
+16:09:45 <heroandtn3> ví dụ cậu thiết kế module của cậu có A, B, C
+16:09:53 <Chien> c nói rõ đi? Nếu ko thì t cứ làm r c góp ý sửa nếu thấy ko phù hợp là đc mà :D
+16:09:57 <heroandtn3> tớ và các bạn đọc xong thấy bảo cần có D
+16:10:03 <heroandtn3> ví dụ thế
+16:10:24 <heroandtn3> vì cậu chưa code nên sẽ không phải sửa lại code mất công
+16:10:28 <heroandtn3> chỉ là thiết kế thôi
+16:11:05 <Chien> à ok, chỉ là lý thuyết thôi mà ^_^
+16:12:29 <Chien> vậy là tuần sau t sẽ có thiết kế cho phần của t là xong nvu tuần
+16:12:49 <heroandtn3> uh
+16:12:53 <Chien> còn phần của 2 ng đã nói xong rồi hả heroandtn3 , boss14420 ?
+16:12:57 <heroandtn3> demo gui thì càng tốt
+16:12:59 <heroandtn3> chưa
+16:13:01 <boss14420> Chưa
+16:13:03 <heroandtn3> chưa nói gì
+16:13:30 <Chien> vậy là bây giờ ms nói hả?
+16:13:46 <Chien> uh, còn phần của Sơn thì sao?
+16:13:57 <Chien> chưa thấy nói bao giờ thì hnay nói cho ae xem đã xem sao?
+16:14:24 <boss14420> Sơn vào rồi mà nãy giờ chưa thấy nói gì
+16:14:28 <heroandtn3> đến phần của Guest91364 rồi kìa
+16:15:30 <boss14420> Guest91364 có đang online skype không, buzz đi
+16:16:06 <heroandtn3> ko
+16:16:32 <boss14420> Thế này là mở IRC tab này rồi lướt tab khác à ?
+16:16:52 <heroandtn3> may be
+16:17:00 <heroandtn3> giờ nói phần của Thành đi
+16:17:05 <boss14420> OK
+16:17:19 <boss14420> #topic WYSIWYG Editor
+16:17:42 <boss14420> tuần qua thử cài đặt thêm mấy cái control chức năng khác
+16:17:59 <boss14420> VD: cho vào thẻ code, tạo list, ...
+16:18:03 <heroandtn3> như thế nào
+16:18:09 <boss14420> pull git cái mới nhất là biết
+16:18:14 <boss14420> Cách làm thì tùy
+16:18:26 <Chien> là cho bbcode vào thử r hả boss14420 ?
+16:18:29 <boss14420> Tại vì Cái QWebPage hỗ trợ edit rất kém
+16:18:33 <boss14420> bbcode chưa
+16:18:55 <boss14420> VD: để chèn đoạn đang select vào thẻ code
+16:19:08 <boss14420> thì phải Cut ra, sửa clipboard rồi paste lại
+16:19:25 <boss14420> Còn những chức năng như thêm list thì có sẵn nên không sao
+16:20:19 <boss14420> Các chức năng hỗ trợ sẵn của QWebPage ở đây: http://srinikom.github.io/pyside-docs/PySide/QtWebKit/QWebPage.html#PySide.QtWebKit.PySide.QtWebKit.QWebPage.WebAction
+16:20:46 <boss14420> Ta chỉ có thể thao tác bằng lập trình qua những cái Web action này
+16:21:10 <boss14420> Cho nên mình đang nghĩ đến việc sử dụng lại QTextEdit cho chế độ WYS
+16:21:13 <Guest91364> sr, phần tớ chưa xong
+16:21:57 <heroandtn3> boss14420: nếu là custom bbcode thì phải cut ra rồi paste lại à
+16:22:03 <boss14420> nhưng lại có vấn đề như đã nói: https://groups.google.com/forum/m/#!topic/hubk-mhst2013/nsZj29bDeLc
+16:22:12 <heroandtn3> còn những cái có sẵn rồi thì ko sao à
+16:22:13 <boss14420> Chỉ ở chế độ WYS thôi
+16:22:20 <boss14420> dù ngôn ngữ là gì đi nữa
+16:22:35 <boss14420> còn ở chế độ code, vì là plain text nên không vấn đề gì
+16:24:01 <heroandtn3> tức là ở chế độ WYS thì select rồi muốn in đậm hoặc in nghiêng
+16:24:07 <heroandtn3> ta phải cut ra rồi paste vào?
+16:24:17 <boss14420> không, chức năng này có sẵn.
+16:24:24 <boss14420> Xem trong cái link vừa rồi ấy
+16:24:38 <boss14420> nhưng VD như để cho vào thẻ code thì phải cut rồi paste
+16:25:07 <heroandtn3> như vậy là những cái không có sẵn thì phải làm kiểu paste đó đúng ko?
+16:25:21 <boss14420> đúng
+16:25:42 <heroandtn3> cái này khó
+16:25:59 <heroandtn3> vì tớ thấy trên forum cái CKEditor
+16:26:12 <heroandtn3> cũng chỉ cài đặt đc các bbcode có sẵn thôi
+16:26:32 <boss14420> đó là chưa nói đến việc, không phải khi nào cho một đoạn HTML vào trong thẻ code thì nó cũng thành code
+16:26:57 <Chien> t ko thấy cái nào trong 3 cái này hay cả :v , a Cuong vừa vào có gì mới hay hơn ko ạ?
+16:26:58 <boss14420> nếu như nó đã được bao sẵn bằng thẻ span, thì thẻ code bao ngoài không có tác dụng
+16:27:19 <boss14420> Chien: 3 cái nào
+16:27:38 <boss14420> À
+16:27:51 <Chien> 3 giải pháp c đưa ra, t thấy đều ko khả thi
+16:27:57 <boss14420> Lý do ?
+16:28:20 <Cuong> Chien: có gì mới là sao em? mọi người cứ tiếp tục đi
+16:28:32 <heroandtn3> Guest91364: cậu làm quá chậm, sẽ làm chậm tiến độ của nhóm mất
+16:28:37 <boss14420> Cuong: Vào đây xem cái: https://groups.google.com/forum/m/#!topic/hubk-mhst2013/nsZj29bDeLc
+16:29:07 <Chien> có thể bổ sung cho QTextEdit lên version mới ko boss14420
+16:29:45 <boss14420> Không, nó là một lớp của PySide
+16:29:46 <Chien> 1 trong 3 cái đều ko làm đc đầy đủ yêu cầu, chỉ có cách bổ sung cho nó
+16:29:52 <heroandtn3> boss14420: tớ nghĩ chỉ hỗ trợ 1 số cái có sẵn thôi
+16:29:53 <boss14420> mà version mới cũng thế thôi
+16:29:58 <heroandtn3> thẻ code thì ko cần phải WYS
+16:30:35 <boss14420> heroandtn3:  Tức là biến đoạn văn bản đã chọn thành code ấy
+16:30:42 <heroandtn3> tớ thấy, ví dụ wordpress, ở WYS mà cho thẻ code, thì nó chỉ hiện 2 tag thôi
+16:30:51 <boss14420> tương ứng với mã HTML có tag code bao ngoài
+16:30:58 <heroandtn3> uh
+16:31:16 <heroandtn3> và phải hiển thị nó lên đúng ko
+16:31:19 <heroandtn3> hay là thế nào
+16:31:27 <boss14420> Phải hiển thị lên
+16:31:31 <heroandtn3> tớ tưởng chỉ lấy nội dung cho vào thẻ code chứ
+16:31:36 <heroandtn3> lấy cả đoạn mã làm gì
+16:31:51 <boss14420> Nội dung ở dạng HTML mà
+16:32:02 <heroandtn3> vậy phải tách đc ra
+16:32:11 <boss14420> Ừ, khá mất công.
+16:32:21 <Chien> tách từng dòng trong đoạn code mình đánh là rất khó
+16:32:23 <heroandtn3> ví dụ nó là: <b>Dai hoc</b> Bach Khoa
+16:32:28 <heroandtn3> thì bỏ <b> đi
+16:32:34 <heroandtn3> ko khó đâu
+16:32:38 <heroandtn3> vì tag html có đóng mở
+16:33:04 <Chien> đoạn dài thì gần như ko làm đc, ko lẽ lại viết 1 chương trình riêng để xử lí?
+16:33:26 <boss14420> Cho nên đang cân nhắc trở lại giải pháp 1
+16:33:38 <boss14420> Dựa vào các đoạn HTML bị chuyển, cố đoán các định dạng gốc của nó để cung cấp cho python-html2text[2] để chuyển về markdown
+16:34:00 <boss14420> Với QTextEdit thì việc edit rất dễ dàng.
+16:34:27 <heroandtn3> :-?
+16:34:38 <boss14420> Xem cái link group lúc nãy đi
+16:35:14 <Chien> như c nói thì cái blockquote chẳng hạn thì khó đoán
+16:35:23 <Chien> mà html còn nhiều cái khó đoán hơn nhiều
+16:35:37 <heroandtn3> cách 1 thì quá khó
+16:35:40 <heroandtn3> và thủ công
+16:35:58 <heroandtn3> nhỡ qtextedit thay đổi
+16:36:06 <heroandtn3> mình lại thay đổi theo thì rất phiền
+16:36:06 <boss14420> Cứ coi như đây là một ngôn ngữ markdown mới đi
+16:36:41 <boss14420> phụ thuộc vào thư viện là điều khó tránh khỏi
+16:37:03 <Chien> t tạm bí vấn đề này, đi tắm phát r xem tiếp, m.ng cứ họp nhé :)
+16:38:09 <heroandtn3> Thành thử search từ khóa này xem: ckeditor + python
+16:38:20 <heroandtn3> ckeditor tích hợp trên web rất dễ
+16:38:33 <heroandtn3> ko biết python thì thế nào nhưng tớ search thì ra 1 gói
+16:39:13 <boss14420> Sử dụng webkit để render ckeditor à ?
+16:40:18 <heroandtn3> tớ cũng nghĩ như vây
+16:40:28 <heroandtn3> nhưng ko rõ có ok ko
+16:40:37 <heroandtn3> có 2 cái này
+16:40:38 <heroandtn3> https://pypi.python.org/pypi/django-ckeditor
+16:41:04 <heroandtn3> và cái này ko rõ là gì: https://pypi.python.org/pypi/collective.ckeditor/3.6.2
+16:41:16 <boss14420> django là dành cho web động mà
+16:41:54 <boss14420> Cái kia cũng liên quan đến web
+16:43:22 <heroandtn3> thế thì khó nhỉ
+16:43:36 <boss14420> Thôi, cứ làm cách kia vậy. Cùng lắm thì bỏ luôn cái WYS/
+16:44:14 <boss14420> Nếu mà dự đoán HTML thì có thể sai, nhưng chắc không sao
+16:44:36 <boss14420> Cú pháp markdown cũng không nhiều, có thể suy ngược được
+16:44:58 <heroandtn3> uh
+16:45:45 <heroandtn3> đến tớ báo cáo
+16:45:57 <heroandtn3> phần của tớ thì tớ đang thiết kế, sau đó tớ sẽ cài đặt sau
+16:46:04 <boss14420> chủ đề  ?
+16:46:08 <heroandtn3> #topic báo cáo module Jekyll
+16:46:22 <boss14420> tìm hiểu thêm được gì rồi ?
+16:46:25 <heroandtn3> phần này mình sẽ bám vào docs của jekyll
+16:46:49 <heroandtn3> tìm hiểu cấu trúc thư mục blog jekyll, các tệp cấu hình, vao trò các tệp
+16:47:28 <boss14420> module này nên có các phương thức trả về một số giá trị quan trọng
+16:47:36 <heroandtn3> thao tác với thư mục jekyll thì hướng của tớ là gọi command hệ thống
+16:47:55 <boss14420> VD: địa chỉ thư mục gốc, thư mục _post, ...
+16:48:13 <boss14420> gọi command hệ thống là sao ? Python có module os dành cho việc này mà
+16:48:43 <boss14420> định gọi shell command à ?
+16:48:54 <heroandtn3> u dung, to se dung cac module ho tro nhu vay
+16:48:56 <heroandtn3> uh
+16:49:10 <heroandtn3> vi du de tao blog moi thi goi shell: jekyll new myblog
+16:49:35 <heroandtn3> xem thu thi goi: jekyll serve -w
+16:49:41 <boss14420> À, ngoài mấy cái lệnh  jekyll thì bắt buộc phải gọi command
+16:49:52 <boss14420> còn lại thao tác với file, thư mục thì không nên
+16:50:22 <heroandtn3> ví dụ nếu ghi file
+16:50:28 <heroandtn3> trong lúc thêm post chẳng hạn
+16:50:31 <boss14420> vì shell command làm chậm chương trình, lại không ổn định, không an toàn
+16:50:38 <heroandtn3> thì dùng IO của python để ghi
+16:50:44 <heroandtn3> chứ ko dùng gì đến shell
+16:50:50 <boss14420> OK
+16:51:00 <heroandtn3> đấy là cách cài đặt của tớ
+16:51:13 <heroandtn3> còn thiết kế thì tớ đã đưa lên wiki và đang hoàn thiện
+16:51:23 <heroandtn3> ví dụ phần setting
+16:51:43 <heroandtn3> mình sẽ đọc các giá trị của nó rồi hiển thị lên cho người dùng xem và chỉnh sửa
+16:52:01 <heroandtn3> sửa xong, bấm save thì nó sẽ cập nhật vào _config.yml
+16:52:15 <heroandtn3> sau đó gọi module git
+16:52:17 <heroandtn3> để git commit
+16:52:29 <boss14420> Nên có mấy cái phương thức như đã nói. Như cái module Editor này thì cần các giá trị: thư mục gốc, thư mục của post, thư mục page, thư mục asset (để lưu file, hình ảnh), danh sách các category, các tag ...
+16:53:11 <heroandtn3> cần thư mục gốc, post,.. để làm gì thế?
+16:53:26 <heroandtn3> danh sách category và tag thì tớ hiểu là nó dùng để hiển thị rồi
+16:53:43 <boss14420> để tạo file, sinh URL để preview, ...
+16:53:49 <boss14420> để lưu hình ảnh
+16:54:05 <boss14420> à quên
+16:54:10 <Cuong> Hôm trước anh cũng có hỏi Sang về vấn đề này, như vậy module git của anh sẽ phải lấy các giá trị này(thư mục gốc, post, page...) từ module Jekyl của Sang
+16:54:20 <boss14420> mấy chức năng này nên dành cho module jekyll
+16:54:28 <boss14420> nhưng mà vấn nên có
+16:54:38 <boss14420> lỡ sau này cần
+16:56:19 <heroandtn3> ko cần đâu
+16:56:36 <heroandtn3> Thành chỉ cần quan tâm đến các đối tượng như post, image,...
+16:56:59 <heroandtn3> ví dụ trong image sẽ có url
+16:57:06 <heroandtn3> để cho thành hiển thị
+16:57:30 <heroandtn3> chứ module của thành ko cần quan tâm đến việc blog đang là jekyll hay là blog gì cả
+16:57:45 <heroandtn3> Cuong: em ko hiểu í anh lắm
+16:58:01 <heroandtn3> à
+16:58:15 <heroandtn3> thật ra ko cần
+16:58:16 <boss14420> Giả sử ở editor, người dùng cần chèn ảnh (đồng thời upload), thì editor cần phải tải vào thư mục chứa ảnh, đồng thời biết vị trí tương đối của ảnh đó với file html tương ứng với post
+16:59:00 <heroandtn3> Cuong: nếu đơn giản thì anh add tất cả luôn, gọi: git add .
+16:59:08 <heroandtn3> nếu phức tạp hơn thì add từng post
+16:59:09 <boss14420> như vậy là chức năng up ảnh, lấy địa chỉ phải dành cho module jekyll
+16:59:29 <heroandtn3> khi đó anh sẽ đưa ra các chức năng như: addPost, editPost,...
+16:59:35 <heroandtn3> boss14420: không cần
+16:59:50 <heroandtn3> ví dụ khi cậu upload image
+17:00:04 <heroandtn3> nó sẽ gọi đến module của tớ 1 hàm
+17:00:16 <heroandtn3> kiểu như: addImage(path)
+17:00:21 <heroandtn3> path là đường dẫn
+17:00:29 <heroandtn3> hàm này trả về object Image
+17:00:39 <heroandtn3> trong Image thì có các đường dẫn cho cậu sử dụng
+17:00:56 <boss14420> OK
+17:01:48 <heroandtn3> như vậy là việc tương tác giữa các module
+17:02:01 <heroandtn3> đòi hỏi phải thống nhất dữ liệu trả về
+17:02:14 <Cuong> Đúng
+17:02:15 <heroandtn3> thế nên tớ mới bảo mng thiết kế mà chả ai chịu làm gì cả
+17:02:42 <Chien> là do chưa nắm đc tinh thần, giờ nắm đc r mà ^_^
+17:03:02 <heroandtn3> bây giờ mình chia nhau ra thiết kế
+17:03:11 <heroandtn3> mỗi module phải có thiết kế
+17:03:46 <boss14420> OK.
+17:03:47 <heroandtn3> ví dụ của Chien thì có các object kiểu như Comment, Discussion,..., các methods kiểu như getCommentById gì đó
+17:04:05 <heroandtn3> boss14420:  thì phải có Post, Image,...
+17:04:25 <heroandtn3> anh Cuong thì phải có Commit, history,...
+17:04:37 <heroandtn3> đấy
+17:04:50 <heroandtn3> vậy thì tớ nghĩ phần giải pháp thì hầu hết đều ok rồi
+17:04:58 <heroandtn3> chỉ hơi vướng chỗ của boss14420 là khó xử lí
+17:05:02 <Chien> ok
+17:05:16 <heroandtn3> nên tuần sau mọi người tập trung hoàn thiện bản thiết kế
+17:05:23 <Chien> uh, phần của boss14420  vừa xem m.ng vẫn chưa ra
+17:05:37 <heroandtn3> tuần sau cố gắng xong luôn nhé
+17:05:41 <heroandtn3> để còn code
+17:05:52 <Chien> tuần sau xong thiết kế, ok!
+17:06:03 <heroandtn3> tiếp theo là phần thống nhất code style
+17:06:04 <boss14420> sẽ xong
+17:06:20 <heroandtn3> hôm nọ tớ có đăng bài và thấy boss14420 có gửi 1 link
+17:06:25 <boss14420> #topic thống nhất code style
+17:06:50 <boss14420> Cái này anh mentor đề cập từ đầu rồi
+17:06:50 <Chien> t đọc rồi, t ko biết nhiều về phần này nên xin nghe theo m.ng :)
+17:07:05 <boss14420> hầu như python ai cũng dùng chuẩn PEP8 cả
+17:07:09 <boss14420> cứ làm theo thôi
+17:07:14 <heroandtn3> à vậy à
+17:07:23 <heroandtn3> nhưng tớ đọc đâu đó thì đặt tên í
+17:07:29 <boss14420> có khá nhiều tool để check syntax có hợp với pep8 không
+17:07:33 <boss14420> check code
+17:08:03 <heroandtn3> thôi đc rồi
+17:08:07 <heroandtn3> vậy theo cái chuẩn đó đi
+17:08:11 <boss14420> OK
+17:08:16 <Chien> ok!
+17:08:21 <heroandtn3> tớ xem qua thì thấy họ ghi như là 1 cái guild
+17:08:23 <heroandtn3> chứ ko phải chuẩn
+17:08:32 <boss14420> #agreed Sử dụng PEP8 làm code style
+17:09:11 <Chien> là style guide
+17:09:39 <heroandtn3> à, họ có ghi chi tiết là loại nào dùng cái nào đấy
+17:09:49 <heroandtn3> vậy cứ theo cái đó đi
+17:09:59 <heroandtn3> còn vấn đề gì ko nhỉ
+17:10:00 <heroandtn3> à
+17:10:06 <Chien> chuẩn, nó là bản hướng dẫn mà, cứ theo nó, ok!
+17:10:10 <boss14420> Về cách đặt tên
+17:10:34 <boss14420> ta nên thống nhất tên phương thức theo kiểu abCdEf
+17:10:41 <boss14420> tại vì đây là kiểu của Qt
+17:10:47 <heroandtn3> boss14420: tớ đọc đâu đó thì cách đặt tên code của mình phải khác so với kiểu của thư viện
+17:11:00 <heroandtn3> để phân biệt đâu là mình code, đâu là thư viện
+17:11:06 <Chien> abCdEf hay AbCdEf?
+17:11:25 <heroandtn3> aBcDe
+17:11:27 <boss14420> AbCdEf là dành cho tên lớp
+17:11:36 <heroandtn3> uh
+17:12:13 <heroandtn3> Function NamesFunction names should be lowercase, with words separated by underscores as necessary to improve readability.mixedCase is allowed only in contexts where that's already the prevailing style (e.g. threading.py), to retain backwards compatibility.
+17:12:19 <heroandtn3> Function Names
+17:12:19 <heroandtn3> Function names should be lowercase, with words separated by underscores as necessary to improve readability.
+17:12:19 <heroandtn3> mixedCase is allowed only in contexts where that's already the prevailing style (e.g. threading.py), to retain backwards compatibility.
+17:12:26 <heroandtn3> ví dụ function
+17:12:33 <heroandtn3> thì họ bảo là lowercase
+17:13:10 <heroandtn3> nhưng có nên dùng mixedCase ko?
+17:13:32 <heroandtn3> tớ thấy lowercase nhiều thư viện dùng
+17:13:44 <boss14420> Nên
+17:13:53 <boss14420> Thôi, theo kiểu lowercase đi
+17:14:03 <heroandtn3> :-?
+17:14:04 <Chien> cái pep8 vửa rồi có bảo nên, cứ theo nó chứ
+17:14:54 <heroandtn3> nhưng mà mọi người đọc giới thiệu đi
+17:14:55 <heroandtn3> "This document gives coding conventions for the Python code comprising the standard library in the main Python distribution."
+17:15:05 <boss14420> PEP8 cho phép nhiều kiểu đặt tên
+17:15:05 <heroandtn3> cái này cho thư viện chuẩn của python
+17:15:25 <heroandtn3> chứ ko phải cho code sản phẩm
+17:15:48 <boss14420> Python thì hay làm kiểu lowercase, nhưng mà Qt thì lại thích mixerCase
+17:16:01 <boss14420> heroandtn3: App python cũng vậy
+17:16:11 <boss14420> thử mở vào code mà xem
+17:16:14 <heroandtn3> cũng vậy là sao?
+17:16:47 <Chien> đã dùng nhiều Qt thì để lowercase đi cho phân biệt
+17:17:02 <boss14420> cũng vậy là cũng dùng lowercase
+17:17:06 <heroandtn3> ừ vậy cũng đc
+17:17:17 <heroandtn3> cứ theo chuẩn đó vậy
+17:17:22 <heroandtn3> cho dễ thực hiện
+17:17:35 <Chien> ok cái này!
+17:17:38 <heroandtn3> chứ giờ sửa lại thì mất thời gian và khó theo dõi
+17:17:46 <heroandtn3> ok vậy nhé
+17:17:52 <boss14420> OK.
+17:17:59 <boss14420> Còn ai báo cáo không ?
+17:18:15 <Chien> cho cái # kết luận đi đã ^^
+17:18:28 <boss14420> lúc nãy #agreed rồi
+17:18:33 <boss14420> quên
+17:18:34 <heroandtn3> tớ thì vẫn thắc mắc về cái khoản thiết kế
+17:18:45 <heroandtn3> làm sao để chỉ ra chính xác cái gì trả về
+17:18:53 <boss14420> #agreed Đặt tên biến, hàm theo kiểu lowercase
+17:19:04 <boss14420> heroandtn3: Phải mô tả trong doc
+17:19:12 <heroandtn3> nhưng vẫn hơi mập mờ
+17:19:30 <Chien> ko chạy sao biết? Chạy demo trc chứ?
+17:19:31 <heroandtn3> như tớ nói trên mail
+17:19:32 <boss14420> một hàm python có thể tùy vào giá trị tham số mà trả về các kiểu khác nhau
+17:19:40 <Cuong> anh nghĩ mô tả trong doc là ok thôi
+17:20:00 <Cuong> có gì mập mờ đâu?
+17:20:18 <Chien> Sang vẫn thắc mắc nhỉ, python mềm dẻo lắm
+17:20:28 <Chien> như boss14420  nói đấy
+17:20:38 <Chien> ko sợ sai kiểu hay gì gì đâu!
+17:20:44 <heroandtn3> >> Trong link thứ 3 em lấy 1 ví dụ:
+17:20:44 <heroandtn3> >
+17:20:44 <heroandtn3> >> def get_dir(): """Parse argument and get the working dir."""
+17:20:44 <heroandtn3> >
+17:20:44 <heroandtn3> >> "get the working dir" ở đây là get cái gì? 1 string hay là 1
+17:20:44 <heroandtn3> >> object có kiểu Dir?
+17:20:44 <heroandtn3> >
+17:20:45 <heroandtn3> Một cách tự nhiên nhất thì em nghĩ working dir là string hay object?
+17:20:46 <heroandtn3> Nên nhớ rằng:
+17:21:09 <heroandtn3> ví dụ ở đây thì dir là str hay là object Dir?
+17:21:16 <boss14420> đó là do họ mô tả chưa đầy đủ
+17:21:22 <heroandtn3> em cũng ko biết đc
+17:21:34 <heroandtn3> anh mentor bảo là "một cách tự nhiên nhất"
+17:21:38 <heroandtn3> như vậy là mơ hồ
+17:21:45 <heroandtn3> vì mỗi người có 1 suy nghĩ khác nhau
+17:22:05 <heroandtn3> với 1 người lập trình quen OOP như em thì em nghĩ là object Dir
+17:22:39 <heroandtn3> còn việc mô tả, nếu ghi rõ thì ko vấn đề gì
+17:22:48 <boss14420> Chỉ có cách là phải ghi cho rõ. Như kiểu này: http://srinikom.github.io/pyside-docs/PySide/QtCore/QLine.html thì có ai phàn nàn gì ?
+17:23:11 <heroandtn3> Tuyệt!
+17:23:17 <heroandtn3> đấy mới là docs
+17:23:32 <Chien> ok đấy
+17:23:38 <heroandtn3> mọi người xem link rồi thống nhất comment theo kiểu đó nhé
+17:23:53 <Chien> cái đấy đáng để mình làm theo trong dự án này!
+17:23:55 <heroandtn3> à boss14420 này, python có khả năng tự sinh docs từ comment ko?
+17:23:59 <boss14420> có
+17:24:11 <boss14420> man pydoc
+17:24:13 <heroandtn3> Chien:  ừ đúng, mọi người thiết kế theo kiểu link vừa gửi nhé
+17:24:16 <heroandtn3> mới biết rõ đc
+17:24:21 <Cuong> docstrings
+17:24:32 <heroandtn3> boss14420: ok, vậy thì phải viết comment theo chuẩn
+17:24:39 <heroandtn3> thì mới generate được docs đúng ko?
+17:24:45 <boss14420> Ừ
+17:24:58 <boss14420> Nhưng mà cái vừa rồi phong cách không giống pydoc lắm
+17:24:58 <heroandtn3> nó là cái docstring à?
+17:24:59 <Chien> ok!
+17:25:07 <boss14420> là cái docstring
+17:25:15 <heroandtn3> uh
+17:25:24 <Chien> uh
+17:25:24 <heroandtn3> Thành biết thì gửi link lên nhé
+17:25:31 <heroandtn3> http://www.python.org/dev/peps/pep-0008/#documentation-strings
+17:25:36 <heroandtn3> cái này ghi sơ sài quá
+17:26:17 <heroandtn3> thôi vậy là ok rồi
+17:26:28 <heroandtn3> mọi người tuần sau viết thiết kế theo chuẩn nhé
+17:26:31 <boss14420> pydoc là ntn: http://docs.python.org/3.3/library/heapq.html
+17:26:47 <boss14420> không chi tiết được như doc của pyside
+17:27:08 <boss14420> Để tìm hiểu xem pyside nó dùng tool gì để generate ra doc
+17:27:49 <heroandtn3> boss14420: thế cái link cậu gửi nó là gì?
+17:28:13 <Chien> cái sau ko đẹp = cái trc, pydoc ko bằng docstring!
+17:28:20 <heroandtn3> í tớ là docs của nó theo chuẩn gì vậy?
+17:28:31 <heroandtn3> docstring đúng ko? ok
+17:28:43 <boss14420> Chien: pydoc là một công cụ kèm theo python, để tự động sinh doc từ code
+17:28:57 <boss14420> docstring là một phần của code
+17:29:13 <boss14420> các tool đều sử dụng docstring để sinh doc
+17:29:23 <Chien> uh, vậy là mình theo kiểu docstring hả?
+17:29:33 <Chien> t tưởng c đưa 2 cái để so sánh :v
+17:30:07 <boss14420> thì để so sánh
+17:30:16 <boss14420> cái nào thì cũng phải sử dụng docstring
+17:30:23 <heroandtn3> boss14420: vậy câu hỏi của tớ ở đây là
+17:30:25 <boss14420> nhưng mà sử dụng thế nào thì tùy tool
+17:30:39 <Chien> vậy cái QLine c đưa là tool nào?
+17:30:42 <heroandtn3> cái link trước của pyside docs rất dầy đủ
+17:30:44 <Chien> mình làm theo cái ấy!
+17:30:48 <boss14420> Không biết, đang tìm hiểu
+17:30:53 <heroandtn3> ừ í tớ giống Chien
+17:31:25 <Chien> ok, vậy là mình làm theo kiểu đó, boss14420  xem đc thì gửi cho ae nhé :)
+17:32:13 <heroandtn3> ok
+17:32:21 <heroandtn3> ai có í kiến gì ko?
+17:32:28 <heroandtn3> nếu ko thì buổi họp kết thúc nhé
+17:32:31 <boss14420> OK
+17:32:36 <boss14420> Kết thúc
+17:32:40 <heroandtn3> phải nói là cái pyside docs tuyệt vời quá
+17:32:45 <heroandtn3> giải đáp đc thắc mắc của mình
+17:32:51 <Cuong> OK
+17:32:52 <boss14420> Thử nghiên cứu doxygen cái
+17:33:03 <heroandtn3> ok
+17:33:08 <boss14420> Thêm cái link: http://comments.gmane.org/gmane.comp.lib.qt.pyside/4372
+17:33:25 <Chien> ok
+17:34:18 <heroandtn3> "The PySide docs use Sphinx, correct?"
+17:35:09 <boss14420> http://sphinx-doc.org/ ?
+17:36:42 <heroandtn3> http://sphinx-doc.org/examples.html
+17:36:48 <heroandtn3> xem có cái nào giống pyside ko
+17:36:55 <boss14420> Trước đây bên C++ mình có dùng doxygen, hình như nó cũng dùng cho python
+17:37:36 <Chien> ko giống
+17:37:37 <Chien> :v
+17:37:46 <Chien> http://apidoc.apsw.googlecode.com/hg/example.html
+17:38:00 <heroandtn3> http://f2py.sourceforge.net/docs/generated/fparser.api.parse.html#fparser.api.parse
+17:38:04 <heroandtn3> cái này nhìn khá cùi
+17:38:09 <heroandtn3> nhưng ổn hơn nhiều cái
+17:38:55 <boss14420> Toàn là kiểu pydoc
+17:39:19 <boss14420> Thử xem cái này ntn ? http://oopk55group12.bitbucket.org/hierarchy.html. BTL môn OOP của mình ngày trước.
+17:40:57 <heroandtn3> ok đấy
+17:41:02 <heroandtn3> trông không khác gì Java
+17:41:25 <boss14420> Có thể xem xét doxygen.
+17:41:45 <boss14420> Nhưng vốn python khác java với c++ ở cái type
+17:41:53 <boss14420> nên doc cũng có phong cách khác nhau
+17:42:24 <heroandtn3> uh
+17:42:28 <heroandtn3> thôi mai search
+17:42:30 <boss14420> Mà thôi, đi ngủ đây
+17:42:32 <heroandtn3> giờ đi ngủ đã
+17:42:34 <boss14420> #endmeeting

@@ -1,0 +1,564 @@
+14:10:51 <boss14420> #startmeeting
+14:10:51 <hubkbot> Meeting started Sun Jul  7 14:10:51 2013 UTC.  The chair is boss14420. Information about MeetBot at http://wiki.debian.org/MeetBot.
+14:10:51 <hubkbot> Useful Commands: #action #agreed #help #info #idea #link #topic.
+14:10:51 <heroandtn3> Hi
+14:11:06 <boss14420> Ok, bắt đầu thôi
+14:11:25 <heroandtn3> #idea
+14:11:28 <heroandtn3> #idea test
+14:11:46 <Gnouc> #help
+14:12:07 <Gnouc> là sao :))
+14:12:12 <heroandtn3> cai nay co tu dong luu log khong vay?
+14:12:12 <boss14420> sao là sao ?
+14:12:16 <boss14420> có
+14:12:30 <boss14420> lưu trên máy cá nhân của mình
+14:12:48 <Gnouc> oánh command mà không thấy thông tin gì :D
+14:12:58 <boss14420> không thấy đâu, nó tự nhớ
+14:14:33 <boss14420> bây giờ bắt đầu từ đâu ?
+14:15:09 <Sang> bây giờ từng người báo cáo phần của mình đi
+14:15:26 <Sang> nhân tiện tớ cũng thông báo luôn là Hiệp xin rút khỏi nhóm
+14:15:38 <Sang> phần của Hiệp tớ sẽ làm, còn phần của tớ thì tớ và anh Cường làm
+14:16:10 <boss14420> phần của hiệp cũng không phức tạp lắm
+14:16:20 <boss14420> #info Hiệp xin rút khỏi nhóm
+14:16:21 <Sang> uh,
+14:16:36 <Sang> #help
+14:16:43 <boss14420> Vậy Sang báo cáo trước đi
+14:16:44 <Sang> sao gõ lệnh mà ko thấy gì vậy :))
+14:17:23 <boss14420> cũng không hiểu tại sao không thấy gì, mà thôi, chỉ có chừng ấy lệnh thôi
+14:17:57 <Sang> ok
+14:18:52 <Sang> phần của tớ làm về Git, tuần vừa qua tớ tìm được thư viện pygit2 dùng để tương tác với Git mà không cần thông qua module subprocess gì đấy
+14:19:10 <boss14420> #topic Sang báo cáo về module giao tiếp với git
+14:19:32 <boss14420> đã tìm hiểu về cái license của nó chưa ?
+14:19:59 <boss14420> trang github của nó ghi là GPLv2 with link exception
+14:20:14 <Sang> Đây là phần báo cáo cài đặt: https://github.com/JeKitProject/MHST2013/wiki/Module-Pygit2-cho-Python
+14:20:31 <Sang> để tớ xem lại license của nó xem
+14:21:02 <boss14420> có lẽ lần sau mình cũng phải viết lại báo cáo
+14:21:31 <boss14420> mà theo như mình thấy thì trong kho chính của arch có pygit2
+14:21:31 <Sang> 2 cái đều có license giống nhau là GPLv2 with link exception
+14:21:48 <Sang> mà tớ ko hiểu "with link exception" nghĩa là gì
+14:22:08 <boss14420> Có phần diễn giải dưới đó, cố đọc đi
+14:23:12 <boss14420> Mà pygit2 có sẵn rồi, tải về cài đặt kiểu đó làm gì nữa: https://www.archlinux.org/packages/community/x86_64/python-pygit2/
+14:23:28 <Sang> tớ cài rồi nhưng chạy ko đc
+14:23:32 <Sang> quên ko lưu lại cái lỗi
+14:24:16 <Sang> cái libgit2 bản trên repo là 0.19
+14:24:20 <Sang> còn pygit2 là 0.18
+14:24:32 <Gnouc> Anh thấy nên cài từ source đi, vì như anh thấy trên ubuntu chưa có pygi2
+14:24:38 <Sang> có lẽ do vậy nên có xung đột, tớ build và cài thì cùng 0.18 thì ko thấy gì
+14:25:04 <Sang> cài thế nào cũng đc, miễn là mình phải thống nhất phiên bản anh ạ
+14:25:24 <Sang> nhưng tạm thời thì nó chạy ok rồi
+14:25:36 <Sang> cái thư viện này rất đầy đủ những thứ mình cần
+14:25:50 <Sang> nó có sẵn các lớp như Commit, Repo,...
+14:26:25 <Sang> như vậy mình có thể dễ dàng lấy được thông tin cần lấy
+14:27:04 <Sang> phần đó thì ko có gì
+14:27:42 <Sang> vấn đề đặt ra ở đây là làm sao các module giao tiếp đc với nhau?
+14:28:07 <boss14420> Đương nhiên là phải tạo 1 giao diện giữa các module
+14:28:21 <Sang> giả sử phần Editor của Thành tạo 1 post thì truyền cái gì cho Module của Git và jekyll để nó lưu xuống
+14:28:33 <Sang> giao diện là như thế nào? Thành nói cụ thể xem?
+14:29:01 <Sang> à quên, cái này có tự lưu lại ko Thành?
+14:29:04 <boss14420> vẫn chưa hình dung cụ thể cái giao diện đó được
+14:29:07 <boss14420> có lưu
+14:29:12 <boss14420> vd
+14:29:28 <boss14420> ở đây ta tạo một nút bấm để lưu thông tin vừa sửa đổi
+14:29:41 <boss14420> thì nó sẽ gọi đến lệnh để commit
+14:30:01 <boss14420> Cái đó tính sau.
+14:30:23 <boss14420> Mà nhớ là trước đây ta có bàn về vấn đề Github API phải không ?
+14:30:36 <Sang> như vậy thì module của cậu nó lưu file xuống dưới
+14:30:40 <Sang> rồi gọi lệnh commit?
+14:30:43 <boss14420> ừ
+14:31:04 <heroandtn3> như vậy không được
+14:31:27 <boss14420> ?
+14:31:36 <heroandtn3> vì chuyện lưu file là do module Jekyll quản lí rồi
+14:31:58 <boss14420> Vậy thì gọi đến hàm lưu file của jekyll
+14:32:10 <boss14420> của module jekyll
+14:32:19 <boss14420> rồi hàm đó sẽ gọi lệnh commit
+14:32:30 <heroandtn3> chuẩn rồi
+14:32:39 <heroandtn3> nhưng phải truyền cái gì đó cho module Jekyll
+14:32:58 <heroandtn3> mình phải có 1 object tạm gọi là Post
+14:33:13 <heroandtn3> trong đó chứa các thông tin kiểu như title, author, content,...
+14:33:19 <boss14420> đúng
+14:33:34 <heroandtn3> module jekyll sẽ lưu xuống, lưu vào đâu là chuyện của thằng jekyll, thằng editor của cậu ko quan tâm
+14:33:59 <heroandtn3> đấy, vậy nên tớ mới tính là phải có thiết kế
+14:34:06 <heroandtn3> để các module có thể giao tiếp với nhau
+14:35:29 <boss14420> Vậy trở lại vấn đề Github API đi
+14:35:48 <heroandtn3> ừ, Github API  thì tớ nói ở trên rồi
+14:36:07 <heroandtn3> à ko
+14:36:11 <heroandtn3> trên là Git
+14:36:28 <heroandtn3> còn Github API thì chưa cần thiết vì ta mặc định sẽ dùng git ở máy local
+14:36:43 <heroandtn3> sau này có thời gian thì support trường hợp máy local ko có git
+14:37:06 <boss14420> nhưng là vấn đề giao diện. Như đã nói thì module jekyll sẽ giao tiếp với module git
+14:37:20 <boss14420> không thể lấy cả cái pygit2 làm module git được.
+14:37:40 <heroandtn3> đúng rồi
+14:37:42 <boss14420> Mà cần viết lại một module giao tiếp git đơn giản, có các lệnh cơ bản
+14:37:51 <heroandtn3> mình phải viết lại chứ
+14:38:01 <heroandtn3> chứ để jekyll gọi trực tiếp thì ko đc
+14:38:23 <boss14420> Rồi module giao tiếp với Github API cũng có những hàm như vậy, nhưng thực hiện khác
+14:38:42 <heroandtn3> ok
+14:38:51 <heroandtn3> cái module git đó sẽ implement cho 2 cái
+14:38:57 <heroandtn3> local git thì ta dùng pygit2
+14:39:03 <heroandtn3> github thì ta dùng API của github
+14:39:06 <heroandtn3> ok ko?
+14:39:16 <boss14420> OK
+14:40:13 <boss14420> Bây giờ nói về vấn đề jekyll thuần hay jekyll bootstrap như đã đề cập trước đó
+14:41:00 <Sang> uh
+14:41:12 <boss14420> #topic Sử dụng jekyll thuần hay Jekyll bootstrap
+14:41:15 <Sang> thật ra cũng khá nhiều ấn đề khác
+14:41:19 <boss14420> Trước c có nói là
+14:41:27 <Sang> ví dụ nếu ng dùng có sẵn blog rồi thì sao?
+14:41:36 <boss14420> với blog được import thì chuyển nó sang dạng của jk bootstrap
+14:41:49 <boss14420> việc này là không đơn giản lắm.
+14:42:09 <boss14420> Mà nghĩ lại thì jk bootstrap cũng chỉ đơn giản hóa cho ta một số thao tác
+14:42:27 <boss14420> như tạo post, page, chuyển đổi theme, ...
+14:42:41 <boss14420> những việc này có thể làm dễ dàng bằng code
+14:43:06 <Sang> :-?
+14:43:10 <Sang> chỉ có vậy thôi sao
+14:43:29 <Sang> tớ chưa tìm hiểu nhiều lắm, tuy nhiên thấy là jb có 1 số cái hỗ trợ khá tiền
+14:43:37 <Sang> cái tạo post thì mình có thể tự code
+14:43:40 <boss14420> VD ?
+14:43:53 <Sang> nó có cái hệ thống comment
+14:44:04 <Sang> chỉ cần đổi trong _config.yml là đc
+14:44:11 <boss14420> Có thể copy
+14:44:13 <Sang> ví dụ đổi thành Disqus là có hệ thống disqus
+14:44:21 <Sang> tớ vẫn chưa rõ là nó làm thế nào
+14:44:32 <boss14420> Xem mã nguồn là rõ thôi.
+14:44:46 <boss14420> bọn jb nó chèn 1 đoạn javascript vào cuối mỗi post
+14:44:50 <Sang> uh, cái này cả nhóm tìm hiểu xem
+14:45:03 <Sang> nếu mấy cái nó làm đơn giản thì mình tự implement cũng đc
+14:45:35 <boss14420> Mọi việc sẽ phức tạp hơn nếu blog được import sử dụng 1 hệ thống comment không được hộ trợ bởi JB
+14:46:30 <boss14420> Mở thư mục _include/JB/ ra mà xem mấy cái template của nó
+14:46:37 <Sang> chỉ sự đến Jekit còn ko hỗ trợ bằng ấy chứ :))
+14:48:08 <boss14420> Đây là đoạn mã dành cho disqus
+14:48:09 <boss14420> <div id="disqus_thread"></div>
+14:48:09 <boss14420> <script type="text/javascript">
+14:48:09 <boss14420> {% if site.safe == false %}var disqus_developer = 1;{% endif %}
+14:48:09 <boss14420> var disqus_shortname = '{{ site.JB.comments.disqus.short_name }}'; // required: replace example with your forum shortname
+14:48:09 <boss14420> {% if page.wordpress_id %}var disqus_identifier = '{{page.wordpress_id}} {{site.production_url}}/?p={{page.wordpress_id}}';{% endif %}
+14:48:10 <boss14420> /* * * DON'T EDIT BELOW THIS LINE * * */
+14:48:10 <boss14420> (function() {
+14:48:11 <boss14420> var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+14:48:11 <boss14420> dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+14:48:12 <boss14420> (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+14:48:12 <boss14420> })();
+14:48:13 <boss14420> </script>
+14:48:14 <boss14420> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+14:48:15 <boss14420> <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+14:49:00 <Sang> ui xồi, lần sau đưa lên pastebin nhé, nhìn ghê quá
+14:49:31 <boss14420> Nói chung cứ mở file ra là thấy
+14:51:15 <boss14420> Có điều nên cẩn thận với việc copy mã nguồn, vì có thể đụng chạm đến vấn đề giấy phép. Đơn giản như thế này thì có thể tự viết cũng được.
+14:54:49 <Sang> vậy thì dùng jekyll nhé
+14:55:00 <boss14420> OK
+14:55:02 <Sang> tự implement hết cũng đc
+14:55:05 <Sang> đỡ lằng nhằng
+14:55:16 <Sang> có điều hơi mất time
+14:55:21 <Gnouc> ok
+14:55:35 <boss14420> #agreed Sử dụng jekyll thuần, không sử dụng jekyll bootstrap
+14:55:45 <Sang> bây giờ Thành báo cáo phần của cậu đi
+14:56:10 <boss14420> #topic Báo cáo về WYS Editor
+14:56:43 <boss14420> Tạm quyết định là sẽ sử dụng WebKit để render trong chế độ WYS, lý do thì đã nói trước đó
+14:57:14 <boss14420> Đang implement mấy cái control, khoảng 2 ngày nữa là xong thôi. Có mẫu cả rồi
+14:58:37 <heroandtn3> có ok ko Thành
+14:58:51 <boss14420> hi vọng là không phát sinh vấn đề mới
+14:58:57 <qwebirc35276> Alo
+14:58:58 <qwebirc35276> ok
+14:59:00 <qwebirc35276> đây rồi
+14:59:02 <heroandtn3> nếu ko thì có thể soạn thảo ở markdown, có hỗ trợ 1 số nút
+14:59:07 <qwebirc35276> T CHiến đây, đổi tên tnao?!
+14:59:11 <heroandtn3> rồi có 1 nút preview
+14:59:17 <heroandtn3> đổi tên dùng: /nick tên
+14:59:35 <heroandtn3> boss14420: ví dụ trên wiki github
+14:59:37 <heroandtn3> cậu thử đi
+14:59:49 <boss14420> thử ntn ?
+15:00:07 <heroandtn3> https://github.com/JeKitProject/MHST2013/wiki
+15:00:14 <heroandtn3> bấm nút Edit page
+15:00:27 <heroandtn3> nó cho phép soạn thảo, phía dưới có nút Preview
+15:01:48 <Chien> m,ng đang bàn về phần của boss à?
+15:01:55 <heroandtn3> uh
+15:01:55 <Chien> xem lịch sử ntnao?
+15:02:04 <heroandtn3> boss14420: lịch sử lưu ở đâu?
+15:02:26 <boss14420> Lưu ở trên máy nào chạy con bot
+15:02:50 <Chien> khó hiểu thế @@
+15:02:54 <boss14420> Cái preview ở đây có nên làm theo kiểu gọi trình duyệt không ?
+15:05:23 <heroandtn3> gọi trình duyệt thì đơn giản quá
+15:05:42 <heroandtn3> cũng đc, ko vấn đề gì
+15:06:05 <heroandtn3> nhưng đấy chỉ là giải pháp cho trường hợp ko cài đặt đc cái kia thôi
+15:06:24 <heroandtn3> Chien: con bot chạy trên máy của boss14420 có nhiệm vụ lưu lịch sử thì phải
+15:06:38 <Chien> tự nhiên thử cái này làm t ko hiểu gì vì ko đc đọc từ trc @@
+15:06:38 <boss14420> Thể chế độ WYS có phải là preview không ?
+15:06:57 <boss14420> đợi khi nào meeting xong sẽ có log đầy đủ
+15:08:37 <heroandtn3> Chien: cũng ko có gì đâu vì vừa chuyển sang phần của boss ma
+15:08:49 <heroandtn3> boss14420: ko
+15:09:03 <boss14420> tại sao ?
+15:09:03 <heroandtn3> WYS là soạn thảo và thấy trực tiếp luôn
+15:09:18 <heroandtn3> còn preview là soạn thảo dạng markdown, sau đó có 1 nút preview
+15:09:31 <boss14420> Vậy thì vô hiệu hóa chức năng soạn thảo ở dạng WYS ?
+15:09:45 <heroandtn3> preview thì mình cài đặt dễ hơn vì chỉ cần chuyển md sang html rồi view là xong
+15:10:04 <boss14420> Thì thế thôi. Nhưng không chính xác.
+15:10:04 <heroandtn3> à ko, tớ đang nói đến trường hợp ko implement đc cái WYS thì đó cũng là 1 giải pháp
+15:10:20 <boss14420> Cùng lắm thì gọi jekyll build rồi mở cái file html lên
+15:10:27 <heroandtn3> ừ đúng
+15:10:38 <heroandtn3> thật ra tớ vẫn thích có cái preview hơn, nhìn cho chuẩn
+15:10:58 <heroandtn3> ngay cả các trình writer như libreoffice, word cũng phải có phần gọi là print preview
+15:11:03 <heroandtn3> để xem lúc xuất ra thế nào
+15:11:27 <heroandtn3> như vậy thì ta vẫn implement cái md text editor
+15:11:31 <heroandtn3> có nút preview
+15:11:56 <heroandtn3> và chế độ WYS thì được thì đc mà khó quá thì tạm bỏ qua
+15:11:58 <boss14420> Vậy thì làm theo kiểu kia, preview = tạo một cửa sổ mới render cái file html vừa được build
+15:12:17 <heroandtn3> uh cũng đc
+15:12:35 <heroandtn3> nhưng có cái WYS thì nó thể hiện mức độ trừu tượng cao hơn
+15:12:49 <heroandtn3> ví dụ 1 người chưa biết thì về md
+15:12:49 <boss14420> #agreed Cần thêm chức năng preview
+15:13:05 <boss14420> WYS không thể thể hiện chính xác cái sẽ xuất ra được
+15:13:07 <heroandtn3> thì họ chỉ dùng WYS và preview thôi đúng ko?
+15:13:13 <boss14420> chỉ thấy được phần nào
+15:13:16 <boss14420> đúng
+15:13:30 <heroandtn3> nhưng cũng gần chính xác, dù sao tớ vẫn thấy cần thiết
+15:13:38 <heroandtn3> mình implement đc thì điểm dự án sẽ cao
+15:13:50 <heroandtn3> Gnouc và Chien cho ý kiến nào
+15:13:54 <Chien> t đống ý SAng
+15:13:58 <boss14420> Chưa đâu. Còn 1 thứ nữa mà ta chưa nhắc tới từ trước tới giờ là Liquid
+15:14:04 <Chien> vì mình làm cho ng ms đọc đã đành
+15:14:14 <heroandtn3> anh Gnouc đổi tên lại là Cường cho mọi người đọc log còn nhớ
+15:14:16 <Chien> à, người ko biết về cái ấy, ý t là thế
+15:14:30 <Chien> còn cả giám khảo là những ng am hiểu thì có vào điểm sẽ cao
+15:14:46 <Chien> @heroandtn3 : sr vì bố t vừa gọi điện
+15:14:46 <hubkbot> Chien: Error: "heroandtn3" is not a valid command.
+15:14:57 <boss14420> Nếu không làm cái WYS thì việc của mình đã xong cả tháng rồi
+15:15:06 <boss14420> mà nói với ai đó thì đừng dùng @
+15:15:10 <boss14420> mà dùng /
+15:15:12 <Chien> Sr Sang vì bố t vừa gọi, mà làm sao để gọi tên ra đc thế?
+15:15:18 <boss14420> VD:
+15:15:19 <Chien> ok
+15:15:28 <heroandtn3> ko cần dùng gì
+15:15:30 <Chien> ok /boss14420
+15:15:40 <heroandtn3> gõ chữ cái đầu tiên rồi bấm Tab
+15:15:50 <Chien> heroandtn3: ok
+15:15:53 <boss14420> heroandtn3: test
+15:16:10 <boss14420> nói riêng thì /msg <tên nick> <nội dung>
+15:16:11 <Chien> cái này hay hơn skype chỗ này đấy
+15:16:26 <Chien> ok boss14420
+15:16:39 <heroandtn3> tớ còn có 1 ý tưởng khác cho phần editor
+15:16:45 <boss14420> OK
+15:16:46 <Chien> vậy là t hiểu sơ sơ, boss14420  còn làm WYS nữa là xong hả?
+15:16:54 <heroandtn3> đó là mình tự cài 1 ngôn ngữ đánh dấu riêng
+15:17:07 <heroandtn3> giống như wordpress, VBB và các forum làm
+15:17:17 <heroandtn3> mà hình như các forum đều theo 1 chuẩn thì phải
+15:17:27 <heroandtn3> như thế thì người dùng quen với viết trên forum
+15:17:32 <heroandtn3> sẽ tiện dùng hơn
+15:17:48 <boss14420> Vấn đề là jekyll không hiểu
+15:17:48 <Chien> t thấy hình thức forum ko đc nhiều ng thích lắm
+15:18:07 <heroandtn3> boss14420: mình sẽ convert sang md
+15:18:16 <Chien> ko hiểu chuẩn mà heroandtn3  nói hả boss14420 ?
+15:18:47 <Chien> heroandtn3: convert chuẩn sang md?
+15:18:51 <boss14420> Rồi khi người ta sửa file đó thì lại phải chuyển lại thành md
+15:18:57 <boss14420> ?
+15:19:30 <Chien> sửa file đó thì n là sẵn md sao phải sửa nữa hả boss14420 ?
+15:19:40 <boss14420> nhầm
+15:19:41 <heroandtn3> khi ng ta sửa file đó thì chuyển từ md sang dạng forum của mình
+15:19:50 <boss14420> ý là chuyển lại thành cái ngôn ngữ kia
+15:19:54 <heroandtn3> uh
+15:19:58 <heroandtn3> tức là tùy vào cài đặt
+15:19:59 <boss14420> OK. Sẽ lưu ý ý kiến này
+15:20:04 <Chien> đúng r, chỉ là lúc cài đặt ra sao
+15:20:14 <boss14420> Vấn còn cái textile chưa nghiên cứu nữa
+15:20:22 <heroandtn3> cái đó cứ từ từ
+15:20:28 <boss14420> #idea Cài đặt một ngôn ngữ soạn thảo mới
+15:20:36 <qwebirc44485> sr mọi người nhé, tớ chuẩn bị đi Nghệ An nên anh em cứ tiếp tục nhé!
+15:20:41 <Chien> t thấy wordpress có cho nhúng khá nhiều ngôn ngữ, ta có thể theo mẫu này!
+15:20:41 <heroandtn3> tức là mình sẽ có phần setting cho người dùng lựa chọn ở dạng text editor
+15:21:06 <Chien> qwebirc44485: cứ làm phần của mình ok thì đi ok :D
+15:21:07 <heroandtn3> sẽ dùng ngôn ngữ md, textile hay là default (forum)
+15:21:39 <boss14420> thực sự thì ngôn ngữ bbcode ở các forum không thể tiện bằng md
+15:21:48 <heroandtn3> ví dụ?
+15:21:52 <Chien> heroandtn3: đc đấy, làm đc thì độ phức tạp khá cao, nhưng độ sáng tạo thì ko có mấy
+15:22:07 <boss14420> Dễ nhìn hơn
+15:22:18 <boss14420> cho chèn raw html
+15:22:38 <boss14420> nhưng điều đó cũng làm nó khó xử lý hơn
+15:22:43 <Chien> trong forum còn hạn chế nhiều cái, ng dùng muốn thì phải đc mở ra, trong khi md thì cho phép thoải mái, t thấy vậy
+15:23:32 <boss14420> nhưng mà bbcode thì tùy biến được, có thể thêm tag mới tùy thích. Ai đã làm admin thì biết
+15:23:49 <heroandtn3> tớ thấy forum nhìn dễ hơn vì nó dùng các thẻ bbcode tương đối giống html
+15:23:56 <heroandtn3> ví dụ [b] [i]
+15:24:02 <heroandtn3> uh đúng
+15:24:02 <Chien> uh, nhưng là admin ms đc mở tùy thích, còn ng dùng thì ko mà boss14420
+15:24:26 <heroandtn3> mà chèn raw html làm gì, nó sẽ khiến code phức tạp, bản thân jekit của mình cũng ko xử lí hết đc
+15:24:42 <heroandtn3> Chien: hầu hết là rất thoải mái
+15:24:54 <heroandtn3> 1 vấn đề nữa cần đặt ra là md hỗ trợ ít hơn
+15:25:00 <heroandtn3> những cái thiếu thì phải dùng html
+15:25:03 <boss14420> có nhiều cái vượt quá giới hạn của ngôn ngữ thì cần raw html. VD: bảng
+15:25:16 <heroandtn3> bbcode cũng có thể hỗ trợ bảng?
+15:25:24 <heroandtn3> tớ đang định ví dụ cái đó
+15:25:36 <heroandtn3> nếu md muốn chèn video youtube thì làm thế nào?
+15:25:56 <heroandtn3> trong khi bbcode thì chỉ cần [video]url[/video]
+15:25:56 <boss14420> html
+15:26:09 <heroandtn3> rõ ràng đơn giản hơn là md sử dụng cả 1 đoạn html
+15:26:39 <heroandtn3> có lẽ mình nên đi theo hướng làm đơn giản hóa chương trình
+15:26:47 <Chien> vấn đề là cần có cả 2, vì pro ko thích những cái có sẵn
+15:26:52 <boss14420> OK. Nói chung là để suy nghĩ.
+15:26:53 <heroandtn3> bbcode là 1 hướng đi tốt
+15:27:05 <heroandtn3> Chien: đúng, tớ cũng đang nghĩ vậy
+15:27:18 <heroandtn3> nhưng rất khó để thỏa mãn cả 2
+15:27:37 <Chien> uh, và nên hướng vào pro hơn chứ k phải user bình thường,
+15:27:52 <Chien> vì user bình thường chỉ cần kiểu bb code là đủ
+15:28:00 <heroandtn3> sao lại hướng vào pro
+15:28:07 <heroandtn3> người dùng chính là user thường hay pro?
+15:28:20 <Cuong> Chien: dự án là hỗ trợ người dùng mà?
+15:28:51 <Chien> ng dùng chính là bình thường, nhưng đối tượng github phần lớn là ng biết code, nếu hướng vào user bình thuwongf thì ng ta dùng wordpress chứ ko dùng github
+15:29:37 <heroandtn3> nói vậy thì cũng phải nghĩ là pro thì ng ta cần gì dùng Jekit, dùng luôn text editor viết blog ấy chứ
+15:29:39 <heroandtn3> :))
+15:30:02 <Chien> pro ở đây ko phải là ng nào cũng có thể viết đc hết
+15:30:26 <Chien> chỉ biết hơn ng khác, đôi khi thích tự mình làm phần nào đó, còn phần nào đó thì có sẵn
+15:31:06 <Chien> github là mạng xh lập trình mà, nếu mà làm dễ dàng quá thì ko đúng mục đích nữa
+15:31:38 <boss14420> Thôi được rồi, bây giờ đến lượt bạn Chiến báo cáo
+15:31:46 <heroandtn3> từ đã
+15:31:56 <Chien> ok, cứ xem sao đi
+15:31:58 <heroandtn3> phần đó vẫn sẽ có lựa chọn cho người dùng
+15:32:19 <heroandtn3> mặc định của mình là bbcode
+15:32:29 <heroandtn3> với blog mới tạo thì bbcode
+15:32:50 <Chien> mình sẽ có thời gian kiểm thử xem ng dùng sẽ chọn mức là beginner hay have some experience
+15:32:51 <heroandtn3> blog import thì tùy vào cái ng ta sử dụng, có thể là md hoặc textile
+15:33:06 <heroandtn3> và có phần setting cho họ chọn
+15:33:06 <Chien> xem cái nào nhiều hơn :)
+15:33:27 <heroandtn3> Chien: bản thân tớ nếu chọn thì tớ sẽ dùng bbcode
+15:33:39 <heroandtn3> vì md nhiều cái chèn code html vào, post nhìn khá xấu
+15:33:59 <heroandtn3> thử vote mọi người trong cuộc họp xem
+15:34:01 <heroandtn3> :))
+15:34:02 <Chien> ok, tại vì c quen thuộc vs n, hơi cảm tính
+15:34:07 <boss14420> còn ngôn ngữ media wiki thì sao ?
+15:34:08 <Chien> t thì t chọn cái kia
+15:34:20 <heroandtn3> boss14420, Chien, Cuong, qwebirc44485 vote xem?
+15:34:35 <Chien> cái đó là cho md hả boss14420 ?
+15:34:44 <heroandtn3> boss14420: wiki so với bbcode thì cái nào phổ biến hơn?
+15:34:49 <Cuong> anh vote bbcode
+15:34:52 <boss14420> không biết
+15:35:04 <heroandtn3> tớ nghĩ bbcode phổ biến hơn
+15:35:14 <heroandtn3> nhiều forum toàn bọn trẻ trâu cũng biết dùng
+15:35:27 <Chien> bbcode đương nhiên phổ biến hơn r
+15:35:36 <boss14420> bbcode cũng được, nhưng chỉ có là người làm module jekyll sẽ mệt hơn tí thôi
+15:35:42 <Chien> nhưng phải xem ng dùng github dùng cái nào nhiều hơn chứ!
+15:36:21 <boss14420> Nếu trong thư mục _post có 1 file không hợp lệ thì jekyll sẽ xử lý ntn ?
+15:36:26 <heroandtn3> sứ mệnh của Jekit ko chỉ là lôi kéo ng dùng GitHub
+15:36:44 <heroandtn3> mà còn lôi kéo các blogger từ wordpress, blogger,... sử dụng
+15:36:46 <heroandtn3> :))
+15:36:51 <Chien> boss14420: bình thường thì coi như ko có nó
+15:37:06 <heroandtn3> boss14420: ko xử lí mệt đâu
+15:37:07 <Chien> heroandtn3: ok, vậy thì phải có 2 cái nhé
+15:37:10 <boss14420> nó chọn dựa vào định dạng phải không ?
+15:37:25 <heroandtn3> boss14420: module của  cậu phải chuyển về md
+15:37:35 <heroandtn3> trước khi truyền cho module jekyll
+15:37:38 <Chien> boss14420: đúng r, ý c là sẽ thêm vài chuẩn để n chấp nhận hả?
+15:38:00 <boss14420> jekyll chọn file để xử lý dựa vào phần mở rộng phải không ? Nếu vậy thì đơn giản.
+15:38:53 <boss14420> giả sử cần edit post 2013-07-07-abcd, ta chỉ cần lưu 2 file dưới hai định dạng là md và bb
+15:39:03 <boss14420> md là dành cho jekyll
+15:39:42 <boss14420> khi người dùng chọn edit post này, nếu thấy file cùng tên có định dạng bb thì sẽ tự động coi là viết bằng bbcode, và load file bb lên
+15:39:54 <boss14420> như vậy không cần phải convert từ md sang bbcode
+15:40:14 <Chien> như vậy thì ng chọn bb sẽ chỉ đc dùng bb và ng lại?
+15:40:23 <Chien> hay có phiên chọn cho mỗi lần đăng nhập đây? ;v
+15:40:31 <boss14420> theo từng post thôi
+15:41:04 <boss14420> nếu trong thư mục _post, thấy file có .md thì là md, .textile thì là textile, còn nếu có cả .md lẫn .bb thì là .bb
+15:41:23 <heroandtn3> boss14420: ko được
+15:41:37 <boss14420> ?
+15:41:41 <heroandtn3> vì ng dùng sửa 1 file thì phải cập nhật sang file kia
+15:41:55 <boss14420> ừ. file .md là tự động generate
+15:41:55 <heroandtn3> như vậy bằng cách nào đó ta vẫn phải có thao tác convert
+15:42:15 <boss14420> chỉ cần convert từ bb sang md, không cần convert ngược lại
+15:42:20 <heroandtn3> ý tưởng này hay đấy
+15:42:33 <boss14420> mà jekyll có cho post bằng html thuần không nhỉ ?
+15:42:42 <heroandtn3> có
+15:42:55 <boss14420> vậy thì mọi thứ còn đơn giản hơn nữa
+15:43:03 <boss14420> à không
+15:43:05 <boss14420> nhầm
+15:43:53 <heroandtn3> vấn đề là nếu ng dùng chỉ code bbcode thì ta có thể làm như vậy
+15:44:06 <heroandtn3> nhưng nếu họ đang code bbcode lại muốn chuyển md thì sao?
+15:44:19 <Chien> cái ấy ms là cái chính
+15:44:20 <boss14420> Với 1 post chỉ được phép viết bằng 1 ngôn ngữ.
+15:44:32 <heroandtn3> thế thì gò bó
+15:44:35 <boss14420> có 2 chế độ: edit ngôn ngữ đó và WYS
+15:45:07 <boss14420> cũng như md với textile thôi, chỉ được chọn 1 trong 2 khi edit 1 post
+15:46:02 <heroandtn3> cũng đc
+15:46:21 <Chien> với 1 post thì chọn 1 là đúng rồi, nhưng khi ng đó muốn edit thì ko đc chuyển nữa đúng ko?
+15:46:32 <heroandtn3> hoặc khi chuyển, mình sẽ có cảnh bảo là nếu chuyển thì định dạng có thể ko được đảm bảo
+15:46:48 <Cuong> Anh thấy nếu có tính năng cho chuyển mode lúc edit thì ngon hơn
+15:46:48 <heroandtn3> nếu họ accept thì ta convert sang
+15:47:13 <Cuong> Trên cousera, các lớp mà anh tham gia, các phần forum của nó
+15:47:32 <boss14420> chuyển mode lúc edit sẽ làm cho công việc phức tạp hơn. Mà chuyển đổi qua lại các ngôn ngữ dễ có sai sót
+15:47:35 <Cuong> mục post đều có tính năng cho chuyển giữa MD và HTML
+15:47:59 <boss14420> edit trực tiếp HTML à ?
+15:48:01 <Chien> vậy là cái này ko phải ms mà đã có rồi ạ? ;v
+15:48:10 <Cuong> ừ
+15:48:32 <Cuong> Nó có 3 phần
+15:48:44 <Cuong> Rich editor, MD, HTML cho mình tùy chọn
+15:49:01 <boss14420> Đây không phải ý hay, vì HTML không phải ngôn ngữ để soạn thảo. Mà là ngôn ngữ hiển thị.
+15:49:12 <Chien> chắc hầu hết đều dùng rich editor
+15:49:26 <boss14420> Chương trình của ta có 2 phần: WYS, ngôn ngữ soạn thảo (VD md)
+15:49:46 <boss14420> nếu muốn thêm vào phần edit html cũng dễ thôi, nhưng không cần thiết
+15:50:04 <Cuong> ừ
+15:50:04 <Cuong> ý anh là
+15:50:07 <Chien> m.ng ở đây có ai thử dùng weebly chưa?
+15:50:18 <boss14420> Cuong: Cho cái link tham khảo cái editor của nó cái
+15:50:21 <Cuong> nên có phần chuyển đổi giữa các editor
+15:50:52 <Chien> nó có 1 cái hay là khi edit thì mặc định là rich, nhưng có module riêng html, javaScrip... ở trên, chỉ cần kéo vào và dùng nếu ng dùng muốn
+15:52:12 <heroandtn3> Cuong: tất nhiên là có phần chuyển đổi
+15:52:28 <heroandtn3> hiện tại có WYS là Rich Editor
+15:52:46 <heroandtn3> và phần Text Editor thì có thể là markdown, bbcode, textile
+15:53:14 <heroandtn3> giờ đang thảo luận là Text Editor chỉ đc là 1 ngôn ngữ
+15:53:22 <heroandtn3> md hoặc bbcode hoặc textile
+15:54:04 <boss14420> Nếu làm bbcode thì hãy cho người dùng coi như nó là 1 ngôn ngữ khác bình đẳng với md, textile
+15:54:15 <boss14420> cái weebly có vẻ hay đấy
+15:54:58 <Chien> uh, t dùng cũng rất thích boss14420  ạ
+15:55:03 <Chien> hay hơn cả wordpress
+15:56:24 <Chien> vậy thì vấn đề bây giờ có đc giải quyết nếu ta coi hành động edit như là 1 hành động tạo post mới ko? Để ng dùng chọn 1 trong 3
+15:56:42 <boss14420> edit là sửa post có sẵn
+15:56:48 <boss14420> tạo post mới là cái khác
+15:57:36 <Chien> mình có thể code cho edit = post mà
+15:57:51 <Chien> implement n đc chứ
+15:58:14 <heroandtn3> túm lại là bây giờ vẫn cài đặt WYS và md như cách cũ
+15:58:32 <heroandtn3> trường hợp bbcode thì lưu 2 file như boss14420 nói
+15:59:03 <Chien> cách tốt nhất là cứ làm r thấy bất hợp lí thì sửa, vì dù sao m.ng cũng ko nắm đc hết mức độ khó của n mà
+16:00:04 <heroandtn3> uh, nhưng mà phải có hướng đi
+16:00:27 <Chien> ở trên là có hướng đi như c nói r mà :P
+16:00:29 <heroandtn3> tớ thì tớ đề xuất có thêm bbcode vì bbcode giúp cho việc viết blog dễ hơn
+16:00:46 <heroandtn3> việc thì sẽ khó hơn rồi
+16:00:47 <heroandtn3> :))
+16:00:49 <heroandtn3> ừ
+16:00:56 <heroandtn3> thôi coi như xong phần của boss14420
+16:01:06 <Chien> đề xuất đấy đc ủng hộ (thuận nhiều hơn chống r mà  :P )
+16:01:18 <heroandtn3> ai có í kiến gì ko? nếu ko có thì sang phần của Chien
+16:01:28 <Chien> còn nhóm của Hiệp vs Sơn 1 nhóm à?
+16:01:49 <heroandtn3> à t nói ở trên rồi, Hiệp xin rút khỏi nhóm
+16:02:40 <Chien> sặc
+16:02:50 <heroandtn3> phần của Hiệp tớ sẽ làm, phần của tớ có tớ và anh Cuong làm
+16:02:55 <Chien> uh, hơi bất ngờ nhưng mà cố gắng chắc vẫn làm đc
+16:03:03 <Chien> phần của t thì
+16:03:18 <Chien> t ms edit n về python 3 rồi
+16:03:21 <boss14420> Mà Chiến báo cáo đi, mình sắp phải đi ngủ
+16:03:34 <boss14420> #topic Báo cáo về module bình luận
+16:03:50 <Chien> chỉ còn 2 thư viện mới mới t chưa biết trc đó thì t chưa sửa lại đc cho python 3
+16:04:01 <Chien> trc nay t toàn viết cho 2.7 nên có sai khác khá nhiều
+16:04:22 <Chien> phần bình luận của t đã làm cho disqus
+16:04:35 <boss14420> Có 1 vấn đề, giả sử dùng disqus. Có cách nào để biết post jekyll nào tương ứng với thread disqus nào không ?
+16:04:42 <heroandtn3> Chien: hướng của cậu thì cậu định triển khai thế nào? cậu sử dụng thư viện API của disqus cho python à?
+16:04:47 <Chien> quản lí, tạo, xóa bằng cách gọi các hàm trong chương trình
+16:05:18 <Chien> uh, t đã dùng API của disqus cho python, còn mở rộng như nói từ trc là API của facebook thì phải thêm 1 chương trình nữa
+16:05:53 <Chien> phần này ko có gì quá khó khăn, chỉ mất thời gian tìm hiểu các thư viện của python thôi, còn API thì đã có sẵn các hàm rồi
+16:05:54 <boss14420> Giả sử trong thư mục post có 2013-07-07-example.md. Có cách nào để biết thread disqus nào tương ứng với nó không ?
+16:06:02 <Chien> có chứ
+16:06:09 <Chien> mỗi post đều có 1 thread id
+16:06:25 <heroandtn3> Chien: mình phải điền thread id đó à/
+16:06:28 <boss14420> thread id xác định bởi cái gì ?
+16:06:46 <Chien> thread sẽ đc qui định, đánh số tự động cho mỗi post
+16:06:54 <Chien> cái này t nghĩ phần editor phải làm
+16:07:03 <Chien> của t chỉ là gọi ra và quản lí phần bình luận của n :D
+16:07:31 <Chien> chỉ cần khớp đc cái này thì có thẻ ghép nối đc thanfhc chuwong trình hoàn chỉnh
+16:07:40 <boss14420> Hình như không phải như vậy. Tại vì khi tạo cái blog mới bằng jekyll bootstrap thì mở các trang có sẵn nó cũng có sẵn bình luận rồi
+16:08:01 <heroandtn3> đúng rồi, cái này Chien phải tìm hiểu kĩ
+16:08:08 <boss14420> bình luận của người khác về trang này ấy
+16:08:23 <Chien> đúng vậy, có đc như vậy vì jkbootstrap mặc định provider là disqus rồi
+16:08:32 <Chien> đã đc quản lí bởi disqus r- t quên mất
+16:09:31 <Chien> nhưng đồng bộ hóa thì jkbootstrap làm tnao t chưa rõ, có bạn nào dùng jk thuần ko?
+16:09:37 <Chien> làm ra có sẵn bình luận chưa?
+16:09:47 <Chien> nếu chưa thì là do jk bootstrap
+16:10:38 <heroandtn3> Chien men tim hieu lai phan nay
+16:11:24 <Chien> uh, t mải tìm hàm để viết theo API mà chưa tìm hiểu cái phần cài xong đã có bình luận
+16:12:04 <boss14420> À. Đoán ra rồi. Thread id dựa vào URL
+16:12:24 <boss14420> Trang này: http://boss14420.github.io/lessons/2011/12/29/jekyll-introduction/ thì không có bình luận nào
+16:12:39 <boss14420> còn trang này: http://localhost:4000/lessons/2011/12/29/jekyll-introduction/ thì có sẵn 98 bình luận
+16:13:18 <Chien> uh, cái localhost t ko xem đc, vậy là theo url
+16:13:39 <Chien> ms chỉ là phỏng đoán nhưng có hướng đấy :)
+16:13:41 <boss14420> Phải mở jekyll server mới xem được chứ
+16:14:34 <Chien> tại t đang dùng win ^^
+16:14:50 <heroandtn3> disqus dung duoc cho ca website HTML&JS
+16:15:30 <boss14420> Chính xác. Chỉ cần sửa tiêu đề một chút là mất hết bình luận
+16:15:39 <Chien> uh, nó có hỗ trợ đầy đủ mà
+16:15:42 <heroandtn3> xem o day http://disqus.com/for-websites/publishers
+16:15:55 <heroandtn3> phan work with...
+16:16:00 <heroandtn3> co ghi cac nen tang
+16:16:12 <heroandtn3> boss14420: chua chac, hinh nhu co nhieu cach
+16:17:02 <heroandtn3> vì nếu như vậy
+16:17:15 <heroandtn3> thì các blog như wp, blogger chỉ cần sửa lại url là mất hết post sao?
+16:17:23 <heroandtn3> nhầm, mất hết comment
+16:17:29 <heroandtn3> hoặc khi họ đổi domain?
+16:18:13 <boss14420> Trong đoạn js nhúng thấy có đại lượng disqus_shortname
+16:18:14 <Chien> heroandtn3: đúng thì sao? Có mấy khi họ đổi đâu?
+16:18:31 <boss14420> chắc đây là cái xác định blog của mình là gì
+16:18:43 <Chien> shortname này là khi mình chọn website của mình nó sẽ có riêng đấy boss14420
+16:18:53 <Chien> mỗi trang sẽ có 1 shortname
+16:19:05 <heroandtn3> Chien: tất nhiên là có vấn đề rồi chứ :))
+16:19:08 <boss14420> Chính nó. Đây là thứ không được thay đổi.
+16:19:35 <Chien> uh, t có thử thay đổi rồi, nhưng mỗi web đã đăng kí chỉ cho 1 shortname thôi
+16:20:11 <heroandtn3> shortname là cái trong phần cài đặt
+16:20:24 <heroandtn3> tức là dùng site nào
+16:20:43 <boss14420> Vậy là jekit phải có chức năng cho người dùng đăng kí với disqus. Hoặc ít nhất là gọi trình duyệt tới nơi đăng ký
+16:20:47 <heroandtn3> ví dụ cậu có 2 trang
+16:20:52 <heroandtn3> abc và def
+16:21:09 <heroandtn3> thì đặt là abc nó sẽ đưa comment vào phần của abc
+16:21:11 <heroandtn3> và ngược lại
+16:21:13 <Chien> t tưởng đã thống nhất jekit sẽ có jkbootstrap, có thì n sẽ tự login mà
+16:22:00 <boss14420> Vừa mới thống nhất lại là sẽ không dùng jekyll bootstrap
+16:22:00 <heroandtn3> oh vậy hả
+16:22:14 <heroandtn3> thế là cậu vẫn chưa cần đăng kí tài khoản disqus à?
+16:22:16 <Chien> heroandtn3: ok, vấn đề bây giờ là tìm hiểu cách n đồng bộ hóa giữa 2 cái
+16:22:24 <Chien> heroandtn3: tất nhiên là đăng kí rồi
+16:22:47 <Chien> nhưng để nó có bình luận ở mỗi cái thì đòi hỏi phải có shortname
+16:23:17 <Chien> jkbootstrap có 1 shortname riêng là jkbootstrap mặc định trong file config.yml
+16:23:25 <boss14420> Vừa thử thay đổi shortname, thì nó báo thể này:              We were unable to load Disqus. If you are a moderator please see our  troubleshooting guide.
+16:23:27 <heroandtn3> thế là cậu dùng cái đấy?
+16:23:28 <Chien> c có thể xem file đó, n mặc định chọn disqus
+16:24:09 <heroandtn3> boss14420: đổi thành sangherosblog
+16:24:11 <heroandtn3> xem đc ko?
+16:24:27 <Chien> t đã thử thay đổi theo shortname của t đăng kí nhưng chưa đc
+16:24:41 <heroandtn3> Chien: đấy, vấn đề là ở chỗ đó
+16:24:58 <heroandtn3> nếu cậu dùng sn của người khác thì cậu ko thể moderate được comments
+16:25:41 <Chien> uh, nhưng t ko hiểu sao t đăng kí trang của t vs shortname của t mà vẫn ko đc
+16:26:02 <boss14420> heroandtn3: được
+16:26:05 <Chien> có khi phải thử dùng jekyll thuần làm blog xong cho của mình vào ms đc
+16:26:25 <heroandtn3> boss14420: tức là sn phải valid
+16:27:13 <heroandtn3> Chien: cậu tạo sn thì phải add 1 site nào đó rồi chứ?
+16:27:18 <heroandtn3> ko add thì làm sao đc?
+16:27:25 <Chien> đúng r, add trang của t đấy
+16:27:46 <heroandtn3> vẫn ko đc à? tớ cũng đang thử đây
+16:27:48 <heroandtn3> đợi chút
+16:27:59 <Chien> uh, c thử đi, t vẫn ko đc :v
+16:28:00 <heroandtn3> có lẽ vì cậu chèn code khác rồi
+16:28:07 <heroandtn3> cậu ko thể đổi mỗi sn thôi mà đòi đc
+16:28:33 <Chien> theo hướng dẫn thì chỉ cần đổi shortname thôi mà
+16:29:11 <heroandtn3> hef
+16:29:21 <Chien> c chỉ cần đổi shortname trong file __config.yml thôi
+16:29:23 <heroandtn3> he, the thi nhieu kha nang khong duoc
+16:29:54 <boss14420> đổi được mà. Cái sangherosblog dùng được
+16:30:15 <Chien> c thử đổi đi, có lẽ khi trc t auto generate nhiều nên n ko đồng bộ vs trang
+16:30:49 <Chien> boss14420: ok, t cũng nghĩ thế vì n disqus chỉ cần sn, ko cần gì như cái khác:
+16:30:52 <Chien> comments :     provider : disqus     disqus :       short_name : jekyllbootstrap     livefyre :       site_id : 123     intensedebate :       account : 123abc     facebook :       appid : 123       num_posts: 5       width: 580       colorscheme: light
+16:31:06 <boss14420> Sau khi đổi thử tắt rồi mở lại xem sao
+16:32:23 <heroandtn3> http://sangnd.com/blog/openbox-ubuntu.html
+16:32:32 <heroandtn3> to vua chen vao thi ok
+16:32:34 <heroandtn3> chi can chen thoi
+16:32:49 <Chien> chỉ cần chèn sn là ok?
+16:33:30 <heroandtn3> a khong, to dung jekyll thuan
+16:33:41 <heroandtn3> phai chen doan nay vao cho muon hien code nay:
+16:34:28 <heroandtn3> http://paste.ubuntu.com/5853029/
+16:34:36 <Chien> nếu thống nhất ko dùng jkbootstrap nữa thì có lẽ việc tìm hiểu sẽ đơn giản hơn nhiều :D
+16:34:55 <Chien> ok, là c chọn Universal Code hả heroandtn3 ?
+16:36:04 <heroandtn3> uh ddungs
+16:36:20 <heroandtn3> boss14420, Chien: trong phan cai dat cua Disqus
+16:36:27 <heroandtn3> co 1 muc la Disscussions
+16:36:58 <heroandtn3> trong do co cac truong: title, link, Author, Category, Created
+16:37:09 <heroandtn3> co le no dung link de xac dinh discussion that
+16:37:20 <Chien> uh
+16:37:25 <Chien> hiểu r
+16:37:36 <boss14420> Hình như nó phụ thuộc vào link,
+16:37:48 <boss14420> VD: http://boss14420.disqus.com/admin/discussions/, thấy có trường link
+16:38:11 <heroandtn3> uh dung
+16:38:22 <heroandtn3> http://help.disqus.com/customer/portal/articles/1141248-introducing-the-discussions-editor-and-f-a-q-
+16:38:29 <boss14420> Với lại cái blog trên local với trên github của mình giống hệt nhau, nhưng 1 cái lại có cm, 1 cái không
+16:38:31 <heroandtn3> dang doc cai nay, khong biet co lien quan gi khong
+16:39:44 <boss14420> Thôi cái này để Chiến tìm hiểu đi
+16:39:50 <heroandtn3> ok
+16:39:53 <heroandtn3> tam thoi the da
+16:39:58 <Chien> uh, ko cần mất time đâu, để đấy t :)
+16:40:00 <heroandtn3> cuoc hop ket thuc o day nhe
+16:40:08 <Cuong> ok
+16:40:13 <boss14420> http://help.disqus.com/customer/portal/articles/912757-url-mapper
+16:40:13 <Chien> ok, g9 2 bạn ở đây :)
+16:40:25 <heroandtn3> Thanh upload history len group nhe
+16:40:27 <boss14420> ĐỌc cái link vừa rồi đi
+16:40:30 <boss14420> OK
+16:40:31 <Chien> trong code get cũng có lấy theo url
+16:40:33 <Chien> ok
+16:40:35 <boss14420> #endmeeting
