@@ -1,0 +1,369 @@
+14:19:40 <boss14420> #startmeeting
+14:19:40 <hubkbot> Meeting started Wed Jul 24 14:19:40 2013 UTC.  The chair is boss14420. Information about MeetBot at http://wiki.debian.org/MeetBot.
+14:19:40 <hubkbot> Useful Commands: #action #agreed #help #info #idea #link #topic.
+14:19:50 <boss14420> ai báo cáo trước ?
+14:19:58 <Chien> boss14420,  vửa bảo thủ tục gì thế?
+14:20:04 <Chien> nói về cái ấy đi
+14:20:13 <boss14420> thủ tục bắt đầu cuộc họp thôi
+14:20:18 <heroandtn3> Chien đi
+14:20:43 <Chien> uh, ok
+14:20:49 <Chien> phần thiết kế của t như vậy
+14:20:59 <boss14420> #chair Chien heroandtn3
+14:20:59 <hubkbot> Current chairs: Chien boss14420 heroandtn3
+14:21:09 <Chien> đến cuối tuần là hoàn chỉnh hẳn, t sẽ bổ sung cho chi tiết
+14:21:26 <heroandtn3> tớ hỏi nhé
+14:21:29 <heroandtn3> câu hỏi như ở trên
+14:21:31 <Chien> uh, c cứ hỏi :)
+14:21:31 <boss14420> #topic thông báo về module bình luận
+14:21:44 <boss14420> #info đến cuối tuần là hoàn chỉnh hẳn thiết kế
+14:21:45 <heroandtn3> giả sử tớ muốn hiển thị lên toàn bộ comment của 1 post thì gọi hàm nào
+14:22:02 <Chien> uh, nếu muốn lấy tất cả các bình luận thì gọi hàm thread_listPosts
+14:22:25 <Chien> nó sẽ trả về 1list gồm các bình luận đi kèm vs post ấy
+14:22:29 <boss14420> sao lại trả về string ?
+14:22:38 <boss14420> trong wiki ghi vậy
+14:22:46 <heroandtn3> cùng câu hỏi với boss14420
+14:22:51 <Chien> tất cả các hàm của disqus API đều trả về string
+14:23:11 <boss14420> Phải trả về list of string mới đúng chứ ?
+14:23:15 <heroandtn3> thêm 1 câu là: sao không gọi là comment mà lại gọi là post
+14:23:30 <heroandtn3> boss14420: có thể là string dạng JSON hoặc XML
+14:23:40 <Chien> boss14420, đấy gọi là string cũng đc mà?
+14:23:56 <Chien> heroandtn3, ở đây quản lí bình luận nên sẽ coi bình luận chính là các posts
+14:23:57 <heroandtn3> Chien string đó ở dạng gì?
+14:24:31 <heroandtn3> ok, nhưng để đồng bộ hơn thì tớ nghĩ nên coi thread là post còn post là comment
+14:24:40 <Chien> tuỳ vào hàm, nếu là hàm dạng get_list... thì sẽ cho ra string list như boss14420  nói
+14:24:41 <heroandtn3> vì ở Jekyll coi post là post mà
+14:25:02 <heroandtn3> đang nói hàm thread_listPosts cơ
+14:25:09 <Chien> còn là hàm get_num... hay update thì sẽ là str bình thường
+14:25:13 <boss14420> Nếu thông tin về comment đơn giản thì giá trị trả về nên là list of tuple,
+14:25:20 <boss14420> với tuple này chứa thông tin về comment
+14:25:26 <boss14420> gồm nội dung, người post, ...
+14:25:38 <Chien> cái mà coi cmt là thread thì ok, t sẽ chỉnh lại để cho đồng bộ vs jeyll
+14:25:47 <Chien> jekyll
+14:26:10 <heroandtn3> ở đây mình thiết kế hướng đối tượng
+14:26:47 <heroandtn3> nên tớ nghĩ nên trả về 1 list các đối tượng comment
+14:27:11 <Chien> à
+14:27:11 <heroandtn3> trong đối tượng comment chỉ cần thông tin tác giả, nội dung, thời gian
+14:27:24 <heroandtn3> API của disqus trả về cái gì thì các module khác không quan tâm
+14:27:24 <Chien> tất cả các hàm liên quan đến forum, thread, post đều là trả về đối tượng cmt đó heroandtn3
+14:27:24 <boss14420> Nhiều lúc đối tượng không phải hay
+14:27:27 <boss14420> nhất là khi nó không có phương thức
+14:27:38 <heroandtn3> Chien: sao cậu ghi là trả về String?
+14:27:59 <boss14420> thì không nên tạo một lớp mới mất công
+14:28:06 <heroandtn3> boss14420: vậy thì lưu như thế nào?
+14:28:06 <Chien> heroandtn3, vì các hàm đó đều qua chuyển đổi dạng: str(object) sang string
+14:28:15 <boss14420> dạng tuple
+14:28:26 <boss14420> vì dụ, trả về ;à
+14:28:27 <boss14420> là
+14:28:57 <boss14420> [ ('user1', date1, 'comment 1'), ('user2', date2, 'comment2') ư
+14:28:59 <boss14420> ]
+14:29:17 <heroandtn3> Chien: ví nếu tớ muốn in ra thông tin các comment bao gồm tác giả, nội dung, thời gian thì tớ phải xử lí thế nào với string trả về?
+14:29:24 <Chien> có 1 khác để gọi thông tin tác giả heroandtn3  ạ
+14:29:28 <Chien> có 1 hàm khác
+14:29:45 <Chien> là get_user_name
+14:30:03 <boss14420> Chien: Những công việc xử lý string nên thực hiện ở bên trong
+14:30:19 <boss14420> còn khi giao tiếp với cac module khác thì nên để kiểu dễ thao tác nhất
+14:30:19 <Chien> thời gian và nội dung sẽ có hàm get_thread_detail
+14:30:59 <Chien> boss14420, t nghĩ càng chi tiết thì việc code cho các module khác sẽ dễ dàng hơn
+14:31:35 <Chien> ví dụ khi quản lí thì chỉ quan tâm đến thông tin nào ta sẽ lấy thông tin đó thay vì cứ phải lấy toàn bộ
+14:31:45 <Chien> disqus cung cấp hàm khá cụ thể
+14:32:02 <heroandtn3> boss14420: như vậy sau này có mở rộng hoặc thay đổi thì rất khó
+14:32:16 <boss14420> Chien: hậu quả trước mắt của cách này là để lấy thông tin cần thiết thì phải gọi đến 2 hàm
+14:32:28 <boss14420> heroandtn3: khó ntn ?
+14:32:35 <heroandtn3> boss14420: hơn nữa khó hình dung thiết kế chương trình, nếu có đối tượng comment thì ta biết ngay nó là comment
+14:32:52 <Chien> uh, về 1 cmt thì sẽ có nhiều hàm để xử lí heroandtn3  ạ
+14:32:52 <heroandtn3> boss14420: ví dụ ta thêm thuộc tính? hoặc thêm method vào comment?
+14:33:03 <heroandtn3> Chien: tớ ko hiểu í cậu lắm
+14:33:07 <Chien> nếu như muốn gộp vào thành 1 gói thông tin kiểu người dùng hay quan tâm thì ko khó, nhưng t nghĩ cacngf cụ thể cảng tốt
+14:33:31 <heroandtn3> thế cái String trả về ở thread_listPosts chứa thông tin gì?
+14:33:51 <Chien> heroandtn3, ví dụ như vừa rồi c muốn xem nội dung, thơif gian, tác gỉa chẳng hạn thì c phải gọi 2 hàm
+14:33:52 <boss14420> heroandtn3: thì mới nói là nếu đơn giản thì không cần tạo lớp
+14:34:16 <Chien> còn cái trẻ về mà c hỏi thì sẽ trả về toàn bộ các cmt đi kèm với bài post (ở đây là thread) đó
+14:34:17 <boss14420> heroandtn3: cách của Chien là mọi thứ đề trả về string chưa thông tin cần thiết.
+14:34:24 <boss14420> Nhưng thông tin này chưa được xử lý
+14:34:36 <heroandtn3> #info Vấn đề lấy comment từ 1 post thì nên trả về cái gì
+14:34:40 <Chien> boss14420, ý c là phải xử lí sao?
+14:34:46 <boss14420> muốn thông tin chi tiết hơn thì phải gọi hàm khác để trích nó ra
+14:35:15 <boss14420> VD: hàm get_listPost() trả về một string tổng hợp các post
+14:35:25 <Chien> t nghĩ như vậy thì tiện cho việc gọi, xử lí, tìm kiếm hơn
+14:35:27 <boss14420> muốn trích ra từng post thì phải gọi hàm khác
+14:35:36 <Chien> uh, đúng vậy
+14:35:36 <heroandtn3> boss14420: thế thì quá xa rời OOP, hơn nữa vì cái đơn giản mà sau này chương trình khó mở rộng hoặc khó bảo trì
+14:35:59 <heroandtn3> Chien:  cậu càng nói càng rối
+14:36:16 <heroandtn3> thread_listPosts và get_listPost() thì cái nào trả về comment???
+14:36:52 <Chien> cả 2 chỉ là thống kê, 1 cái trả về toàn bộ comment hiện có, 1 cái trả về cmt đi kèm vs 1 bài viết
+14:37:24 <Chien> còn muốn xem nội dung các cmt c phải gọi get_threadDetail
+14:37:45 <Chien> heroandtn3, ý c là sẽ gộp các  thuộc tính vào 1 đối tượng cmt
+14:37:52 <Chien> và bài post à?
+14:38:04 <boss14420> Chien: nên làm 2 nhóm các hàm
+14:38:11 <boss14420> một nhóm là trả về string như trong thiết kế
+14:38:21 <boss14420> để dành cho sử dụng nâng cao
+14:38:40 <heroandtn3> Chien: đúng, gộp tất cả vào 1 đối tượng và trả về
+14:38:42 <Chien> còn nhóm kia là trả về 1 list str cho 1 đối tượng
+14:38:44 <Chien> ?
+14:38:46 <boss14420> còn một nhóm là trả về đối tượng, tất nhiên là nhóm này sẽ sử dụng lại code của nhóm kia
+14:38:50 <heroandtn3> làm như cậu rất rối
+14:39:05 <heroandtn3> boss14420: chỉ có 1 nhóm thôi, đó là nhóm trả về đối tượng
+14:39:06 <Chien> uh, vậy cũng đc, gộp code là xong thôi mà
+14:39:25 <heroandtn3> nhóm trả về string là ở mức độ xử lí thấp, cái đó mình ko quan tâm
+14:39:35 <Chien> heroandtn3, nếu chỉ trả về như vậy thì có quá đơn giản?
+14:39:43 <boss14420> heroandtn3: đó là xử lý bên trong, cái này tùy người cài đặt
+14:40:13 <Chien> theo t thì có 2 nhóm sẽ hợp lí hơn là 1 nhóm
+14:40:27 <Chien> để tiện cho ng dùng cũng như ng làm module khác khi cần
+14:41:13 <Chien> vẫn sẽ gộp
+14:41:33 <Chien> còn nếu chia nhỏ mà làm khó ng khác thì bỏ kiểu chia nhỏ, ko vấn đề gì
+14:41:41 <boss14420> Nói chung tùy, miễn là có các hàm trả về đối tượng là được
+14:41:45 <Chien> bây giờ chỉ cần các c lắp vào của các c xemsao?
+14:41:59 <heroandtn3> Chien: các module khác chỉ cần các hàm ở mức trừu tượng cao
+14:42:20 <heroandtn3> nó sẽ sử dụng các hàm xử lí ở mức thấp của API
+14:42:28 <Chien> nếu vậy thì sẽ gộp chung các thuộc tính vào 1 đối tượng, nhất trí chứ?!
+14:42:42 <heroandtn3> tất nhiên rồi
+14:42:53 <heroandtn3> đó mới là lập trình hướng đối tượng chứ
+14:42:59 <Chien> uh, và chỉ 1 nhóm này thôi
+14:43:08 <heroandtn3> ví dụ tớ cần lấy toàn bộ comment của post thì tớ gọi hàm
+14:43:10 <Chien> ko làm 2 nhóm như boss14420  bảo
+14:43:14 <heroandtn3> get_comments()
+14:43:32 <heroandtn3> làm 2 nhóm như boss14420 thì tớ ko hiểu nhóm trả về String sẽ sử dụng để làm gì
+14:43:41 <Chien> uh, t hiểu, ban đầu t muốn chi tiết thì dễ code, dễ xử lí thôi mà
+14:43:46 <Chien> ok
+14:43:56 <Chien> vậy làm cái agreed đi :D
+14:44:08 <heroandtn3> Chien: đấy ko phải chi tiết mà là các hàm xử lí mức thấp
+14:44:25 <heroandtn3> vì nó ở mức quá thấp nên ng khác khó hiểu
+14:44:28 <Chien> có gì khác nhau ở đây?!
+14:44:33 <heroandtn3> và khó xử dụng
+14:44:35 <heroandtn3> ví dụ
+14:45:15 <heroandtn3> cậu muốn uống nước mía nhưng ko biết làm thế nào
+14:45:26 <heroandtn3> cậu hỏi tớ thì tớ trả lời như sau:
+14:45:48 <heroandtn3> Trừu tượng: cậu ra quán bảo người ta bán cho
+14:46:20 <heroandtn3> Cụ thể: cậu mua mía, rồi quay mía thành nước, đổi vào túi, đổ đá vào
+14:46:47 <Chien> cụ thể là mức thấp đấy à? :P
+14:46:47 <heroandtn3> cái trừu tượng nó đơn giản, dễ hiểu và thực hiện hơn đúng ko
+14:46:54 <heroandtn3> đúng rồi
+14:46:58 <heroandtn3> 1 ví dụ khác
+14:47:06 <heroandtn3> giờ cậu muốn ghi 1 file vào ổ cứng
+14:47:10 <Chien> uh, ok, ta sẽ cho người dùng nước miá luôn :))
+14:47:23 <heroandtn3> gọi hàm write() trong code là xong có phải nhanh hơn ko?
+14:47:34 <Chien> à, uh, tất nhiền!
+14:47:40 <heroandtn3> hay là cậu phải viết các hàm xử lí mức thấp liên quan đến block, sector, cluster các kiểu?
+14:47:57 <Chien> ok heroandtn3 , t hiểu rồi :)
+14:48:05 <heroandtn3> ok
+14:48:24 <heroandtn3> còn vấn đề comment là class riêng thì boss14420 có ý kiến gì ko?
+14:48:43 <boss14420> Đang nghĩ
+14:48:46 <Chien> #agreed Viết lại module bình luận càng hướng đối tượng càng tốt
+14:49:13 <boss14420> Thôi cứ để class cũng được
+14:49:16 <Chien> t ko nghĩ là nó có vấn đề gì
+14:49:18 <Chien> ok
+14:49:29 <heroandtn3> Chien: cậu đã học lập trình hướng đối tượng chưa?
+14:49:34 <heroandtn3> boss14420: ok
+14:49:48 <Chien> heroandtn3, t học thẳng java, ko học môn lập trình hướng đối tượng
+14:49:51 <boss14420> nhưng mà vấn đề là với class thì sau này viết code dài dòng hơn
+14:50:01 <Chien> nhưng học trong java t nghĩ là đã biết nó rồi :)
+14:50:03 <heroandtn3> boss14420: dài là bản chất của OOP mà
+14:50:05 <boss14420> không đúng kiểu python lắm
+14:50:12 <boss14420> VD
+14:50:21 <boss14420> muốn lặp qua các comment
+14:50:26 <boss14420> nếu là class thì phải
+14:50:54 <heroandtn3> Chien: đối tượng bao gồm các thuộc tính và phương thức
+14:51:07 <boss14420> for cmt in comments:
+14:51:08 <boss14420> author = cmt.author
+14:51:08 <boss14420> date = cmt.date
+14:51:08 <boss14420> content = cmt.content
+14:51:08 <boss14420> ...
+14:51:19 <boss14420> Còn nếu là tuple thi chỉ cần:
+14:51:20 <heroandtn3> ví dụ đối tượng người có các thuộc tính: màu da, cân nặng, màu tóc,...
+14:51:21 <Chien> uh, phương thức chính là các hàm đúng ko heroandtn3
+14:51:31 <heroandtn3> các phương thức: đi, nhảy, chạy, bơi,...
+14:51:43 <boss14420> for author, date, content in comments:
+14:51:43 <boss14420> ...
+14:51:59 <boss14420> không những ngắn hơn mà thực hiện nhanh hơn
+14:52:03 <heroandtn3> cậu để í sẽ thấy là tất cả các thứ mình cần ở người đều có trong 1 đối tượng. do vậy truy xuất dễ dàng
+14:52:11 <Chien> t ko hiểu về dạng tuple của boss14420  nói lắm, nhưng nếu nó ưu việt hơn thì t sẽ thử
+14:52:36 <Chien> heroandtn3, ok, t hiểu r mà, học Kỹ thuật LT vs Java thì cũng có nói đến cả rồi :)
+14:52:37 <boss14420> nếu chỉ có 2, 3 thuộc tính, không có phương thức thì nên dùng tuple
+14:53:04 <heroandtn3> boss14420: thế nếu sau này có thêm thuộc tính vote thì có phải sửa lại code ko?
+14:53:29 <Chien> vote có sẵn trong api, nếu cần t sẽ thêm :D
+14:53:57 <boss14420> vd thể thôi
+14:54:00 <heroandtn3> Chien: đấy là ở mức thấp, cậu code thế nào cũng đc
+14:54:12 <boss14420> còn cụ thể ntn thì còn phải xem kỹ
+14:54:36 <Chien> uh, chỉ cần trả lại đối tượng là ok chứ heroandtn3
+14:54:56 <heroandtn3> boss14420: ví dụ nhưng nó cho thấy là nảy sinh nhiều vấn đề nếu ta mở rộng hoặc thay đổi
+14:55:26 <boss14420> heroandtn3: Nếu mà OOP thật kỹ thì người ta thường chia ra làm nhiều lớp
+14:55:30 <heroandtn3> Chien: đúng, như ý tớ là tớ chỉ quan tâm đến việc module của cậu có hàm get_comments() nó trả về 1 list các đối tượng comment
+14:55:45 <boss14420> VD như lớp Comment thì nó không chứa hết vậy
+14:55:53 <boss14420> mà có 1 thuộc tính là comment info
+14:55:59 <heroandtn3> Chien: còn nó hoạt động thế nào, dùng API của facebook hay disqus tớ ko quan tâm
+14:55:59 <Chien> ok rồi, t sẽ xem cái tuple ấy thế nào
+14:56:03 <boss14420> rồi một đống phương thức
+14:56:24 <boss14420> cái thuộc tính comment_info đó có thể là một đối tượng lớp khác hoặc 1 tuple
+14:56:45 <heroandtn3> boss14420: đúng rồi, trong trường hợp phức tạp thì ng ta sẽ làm vậy
+14:56:56 <heroandtn3> như ở đây đơn giản thì ta tống hết vào
+14:57:01 <heroandtn3> 1 object là đc
+14:57:02 <Chien> t ko nghĩ là đối tượng cmt lớn nthe
+14:57:06 <Chien> ok
+14:57:39 <Chien> còn thắc mắc gì nữa ko nào?
+14:57:43 <Chien> để chuyển :)
+14:57:52 <heroandtn3> #agreed Đưa hết các thuộc tính vào 1 classs Comment
+14:57:55 <boss14420> thôi, vậy là được
+14:58:02 <Chien> ok
+14:58:06 <heroandtn3> Chien: còn 1 vấn đề nữa mà hôm trước bàn dở
+14:58:14 <Chien> GUI à?!
+14:58:35 <heroandtn3> hàm get_comments() phải truyền vào tham số nào đó để xác định chính xác post cần lấy comment
+14:58:51 <heroandtn3> hôm trước có nói là dùng URL của post đúng ko?
+14:59:05 <Chien> à, c có thể thấy hàm get_Thread_by_url ở trong thiết kế
+14:59:11 <Chien> đúng rồi
+14:59:43 <heroandtn3> ok
+14:59:48 <heroandtn3> vậy thì cậu phải ghi rõ
+14:59:59 <heroandtn3> chứ tớ thấy cậu thiết kế kiểu gì mà chỉ có tên method
+15:00:05 <heroandtn3> mà ko có tham số truyền vào
+15:00:24 <Chien> à à, uh, t sẽ giải thích rõ ràng từ giờ đến chủ nhật tới :)
+15:00:51 <heroandtn3> #agreed Sử dụng URL của post để xác định post cần lấy comment
+15:01:04 <boss14420> Cái này là #info mới đúng
+15:01:10 <Chien> ok rồi
+15:01:31 <Chien> đều note lại nên ko sao
+15:01:33 <heroandtn3> Chien: còn 1 vấn đề nữa là cậu chỉ cần thiết kế các phương thức để các module khác dùng, giao tiếp
+15:01:44 <heroandtn3> boss14420: 2 cái đấy khác nhau thế nào nhỉ?
+15:01:47 <Chien> dù sao cũng đúng vì còn có get by identifier nữa cơ
+15:02:10 <heroandtn3> Chien: các method ở mức thấp hơn các module khác ko bao giờ dùng nên cậu ko cần cho vào thiết kế
+15:02:44 <heroandtn3> theo tớ thì của cậu chỉ cần có mấy method sau: (nói chung là đơn giản)
+15:02:47 <Chien> ok heroandtn3 , vậy là thiết kế chỉ ghi các đối tượng và các thuộc tính (đi kèm với đầu vào) của nó?
+15:02:56 <heroandtn3> uh đúng
+15:03:23 <heroandtn3> 1. get_comments(url): trả về list các comment của post có URL là url
+15:04:05 <heroandtn3> 2. get_all_comments(x): trả về x comments mới nhất
+15:05:19 <heroandtn3> đối tượng comment của cậu cũng phải có 1 cái để định danh, tạm gọi là id
+15:05:37 <Chien> uh, chuẩn là id đấy :P
+15:05:39 <heroandtn3> nếu vậy thì ta có thêm các phương thức sau
+15:05:57 <heroandtn3> 3. approve_comment(id): duyệt comment
+15:06:09 <heroandtn3> 4. delete_comment(id)
+15:06:12 <heroandtn3> xóa comment
+15:06:40 <heroandtn3> 5. update_comment(comment): cập nhật comment
+15:06:49 <Chien> thêm cái vote nữa nhé :)
+15:07:12 <heroandtn3> vote là thuộc tính, nó nằm trong comment rồi
+15:07:24 <heroandtn3> giả sử có 1 người vote comment thì ta xử lí như sau
+15:07:59 <heroandtn3> comment.id += 1
+15:08:07 <heroandtn3> nhầm
+15:08:13 <heroandtn3> comment.vte += 1
+15:08:15 <heroandtn3> vote
+15:08:21 <heroandtn3> sau đó update nó
+15:08:28 <heroandtn3> update_comment(comment)
+15:08:39 <Chien> ok
+15:08:50 <heroandtn3> để xác định từng comment
+15:08:57 <heroandtn3> nên có thêm:
+15:09:07 <heroandtn3> 6. get_comments_by_id(id)
+15:09:38 <heroandtn3> trước mắt là như vậy, nếu API của disqus hỗ trợ thêm thì cậu thêm vào nhé
+15:09:51 <Chien> ok heroandtn3
+15:09:57 <Chien> t nắm đc r
+15:10:56 <heroandtn3> ok, vậy cậu cần thiết kế các đối tượng, các phương thức nhé
+15:11:01 <Chien> tạm thời có vậy, mọi người tiếp túc phần của mình đi
+15:11:04 <Chien> ok
+15:11:15 <heroandtn3> đối tượng comment chứa các thông tin như tác giả, nội dung, thời gian, vote,...
+15:11:37 <heroandtn3> còn các method kia thì tớ nghĩ nên đưa vào 1 class là CommentService
+15:11:50 <heroandtn3> vậy thôi
+15:12:00 <heroandtn3> tớ nghĩ là đơn giản đấy
+15:12:05 <Chien> vậy thôi nhưng cũng vẽ ra đc cái xương ròi
+15:12:06 <heroandtn3> cuối tuần xong thiết kế nhé
+15:12:11 <Chien> ok heroandtn3
+15:12:12 <Chien> :)
+15:12:22 <heroandtn3> giờ sang phần của boss14420 nhé
+15:12:26 <boss14420> OK
+15:12:33 <Chien> ok boss14420  đi
+15:12:36 <heroandtn3> tớ thì lẹt đẹt chưa đâu vào đâu
+15:12:38 <boss14420> #topic Báo cáo về WYS Editor
+15:13:03 <boss14420> Chạy thử cái demo thứ 1 trong wiki đi: https://github.com/JeKitProject/MHST2013/wiki/WYSIWYG-editor-d%C3%A0nh-cho-markdown
+15:13:47 <boss14420> Mấy ngày qua thì không viết lại thư viện convert html -> md mà "đắp" thêm vào cái cũ cho nó tương thích với kiểu của QTextEdit
+15:13:51 <boss14420> cũng có vài lỗi
+15:14:05 <boss14420> Nhưng mà tốn nhiều thời gian cho cái này rồi
+15:14:18 <boss14420> Từ mai mình sẽ bắt đầu hoàn thiện GUI
+15:14:27 <heroandtn3> ok
+15:14:29 <boss14420> cho giống một cái editor thật
+15:14:42 <boss14420> còn xử lý ngôn ngữ thì sửa dần dần
+15:14:42 <heroandtn3> Thành làm tốt quá
+15:18:02 <boss14420> Về GUI
+15:18:17 <boss14420> chạy thừ ví dụ của Qt ntn:
+15:19:52 <boss14420> Dành cho ai dùng Linux: /usr/share/doc/qt/examples/widgets/richtext/textedit/
+15:20:12 <heroandtn3> boss14420: có cải tiến gì so với cái trước ko?
+15:20:18 <boss14420> biên dịch bằng lệnh sudo qmake && sudo make
+15:20:28 <boss14420> heroandtn3: Viết lại cho dễ hiểu hơn
+15:20:41 <boss14420> Còn hiểu quả thì chưa thử nhiều
+15:21:06 <boss14420> Nhưng ít nhất giờ nó đã hiểu được b, u, code, blockquote, hx
+15:21:27 <boss14420> Mở file myhtml2text.py ra mà xem cách làm
+15:21:30 <heroandtn3> boss14420: ví dụ ở text mode viết: abc liền nhau
+15:21:45 <heroandtn3> sau đó làm nghiêng chữ c chẳng hạn
+15:21:54 <heroandtn3> chuyển sang visual mode thì ko đc
+15:22:06 <heroandtn3> làm từ visual mode rồi chuyển sang text mode thì đc
+15:22:46 <boss14420> Đây là chế độ mặc đinh của bọn python-markdown (chuyển từ md -> html), sửa lại tí là được
+15:23:45 <boss14420> Tắt smart_emphasis là được
+15:24:02 <boss14420> Lỗi còn nhiều lắm, vì chưa test nhiều.
+15:24:06 <heroandtn3> uh
+15:24:12 <boss14420> Nhưng từ sau sẽ vừa làm GUI vừa sửa
+15:24:21 <heroandtn3> nhưng hướng làm này của cậu có vướng mắc gì ko?
+15:24:42 <boss14420> Không
+15:24:47 <boss14420> Không nhiều lắm
+15:24:57 <Chien> t thấy ổn đấy, vì khó cho ng code thì boss14420  đã làm tốt rồi
+15:25:19 <heroandtn3> uh
+15:25:26 <heroandtn3> coi như module này của boss14420 ko phải xuy nghĩ gì
+15:25:28 <heroandtn3> suy
+15:25:31 <heroandtn3> cứ code thôi
+15:25:39 <heroandtn3> rồi lắp ghép với các module khác là ok
+15:25:43 <Chien> 1
+15:26:00 <boss14420> #action Sẽ hoàn thiện GUI cho editor và sửa lỗi khi chuyển đổi ngôn ngữ
+15:27:37 <heroandtn3> giờ đến phần của tớ
+15:27:42 <Chien> t thấy boss14420  ổn nhất rồi
+15:27:43 <Chien> ok
+15:27:52 <heroandtn3> xin lỗi mọi người là chưa triển khai đc cụ thể
+15:28:05 <heroandtn3> mới chỉ có trong suy nghĩ thôi :3
+15:28:19 <boss14420> Có gì mới để nói không ?
+15:28:24 <Chien> cứ nói thôi, module jekyll hả? :P
+15:28:28 <heroandtn3> không
+15:28:49 <heroandtn3> cứ làm theo như đã trình bày trong các buổi trước thôi
+15:28:57 <heroandtn3> https://github.com/JeKitProject/MHST2013/wiki/Module-Jekyll:-Thi%E1%BA%BFt-k%E1%BA%BF
+15:29:22 <boss14420> Vậy còn ai nữa báo cáo không ?
+15:29:26 <heroandtn3> thêm các class như PostService để chứa các method liên quan đến post
+15:29:43 <heroandtn3> ví dụ mấy cái là boss14420 nói trong buổi trước
+15:30:21 <Chien> heroandtn3,  làm kĩ từ cả tháng trước nên t cũng ko nói đc gì
+15:30:42 <boss14420> OK, có vấn hơn không
+15:31:18 <heroandtn3> Francisco_: báo cáo đi
+15:32:21 <boss14420> Chắc gì đã còn ở đó
+15:32:40 <Chien> nháy cái là đc :D
+15:32:44 <Chien> nháy đt ấy
+15:32:52 <Francisco_> ok
+15:33:10 <Francisco_> tình hơi hơi rắc rối chút với cái jekyll
+15:33:19 <Francisco_> nên chưa public với mọi người
+15:33:44 <boss14420> #topic báo cáo về module theme
+15:33:49 <boss14420> rắc rối ntn ?
+15:34:23 <heroandtn3> Francisco_ dùng Linux được chưa?
+15:34:30 <Francisco_> rồi
+15:34:40 <heroandtn3> hình như Francisco_ muốn cài Jekyll trên Windows nên gặp khó khăn
+15:34:44 <Francisco_> tại trước chạy trên win
+15:34:46 <Chien> chắc là có đoạn liên quan đến kyy thôi
+15:34:53 <Chien> key
+15:34:58 <heroandtn3> Francisco_: nếu cài Ubuntu thì cài Jekyll rất đơn giản
+15:35:06 <Francisco_> uh
+15:35:19 <Francisco_> dùng trên win phải cài mấy cái git phức tạp
+15:35:29 <Francisco_> bữa cài lại win hỏng hết :(
+15:36:30 <boss14420> Thế giờ rắc rối là rắc rối với cái gì ?
+15:36:38 <boss14420> Win hay Linux
+15:37:11 <heroandtn3> tớ bảo là tìm hiểu Jekyll từ tận tháng 5
+15:37:25 <heroandtn3> mà giờ vẫn đang gặp vấn đề với Jekyll thì làm sao làm đc :(
+15:38:47 <boss14420> Nếu cần thì mở SSH để người khác cài hộ cho cũng được
+15:39:14 <Francisco_> :) sr, giai đoạn vừa rồi đi làm linh tinh nên chưa nhảy vào được. Cái đầu việc của mình chắc tầm này bắt đầu cần thiết nên mới làm tiếp
+15:39:30 <Francisco_> OK
+15:39:48 <Chien> Francisco_, đang bị khó vs linux à?
+15:41:10 <Francisco_> ah không
+15:41:18 <Francisco_> giờ mới quay sang linux
+15:41:27 <Francisco_> trước làm trên win :(
+15:41:50 <Francisco_> có gì khó khăn sẽ hỏi anh em
+15:42:05 <Chien> ok, thế thì cứ làm dân đi, tập trung thì chủ nhật là có báo cáo sơ bộ thôi :)
+15:43:38 <heroandtn3> mỗi ngày dành chút thời gian chứ
+15:43:50 <heroandtn3> tớ hè này cũng đi thực tập mà
+15:44:56 <heroandtn3> Francisco_: CN này xong vụ Jekyll nhé
+15:45:12 <heroandtn3> cài đặt thế nào thì post ngay lên group để mọi người trợ giúp nhé
+15:45:18 <heroandtn3> cậu dùng Ubuntu đúng o?
+15:45:19 <Francisco_> ok
+15:45:25 <Francisco_> uhm
+15:45:31 <heroandtn3> ok, thế thì đơn giản
+15:45:34 <heroandtn3> 1 tối là xong
+15:47:37 <heroandtn3> #agreed CN này Sơn lo xong vụ Jekyll để tập trung triển khai tiếp
+15:48:12 <Chien> ok
+15:49:17 <heroandtn3> end meeting đi boss14420
+15:49:22 <heroandtn3> thế nhé,
+15:49:23 <heroandtn3> à
+15:49:25 <boss14420> #endmeeting

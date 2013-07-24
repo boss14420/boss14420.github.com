@@ -1,0 +1,396 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<title>#hubk log</title>
+<style type="text/css">
+/* For the .log.html */
+pre { /*line-height: 125%;*/
+      white-space: pre-wrap; }
+body { background: #f0f0f0; }
+
+body .tm  { color: #007020 }                      /* time */
+body .nk  { color: #062873; font-weight: bold }   /* nick, regular */
+body .nka { color: #007020; font-weight: bold }  /* action nick */
+body .ac  { color: #00A000 }                      /* action line */
+body .hi  { color: #4070a0 }                 /* hilights */
+/* Things to make particular MeetBot commands stick out */
+body .topic     { color: #007020; font-weight: bold }
+body .topicline { color: #000080; font-weight: bold }
+body .cmd       { color: #007020; font-weight: bold }
+body .cmdline  { font-weight: bold }
+
+</style>
+</head>
+
+<body>
+<pre><a name="l-1"></a><span class="tm">14:19:40</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#startmeeting</span><span class="cmdline"></span>
+<a name="l-2"></a><span class="tm">14:19:40</span><span class="nk"> &lt;hubkbot&gt;</span> Meeting started Wed Jul 24 14:19:40 2013 UTC.  The chair is boss14420. Information about MeetBot at http://wiki.debian.org/MeetBot.
+<a name="l-3"></a><span class="tm">14:19:40</span><span class="nk"> &lt;hubkbot&gt;</span> Useful Commands: #action #agreed #help #info #idea #link #topic.
+<a name="l-4"></a><span class="tm">14:19:50</span><span class="nk"> &lt;boss14420&gt;</span> ai báo cáo trước ?
+<a name="l-5"></a><span class="tm">14:19:58</span><span class="nk"> &lt;Chien&gt;</span> boss14420,  vửa bảo thủ tục gì thế?
+<a name="l-6"></a><span class="tm">14:20:04</span><span class="nk"> &lt;Chien&gt;</span> nói về cái ấy đi
+<a name="l-7"></a><span class="tm">14:20:13</span><span class="nk"> &lt;boss14420&gt;</span> thủ tục bắt đầu cuộc họp thôi
+<a name="l-8"></a><span class="tm">14:20:18</span><span class="nk"> &lt;heroandtn3&gt;</span> Chien đi
+<a name="l-9"></a><span class="tm">14:20:43</span><span class="nk"> &lt;Chien&gt;</span> uh, ok
+<a name="l-10"></a><span class="tm">14:20:49</span><span class="nk"> &lt;Chien&gt;</span> phần thiết kế của t như vậy
+<a name="l-11"></a><span class="tm">14:20:59</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#chair </span><span class="cmdline">Chien heroandtn3</span>
+<a name="l-12"></a><span class="tm">14:20:59</span><span class="nk"> &lt;hubkbot&gt;</span> Current chairs: Chien boss14420 heroandtn3
+<a name="l-13"></a><span class="tm">14:21:09</span><span class="nk"> &lt;Chien&gt;</span> đến cuối tuần là hoàn chỉnh hẳn, t sẽ bổ sung cho chi tiết
+<a name="l-14"></a><span class="tm">14:21:26</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ hỏi nhé
+<a name="l-15"></a><span class="tm">14:21:29</span><span class="nk"> &lt;heroandtn3&gt;</span> câu hỏi như ở trên
+<a name="l-16"></a><span class="tm">14:21:31</span><span class="nk"> &lt;Chien&gt;</span> uh, c cứ hỏi :)
+<a name="l-17"></a><span class="tm">14:21:31</span><span class="nk"> &lt;boss14420&gt;</span> <span class="topic">#topic </span><span class="topicline">thông báo về module bình luận</span>
+<a name="l-18"></a><span class="tm">14:21:44</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#info </span><span class="cmdline">đến cuối tuần là hoàn chỉnh hẳn thiết kế</span>
+<a name="l-19"></a><span class="tm">14:21:45</span><span class="nk"> &lt;heroandtn3&gt;</span> giả sử tớ muốn hiển thị lên toàn bộ comment của 1 post thì gọi hàm nào
+<a name="l-20"></a><span class="tm">14:22:02</span><span class="nk"> &lt;Chien&gt;</span> uh, nếu muốn lấy tất cả các bình luận thì gọi hàm thread_listPosts
+<a name="l-21"></a><span class="tm">14:22:25</span><span class="nk"> &lt;Chien&gt;</span> nó sẽ trả về 1list gồm các bình luận đi kèm vs post ấy
+<a name="l-22"></a><span class="tm">14:22:29</span><span class="nk"> &lt;boss14420&gt;</span> sao lại trả về string ?
+<a name="l-23"></a><span class="tm">14:22:38</span><span class="nk"> &lt;boss14420&gt;</span> trong wiki ghi vậy
+<a name="l-24"></a><span class="tm">14:22:46</span><span class="nk"> &lt;heroandtn3&gt;</span> cùng câu hỏi với boss14420
+<a name="l-25"></a><span class="tm">14:22:51</span><span class="nk"> &lt;Chien&gt;</span> tất cả các hàm của disqus API đều trả về string
+<a name="l-26"></a><span class="tm">14:23:11</span><span class="nk"> &lt;boss14420&gt;</span> Phải trả về list of string mới đúng chứ ?
+<a name="l-27"></a><span class="tm">14:23:15</span><span class="nk"> &lt;heroandtn3&gt;</span> thêm 1 câu là: sao không gọi là comment mà lại gọi là post
+<a name="l-28"></a><span class="tm">14:23:30</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> có thể là string dạng JSON hoặc XML
+<a name="l-29"></a><span class="tm">14:23:40</span><span class="nk"> &lt;Chien&gt;</span> boss14420, đấy gọi là string cũng đc mà?
+<a name="l-30"></a><span class="tm">14:23:56</span><span class="nk"> &lt;Chien&gt;</span> heroandtn3, ở đây quản lí bình luận nên sẽ coi bình luận chính là các posts
+<a name="l-31"></a><span class="tm">14:23:57</span><span class="nk"> &lt;heroandtn3&gt;</span> Chien string đó ở dạng gì?
+<a name="l-32"></a><span class="tm">14:24:31</span><span class="nk"> &lt;heroandtn3&gt;</span> ok, nhưng để đồng bộ hơn thì tớ nghĩ nên coi thread là post còn post là comment
+<a name="l-33"></a><span class="tm">14:24:40</span><span class="nk"> &lt;Chien&gt;</span> tuỳ vào hàm, nếu là hàm dạng get_list... thì sẽ cho ra string list như boss14420  nói
+<a name="l-34"></a><span class="tm">14:24:41</span><span class="nk"> &lt;heroandtn3&gt;</span> vì ở Jekyll coi post là post mà
+<a name="l-35"></a><span class="tm">14:25:02</span><span class="nk"> &lt;heroandtn3&gt;</span> đang nói hàm thread_listPosts cơ
+<a name="l-36"></a><span class="tm">14:25:09</span><span class="nk"> &lt;Chien&gt;</span> còn là hàm get_num... hay update thì sẽ là str bình thường
+<a name="l-37"></a><span class="tm">14:25:13</span><span class="nk"> &lt;boss14420&gt;</span> Nếu thông tin về comment đơn giản thì giá trị trả về nên là list of tuple,
+<a name="l-38"></a><span class="tm">14:25:20</span><span class="nk"> &lt;boss14420&gt;</span> với tuple này chứa thông tin về comment
+<a name="l-39"></a><span class="tm">14:25:26</span><span class="nk"> &lt;boss14420&gt;</span> gồm nội dung, người post, ...
+<a name="l-40"></a><span class="tm">14:25:38</span><span class="nk"> &lt;Chien&gt;</span> cái mà coi cmt là thread thì ok, t sẽ chỉnh lại để cho đồng bộ vs jeyll
+<a name="l-41"></a><span class="tm">14:25:47</span><span class="nk"> &lt;Chien&gt;</span> jekyll
+<a name="l-42"></a><span class="tm">14:26:10</span><span class="nk"> &lt;heroandtn3&gt;</span> ở đây mình thiết kế hướng đối tượng
+<a name="l-43"></a><span class="tm">14:26:47</span><span class="nk"> &lt;heroandtn3&gt;</span> nên tớ nghĩ nên trả về 1 list các đối tượng comment
+<a name="l-44"></a><span class="tm">14:27:11</span><span class="nk"> &lt;Chien&gt;</span> à
+<a name="l-45"></a><span class="tm">14:27:11</span><span class="nk"> &lt;heroandtn3&gt;</span> trong đối tượng comment chỉ cần thông tin tác giả, nội dung, thời gian
+<a name="l-46"></a><span class="tm">14:27:24</span><span class="nk"> &lt;heroandtn3&gt;</span> API của disqus trả về cái gì thì các module khác không quan tâm
+<a name="l-47"></a><span class="tm">14:27:24</span><span class="nk"> &lt;Chien&gt;</span> tất cả các hàm liên quan đến forum, thread, post đều là trả về đối tượng cmt đó heroandtn3
+<a name="l-48"></a><span class="tm">14:27:24</span><span class="nk"> &lt;boss14420&gt;</span> Nhiều lúc đối tượng không phải hay
+<a name="l-49"></a><span class="tm">14:27:27</span><span class="nk"> &lt;boss14420&gt;</span> nhất là khi nó không có phương thức
+<a name="l-50"></a><span class="tm">14:27:38</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> sao cậu ghi là trả về String?
+<a name="l-51"></a><span class="tm">14:27:59</span><span class="nk"> &lt;boss14420&gt;</span> thì không nên tạo một lớp mới mất công
+<a name="l-52"></a><span class="tm">14:28:06</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> vậy thì lưu như thế nào?
+<a name="l-53"></a><span class="tm">14:28:06</span><span class="nk"> &lt;Chien&gt;</span> heroandtn3, vì các hàm đó đều qua chuyển đổi dạng: str(object) sang string
+<a name="l-54"></a><span class="tm">14:28:15</span><span class="nk"> &lt;boss14420&gt;</span> dạng tuple
+<a name="l-55"></a><span class="tm">14:28:26</span><span class="nk"> &lt;boss14420&gt;</span> vì dụ, trả về ;à
+<a name="l-56"></a><span class="tm">14:28:27</span><span class="nk"> &lt;boss14420&gt;</span> là
+<a name="l-57"></a><span class="tm">14:28:57</span><span class="nk"> &lt;boss14420&gt;</span> [ ('user1', date1, 'comment 1'), ('user2', date2, 'comment2') ư
+<a name="l-58"></a><span class="tm">14:28:59</span><span class="nk"> &lt;boss14420&gt;</span> ]
+<a name="l-59"></a><span class="tm">14:29:17</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> ví nếu tớ muốn in ra thông tin các comment bao gồm tác giả, nội dung, thời gian thì tớ phải xử lí thế nào với string trả về?
+<a name="l-60"></a><span class="tm">14:29:24</span><span class="nk"> &lt;Chien&gt;</span> có 1 khác để gọi thông tin tác giả heroandtn3  ạ
+<a name="l-61"></a><span class="tm">14:29:28</span><span class="nk"> &lt;Chien&gt;</span> có 1 hàm khác
+<a name="l-62"></a><span class="tm">14:29:45</span><span class="nk"> &lt;Chien&gt;</span> là get_user_name
+<a name="l-63"></a><span class="tm">14:30:03</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">Chien:</span> Những công việc xử lý string nên thực hiện ở bên trong
+<a name="l-64"></a><span class="tm">14:30:19</span><span class="nk"> &lt;boss14420&gt;</span> còn khi giao tiếp với cac module khác thì nên để kiểu dễ thao tác nhất
+<a name="l-65"></a><span class="tm">14:30:19</span><span class="nk"> &lt;Chien&gt;</span> thời gian và nội dung sẽ có hàm get_thread_detail
+<a name="l-66"></a><span class="tm">14:30:59</span><span class="nk"> &lt;Chien&gt;</span> boss14420, t nghĩ càng chi tiết thì việc code cho các module khác sẽ dễ dàng hơn
+<a name="l-67"></a><span class="tm">14:31:35</span><span class="nk"> &lt;Chien&gt;</span> ví dụ khi quản lí thì chỉ quan tâm đến thông tin nào ta sẽ lấy thông tin đó thay vì cứ phải lấy toàn bộ
+<a name="l-68"></a><span class="tm">14:31:45</span><span class="nk"> &lt;Chien&gt;</span> disqus cung cấp hàm khá cụ thể
+<a name="l-69"></a><span class="tm">14:32:02</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> như vậy sau này có mở rộng hoặc thay đổi thì rất khó
+<a name="l-70"></a><span class="tm">14:32:16</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">Chien:</span> hậu quả trước mắt của cách này là để lấy thông tin cần thiết thì phải gọi đến 2 hàm
+<a name="l-71"></a><span class="tm">14:32:28</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">heroandtn3:</span> khó ntn ?
+<a name="l-72"></a><span class="tm">14:32:35</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> hơn nữa khó hình dung thiết kế chương trình, nếu có đối tượng comment thì ta biết ngay nó là comment
+<a name="l-73"></a><span class="tm">14:32:52</span><span class="nk"> &lt;Chien&gt;</span> uh, về 1 cmt thì sẽ có nhiều hàm để xử lí heroandtn3  ạ
+<a name="l-74"></a><span class="tm">14:32:52</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> ví dụ ta thêm thuộc tính? hoặc thêm method vào comment?
+<a name="l-75"></a><span class="tm">14:33:03</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> tớ ko hiểu í cậu lắm
+<a name="l-76"></a><span class="tm">14:33:07</span><span class="nk"> &lt;Chien&gt;</span> nếu như muốn gộp vào thành 1 gói thông tin kiểu người dùng hay quan tâm thì ko khó, nhưng t nghĩ cacngf cụ thể cảng tốt
+<a name="l-77"></a><span class="tm">14:33:31</span><span class="nk"> &lt;heroandtn3&gt;</span> thế cái String trả về ở thread_listPosts chứa thông tin gì?
+<a name="l-78"></a><span class="tm">14:33:51</span><span class="nk"> &lt;Chien&gt;</span> heroandtn3, ví dụ như vừa rồi c muốn xem nội dung, thơif gian, tác gỉa chẳng hạn thì c phải gọi 2 hàm
+<a name="l-79"></a><span class="tm">14:33:52</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">heroandtn3:</span> thì mới nói là nếu đơn giản thì không cần tạo lớp
+<a name="l-80"></a><span class="tm">14:34:16</span><span class="nk"> &lt;Chien&gt;</span> còn cái trẻ về mà c hỏi thì sẽ trả về toàn bộ các cmt đi kèm với bài post (ở đây là thread) đó
+<a name="l-81"></a><span class="tm">14:34:17</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">heroandtn3:</span> cách của Chien là mọi thứ đề trả về string chưa thông tin cần thiết.
+<a name="l-82"></a><span class="tm">14:34:24</span><span class="nk"> &lt;boss14420&gt;</span> Nhưng thông tin này chưa được xử lý
+<a name="l-83"></a><span class="tm">14:34:36</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#info </span><span class="cmdline">Vấn đề lấy comment từ 1 post thì nên trả về cái gì</span>
+<a name="l-84"></a><span class="tm">14:34:40</span><span class="nk"> &lt;Chien&gt;</span> boss14420, ý c là phải xử lí sao?
+<a name="l-85"></a><span class="tm">14:34:46</span><span class="nk"> &lt;boss14420&gt;</span> muốn thông tin chi tiết hơn thì phải gọi hàm khác để trích nó ra
+<a name="l-86"></a><span class="tm">14:35:15</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">VD:</span> hàm get_listPost() trả về một string tổng hợp các post
+<a name="l-87"></a><span class="tm">14:35:25</span><span class="nk"> &lt;Chien&gt;</span> t nghĩ như vậy thì tiện cho việc gọi, xử lí, tìm kiếm hơn
+<a name="l-88"></a><span class="tm">14:35:27</span><span class="nk"> &lt;boss14420&gt;</span> muốn trích ra từng post thì phải gọi hàm khác
+<a name="l-89"></a><span class="tm">14:35:36</span><span class="nk"> &lt;Chien&gt;</span> uh, đúng vậy
+<a name="l-90"></a><span class="tm">14:35:36</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> thế thì quá xa rời OOP, hơn nữa vì cái đơn giản mà sau này chương trình khó mở rộng hoặc khó bảo trì
+<a name="l-91"></a><span class="tm">14:35:59</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span>  cậu càng nói càng rối
+<a name="l-92"></a><span class="tm">14:36:16</span><span class="nk"> &lt;heroandtn3&gt;</span> thread_listPosts và get_listPost() thì cái nào trả về comment???
+<a name="l-93"></a><span class="tm">14:36:52</span><span class="nk"> &lt;Chien&gt;</span> cả 2 chỉ là thống kê, 1 cái trả về toàn bộ comment hiện có, 1 cái trả về cmt đi kèm vs 1 bài viết
+<a name="l-94"></a><span class="tm">14:37:24</span><span class="nk"> &lt;Chien&gt;</span> còn muốn xem nội dung các cmt c phải gọi get_threadDetail
+<a name="l-95"></a><span class="tm">14:37:45</span><span class="nk"> &lt;Chien&gt;</span> heroandtn3, ý c là sẽ gộp các  thuộc tính vào 1 đối tượng cmt
+<a name="l-96"></a><span class="tm">14:37:52</span><span class="nk"> &lt;Chien&gt;</span> và bài post à?
+<a name="l-97"></a><span class="tm">14:38:04</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">Chien:</span> nên làm 2 nhóm các hàm
+<a name="l-98"></a><span class="tm">14:38:11</span><span class="nk"> &lt;boss14420&gt;</span> một nhóm là trả về string như trong thiết kế
+<a name="l-99"></a><span class="tm">14:38:21</span><span class="nk"> &lt;boss14420&gt;</span> để dành cho sử dụng nâng cao
+<a name="l-100"></a><span class="tm">14:38:40</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> đúng, gộp tất cả vào 1 đối tượng và trả về
+<a name="l-101"></a><span class="tm">14:38:42</span><span class="nk"> &lt;Chien&gt;</span> còn nhóm kia là trả về 1 list str cho 1 đối tượng
+<a name="l-102"></a><span class="tm">14:38:44</span><span class="nk"> &lt;Chien&gt;</span> ?
+<a name="l-103"></a><span class="tm">14:38:46</span><span class="nk"> &lt;boss14420&gt;</span> còn một nhóm là trả về đối tượng, tất nhiên là nhóm này sẽ sử dụng lại code của nhóm kia
+<a name="l-104"></a><span class="tm">14:38:50</span><span class="nk"> &lt;heroandtn3&gt;</span> làm như cậu rất rối
+<a name="l-105"></a><span class="tm">14:39:05</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> chỉ có 1 nhóm thôi, đó là nhóm trả về đối tượng
+<a name="l-106"></a><span class="tm">14:39:06</span><span class="nk"> &lt;Chien&gt;</span> uh, vậy cũng đc, gộp code là xong thôi mà
+<a name="l-107"></a><span class="tm">14:39:25</span><span class="nk"> &lt;heroandtn3&gt;</span> nhóm trả về string là ở mức độ xử lí thấp, cái đó mình ko quan tâm
+<a name="l-108"></a><span class="tm">14:39:35</span><span class="nk"> &lt;Chien&gt;</span> heroandtn3, nếu chỉ trả về như vậy thì có quá đơn giản?
+<a name="l-109"></a><span class="tm">14:39:43</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">heroandtn3:</span> đó là xử lý bên trong, cái này tùy người cài đặt
+<a name="l-110"></a><span class="tm">14:40:13</span><span class="nk"> &lt;Chien&gt;</span> theo t thì có 2 nhóm sẽ hợp lí hơn là 1 nhóm
+<a name="l-111"></a><span class="tm">14:40:27</span><span class="nk"> &lt;Chien&gt;</span> để tiện cho ng dùng cũng như ng làm module khác khi cần
+<a name="l-112"></a><span class="tm">14:41:13</span><span class="nk"> &lt;Chien&gt;</span> vẫn sẽ gộp
+<a name="l-113"></a><span class="tm">14:41:33</span><span class="nk"> &lt;Chien&gt;</span> còn nếu chia nhỏ mà làm khó ng khác thì bỏ kiểu chia nhỏ, ko vấn đề gì
+<a name="l-114"></a><span class="tm">14:41:41</span><span class="nk"> &lt;boss14420&gt;</span> Nói chung tùy, miễn là có các hàm trả về đối tượng là được
+<a name="l-115"></a><span class="tm">14:41:45</span><span class="nk"> &lt;Chien&gt;</span> bây giờ chỉ cần các c lắp vào của các c xemsao?
+<a name="l-116"></a><span class="tm">14:41:59</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> các module khác chỉ cần các hàm ở mức trừu tượng cao
+<a name="l-117"></a><span class="tm">14:42:20</span><span class="nk"> &lt;heroandtn3&gt;</span> nó sẽ sử dụng các hàm xử lí ở mức thấp của API
+<a name="l-118"></a><span class="tm">14:42:28</span><span class="nk"> &lt;Chien&gt;</span> nếu vậy thì sẽ gộp chung các thuộc tính vào 1 đối tượng, nhất trí chứ?!
+<a name="l-119"></a><span class="tm">14:42:42</span><span class="nk"> &lt;heroandtn3&gt;</span> tất nhiên rồi
+<a name="l-120"></a><span class="tm">14:42:53</span><span class="nk"> &lt;heroandtn3&gt;</span> đó mới là lập trình hướng đối tượng chứ
+<a name="l-121"></a><span class="tm">14:42:59</span><span class="nk"> &lt;Chien&gt;</span> uh, và chỉ 1 nhóm này thôi
+<a name="l-122"></a><span class="tm">14:43:08</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ tớ cần lấy toàn bộ comment của post thì tớ gọi hàm
+<a name="l-123"></a><span class="tm">14:43:10</span><span class="nk"> &lt;Chien&gt;</span> ko làm 2 nhóm như boss14420  bảo
+<a name="l-124"></a><span class="tm">14:43:14</span><span class="nk"> &lt;heroandtn3&gt;</span> get_comments()
+<a name="l-125"></a><span class="tm">14:43:32</span><span class="nk"> &lt;heroandtn3&gt;</span> làm 2 nhóm như boss14420 thì tớ ko hiểu nhóm trả về String sẽ sử dụng để làm gì
+<a name="l-126"></a><span class="tm">14:43:41</span><span class="nk"> &lt;Chien&gt;</span> uh, t hiểu, ban đầu t muốn chi tiết thì dễ code, dễ xử lí thôi mà
+<a name="l-127"></a><span class="tm">14:43:46</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-128"></a><span class="tm">14:43:56</span><span class="nk"> &lt;Chien&gt;</span> vậy làm cái agreed đi :D
+<a name="l-129"></a><span class="tm">14:44:08</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> đấy ko phải chi tiết mà là các hàm xử lí mức thấp
+<a name="l-130"></a><span class="tm">14:44:25</span><span class="nk"> &lt;heroandtn3&gt;</span> vì nó ở mức quá thấp nên ng khác khó hiểu
+<a name="l-131"></a><span class="tm">14:44:28</span><span class="nk"> &lt;Chien&gt;</span> có gì khác nhau ở đây?!
+<a name="l-132"></a><span class="tm">14:44:33</span><span class="nk"> &lt;heroandtn3&gt;</span> và khó xử dụng
+<a name="l-133"></a><span class="tm">14:44:35</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ
+<a name="l-134"></a><span class="tm">14:45:15</span><span class="nk"> &lt;heroandtn3&gt;</span> cậu muốn uống nước mía nhưng ko biết làm thế nào
+<a name="l-135"></a><span class="tm">14:45:26</span><span class="nk"> &lt;heroandtn3&gt;</span> cậu hỏi tớ thì tớ trả lời như sau:
+<a name="l-136"></a><span class="tm">14:45:48</span><span class="nk"> &lt;heroandtn3&gt;</span> Trừu tượng: cậu ra quán bảo người ta bán cho
+<a name="l-137"></a><span class="tm">14:46:20</span><span class="nk"> &lt;heroandtn3&gt;</span> Cụ thể: cậu mua mía, rồi quay mía thành nước, đổi vào túi, đổ đá vào
+<a name="l-138"></a><span class="tm">14:46:47</span><span class="nk"> &lt;Chien&gt;</span> cụ thể là mức thấp đấy à? :P
+<a name="l-139"></a><span class="tm">14:46:47</span><span class="nk"> &lt;heroandtn3&gt;</span> cái trừu tượng nó đơn giản, dễ hiểu và thực hiện hơn đúng ko
+<a name="l-140"></a><span class="tm">14:46:54</span><span class="nk"> &lt;heroandtn3&gt;</span> đúng rồi
+<a name="l-141"></a><span class="tm">14:46:58</span><span class="nk"> &lt;heroandtn3&gt;</span> 1 ví dụ khác
+<a name="l-142"></a><span class="tm">14:47:06</span><span class="nk"> &lt;heroandtn3&gt;</span> giờ cậu muốn ghi 1 file vào ổ cứng
+<a name="l-143"></a><span class="tm">14:47:10</span><span class="nk"> &lt;Chien&gt;</span> uh, ok, ta sẽ cho người dùng nước miá luôn :))
+<a name="l-144"></a><span class="tm">14:47:23</span><span class="nk"> &lt;heroandtn3&gt;</span> gọi hàm write() trong code là xong có phải nhanh hơn ko?
+<a name="l-145"></a><span class="tm">14:47:34</span><span class="nk"> &lt;Chien&gt;</span> à, uh, tất nhiền!
+<a name="l-146"></a><span class="tm">14:47:40</span><span class="nk"> &lt;heroandtn3&gt;</span> hay là cậu phải viết các hàm xử lí mức thấp liên quan đến block, sector, cluster các kiểu?
+<a name="l-147"></a><span class="tm">14:47:57</span><span class="nk"> &lt;Chien&gt;</span> ok heroandtn3 , t hiểu rồi :)
+<a name="l-148"></a><span class="tm">14:48:05</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-149"></a><span class="tm">14:48:24</span><span class="nk"> &lt;heroandtn3&gt;</span> còn vấn đề comment là class riêng thì boss14420 có ý kiến gì ko?
+<a name="l-150"></a><span class="tm">14:48:43</span><span class="nk"> &lt;boss14420&gt;</span> Đang nghĩ
+<a name="l-151"></a><span class="tm">14:48:46</span><span class="nk"> &lt;Chien&gt;</span> <span class="cmd">#agreed </span><span class="cmdline">Viết lại module bình luận càng hướng đối tượng càng tốt</span>
+<a name="l-152"></a><span class="tm">14:49:13</span><span class="nk"> &lt;boss14420&gt;</span> Thôi cứ để class cũng được
+<a name="l-153"></a><span class="tm">14:49:16</span><span class="nk"> &lt;Chien&gt;</span> t ko nghĩ là nó có vấn đề gì
+<a name="l-154"></a><span class="tm">14:49:18</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-155"></a><span class="tm">14:49:29</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> cậu đã học lập trình hướng đối tượng chưa?
+<a name="l-156"></a><span class="tm">14:49:34</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> ok
+<a name="l-157"></a><span class="tm">14:49:48</span><span class="nk"> &lt;Chien&gt;</span> heroandtn3, t học thẳng java, ko học môn lập trình hướng đối tượng
+<a name="l-158"></a><span class="tm">14:49:51</span><span class="nk"> &lt;boss14420&gt;</span> nhưng mà vấn đề là với class thì sau này viết code dài dòng hơn
+<a name="l-159"></a><span class="tm">14:50:01</span><span class="nk"> &lt;Chien&gt;</span> nhưng học trong java t nghĩ là đã biết nó rồi :)
+<a name="l-160"></a><span class="tm">14:50:03</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> dài là bản chất của OOP mà
+<a name="l-161"></a><span class="tm">14:50:05</span><span class="nk"> &lt;boss14420&gt;</span> không đúng kiểu python lắm
+<a name="l-162"></a><span class="tm">14:50:12</span><span class="nk"> &lt;boss14420&gt;</span> VD
+<a name="l-163"></a><span class="tm">14:50:21</span><span class="nk"> &lt;boss14420&gt;</span> muốn lặp qua các comment
+<a name="l-164"></a><span class="tm">14:50:26</span><span class="nk"> &lt;boss14420&gt;</span> nếu là class thì phải
+<a name="l-165"></a><span class="tm">14:50:54</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> đối tượng bao gồm các thuộc tính và phương thức
+<a name="l-166"></a><span class="tm">14:51:07</span><span class="nk"> &lt;boss14420&gt;</span> for cmt in comments:
+<a name="l-167"></a><span class="tm">14:51:08</span><span class="nk"> &lt;boss14420&gt;</span> author = cmt.author
+<a name="l-168"></a><span class="tm">14:51:08</span><span class="nk"> &lt;boss14420&gt;</span> date = cmt.date
+<a name="l-169"></a><span class="tm">14:51:08</span><span class="nk"> &lt;boss14420&gt;</span> content = cmt.content
+<a name="l-170"></a><span class="tm">14:51:08</span><span class="nk"> &lt;boss14420&gt;</span> ...
+<a name="l-171"></a><span class="tm">14:51:19</span><span class="nk"> &lt;boss14420&gt;</span> Còn nếu là tuple thi chỉ cần:
+<a name="l-172"></a><span class="tm">14:51:20</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ đối tượng người có các thuộc tính: màu da, cân nặng, màu tóc,...
+<a name="l-173"></a><span class="tm">14:51:21</span><span class="nk"> &lt;Chien&gt;</span> uh, phương thức chính là các hàm đúng ko heroandtn3
+<a name="l-174"></a><span class="tm">14:51:31</span><span class="nk"> &lt;heroandtn3&gt;</span> các phương thức: đi, nhảy, chạy, bơi,...
+<a name="l-175"></a><span class="tm">14:51:43</span><span class="nk"> &lt;boss14420&gt;</span> for author, date, content in comments:
+<a name="l-176"></a><span class="tm">14:51:43</span><span class="nk"> &lt;boss14420&gt;</span> ...
+<a name="l-177"></a><span class="tm">14:51:59</span><span class="nk"> &lt;boss14420&gt;</span> không những ngắn hơn mà thực hiện nhanh hơn
+<a name="l-178"></a><span class="tm">14:52:03</span><span class="nk"> &lt;heroandtn3&gt;</span> cậu để í sẽ thấy là tất cả các thứ mình cần ở người đều có trong 1 đối tượng. do vậy truy xuất dễ dàng
+<a name="l-179"></a><span class="tm">14:52:11</span><span class="nk"> &lt;Chien&gt;</span> t ko hiểu về dạng tuple của boss14420  nói lắm, nhưng nếu nó ưu việt hơn thì t sẽ thử
+<a name="l-180"></a><span class="tm">14:52:36</span><span class="nk"> &lt;Chien&gt;</span> heroandtn3, ok, t hiểu r mà, học Kỹ thuật LT vs Java thì cũng có nói đến cả rồi :)
+<a name="l-181"></a><span class="tm">14:52:37</span><span class="nk"> &lt;boss14420&gt;</span> nếu chỉ có 2, 3 thuộc tính, không có phương thức thì nên dùng tuple
+<a name="l-182"></a><span class="tm">14:53:04</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> thế nếu sau này có thêm thuộc tính vote thì có phải sửa lại code ko?
+<a name="l-183"></a><span class="tm">14:53:29</span><span class="nk"> &lt;Chien&gt;</span> vote có sẵn trong api, nếu cần t sẽ thêm :D
+<a name="l-184"></a><span class="tm">14:53:57</span><span class="nk"> &lt;boss14420&gt;</span> vd thể thôi
+<a name="l-185"></a><span class="tm">14:54:00</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> đấy là ở mức thấp, cậu code thế nào cũng đc
+<a name="l-186"></a><span class="tm">14:54:12</span><span class="nk"> &lt;boss14420&gt;</span> còn cụ thể ntn thì còn phải xem kỹ
+<a name="l-187"></a><span class="tm">14:54:36</span><span class="nk"> &lt;Chien&gt;</span> uh, chỉ cần trả lại đối tượng là ok chứ heroandtn3
+<a name="l-188"></a><span class="tm">14:54:56</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> ví dụ nhưng nó cho thấy là nảy sinh nhiều vấn đề nếu ta mở rộng hoặc thay đổi
+<a name="l-189"></a><span class="tm">14:55:26</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">heroandtn3:</span> Nếu mà OOP thật kỹ thì người ta thường chia ra làm nhiều lớp
+<a name="l-190"></a><span class="tm">14:55:30</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> đúng, như ý tớ là tớ chỉ quan tâm đến việc module của cậu có hàm get_comments() nó trả về 1 list các đối tượng comment
+<a name="l-191"></a><span class="tm">14:55:45</span><span class="nk"> &lt;boss14420&gt;</span> VD như lớp Comment thì nó không chứa hết vậy
+<a name="l-192"></a><span class="tm">14:55:53</span><span class="nk"> &lt;boss14420&gt;</span> mà có 1 thuộc tính là comment info
+<a name="l-193"></a><span class="tm">14:55:59</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> còn nó hoạt động thế nào, dùng API của facebook hay disqus tớ ko quan tâm
+<a name="l-194"></a><span class="tm">14:55:59</span><span class="nk"> &lt;Chien&gt;</span> ok rồi, t sẽ xem cái tuple ấy thế nào
+<a name="l-195"></a><span class="tm">14:56:03</span><span class="nk"> &lt;boss14420&gt;</span> rồi một đống phương thức
+<a name="l-196"></a><span class="tm">14:56:24</span><span class="nk"> &lt;boss14420&gt;</span> cái thuộc tính comment_info đó có thể là một đối tượng lớp khác hoặc 1 tuple
+<a name="l-197"></a><span class="tm">14:56:45</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> đúng rồi, trong trường hợp phức tạp thì ng ta sẽ làm vậy
+<a name="l-198"></a><span class="tm">14:56:56</span><span class="nk"> &lt;heroandtn3&gt;</span> như ở đây đơn giản thì ta tống hết vào
+<a name="l-199"></a><span class="tm">14:57:01</span><span class="nk"> &lt;heroandtn3&gt;</span> 1 object là đc
+<a name="l-200"></a><span class="tm">14:57:02</span><span class="nk"> &lt;Chien&gt;</span> t ko nghĩ là đối tượng cmt lớn nthe
+<a name="l-201"></a><span class="tm">14:57:06</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-202"></a><span class="tm">14:57:39</span><span class="nk"> &lt;Chien&gt;</span> còn thắc mắc gì nữa ko nào?
+<a name="l-203"></a><span class="tm">14:57:43</span><span class="nk"> &lt;Chien&gt;</span> để chuyển :)
+<a name="l-204"></a><span class="tm">14:57:52</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#agreed </span><span class="cmdline">Đưa hết các thuộc tính vào 1 classs Comment</span>
+<a name="l-205"></a><span class="tm">14:57:55</span><span class="nk"> &lt;boss14420&gt;</span> thôi, vậy là được
+<a name="l-206"></a><span class="tm">14:58:02</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-207"></a><span class="tm">14:58:06</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> còn 1 vấn đề nữa mà hôm trước bàn dở
+<a name="l-208"></a><span class="tm">14:58:14</span><span class="nk"> &lt;Chien&gt;</span> GUI à?!
+<a name="l-209"></a><span class="tm">14:58:35</span><span class="nk"> &lt;heroandtn3&gt;</span> hàm get_comments() phải truyền vào tham số nào đó để xác định chính xác post cần lấy comment
+<a name="l-210"></a><span class="tm">14:58:51</span><span class="nk"> &lt;heroandtn3&gt;</span> hôm trước có nói là dùng URL của post đúng ko?
+<a name="l-211"></a><span class="tm">14:59:05</span><span class="nk"> &lt;Chien&gt;</span> à, c có thể thấy hàm get_Thread_by_url ở trong thiết kế
+<a name="l-212"></a><span class="tm">14:59:11</span><span class="nk"> &lt;Chien&gt;</span> đúng rồi
+<a name="l-213"></a><span class="tm">14:59:43</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-214"></a><span class="tm">14:59:48</span><span class="nk"> &lt;heroandtn3&gt;</span> vậy thì cậu phải ghi rõ
+<a name="l-215"></a><span class="tm">14:59:59</span><span class="nk"> &lt;heroandtn3&gt;</span> chứ tớ thấy cậu thiết kế kiểu gì mà chỉ có tên method
+<a name="l-216"></a><span class="tm">15:00:05</span><span class="nk"> &lt;heroandtn3&gt;</span> mà ko có tham số truyền vào
+<a name="l-217"></a><span class="tm">15:00:24</span><span class="nk"> &lt;Chien&gt;</span> à à, uh, t sẽ giải thích rõ ràng từ giờ đến chủ nhật tới :)
+<a name="l-218"></a><span class="tm">15:00:51</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#agreed </span><span class="cmdline">Sử dụng URL của post để xác định post cần lấy comment</span>
+<a name="l-219"></a><span class="tm">15:01:04</span><span class="nk"> &lt;boss14420&gt;</span> Cái này là #info mới đúng
+<a name="l-220"></a><span class="tm">15:01:10</span><span class="nk"> &lt;Chien&gt;</span> ok rồi
+<a name="l-221"></a><span class="tm">15:01:31</span><span class="nk"> &lt;Chien&gt;</span> đều note lại nên ko sao
+<a name="l-222"></a><span class="tm">15:01:33</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> còn 1 vấn đề nữa là cậu chỉ cần thiết kế các phương thức để các module khác dùng, giao tiếp
+<a name="l-223"></a><span class="tm">15:01:44</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> 2 cái đấy khác nhau thế nào nhỉ?
+<a name="l-224"></a><span class="tm">15:01:47</span><span class="nk"> &lt;Chien&gt;</span> dù sao cũng đúng vì còn có get by identifier nữa cơ
+<a name="l-225"></a><span class="tm">15:02:10</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> các method ở mức thấp hơn các module khác ko bao giờ dùng nên cậu ko cần cho vào thiết kế
+<a name="l-226"></a><span class="tm">15:02:44</span><span class="nk"> &lt;heroandtn3&gt;</span> theo tớ thì của cậu chỉ cần có mấy method sau: (nói chung là đơn giản)
+<a name="l-227"></a><span class="tm">15:02:47</span><span class="nk"> &lt;Chien&gt;</span> ok heroandtn3 , vậy là thiết kế chỉ ghi các đối tượng và các thuộc tính (đi kèm với đầu vào) của nó?
+<a name="l-228"></a><span class="tm">15:02:56</span><span class="nk"> &lt;heroandtn3&gt;</span> uh đúng
+<a name="l-229"></a><span class="tm">15:03:23</span><span class="nk"> &lt;heroandtn3&gt;</span> 1. get_comments(url): trả về list các comment của post có URL là url
+<a name="l-230"></a><span class="tm">15:04:05</span><span class="nk"> &lt;heroandtn3&gt;</span> 2. get_all_comments(x): trả về x comments mới nhất
+<a name="l-231"></a><span class="tm">15:05:19</span><span class="nk"> &lt;heroandtn3&gt;</span> đối tượng comment của cậu cũng phải có 1 cái để định danh, tạm gọi là id
+<a name="l-232"></a><span class="tm">15:05:37</span><span class="nk"> &lt;Chien&gt;</span> uh, chuẩn là id đấy :P
+<a name="l-233"></a><span class="tm">15:05:39</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu vậy thì ta có thêm các phương thức sau
+<a name="l-234"></a><span class="tm">15:05:57</span><span class="nk"> &lt;heroandtn3&gt;</span> 3. approve_comment(id): duyệt comment
+<a name="l-235"></a><span class="tm">15:06:09</span><span class="nk"> &lt;heroandtn3&gt;</span> 4. delete_comment(id)
+<a name="l-236"></a><span class="tm">15:06:12</span><span class="nk"> &lt;heroandtn3&gt;</span> xóa comment
+<a name="l-237"></a><span class="tm">15:06:40</span><span class="nk"> &lt;heroandtn3&gt;</span> 5. update_comment(comment): cập nhật comment
+<a name="l-238"></a><span class="tm">15:06:49</span><span class="nk"> &lt;Chien&gt;</span> thêm cái vote nữa nhé :)
+<a name="l-239"></a><span class="tm">15:07:12</span><span class="nk"> &lt;heroandtn3&gt;</span> vote là thuộc tính, nó nằm trong comment rồi
+<a name="l-240"></a><span class="tm">15:07:24</span><span class="nk"> &lt;heroandtn3&gt;</span> giả sử có 1 người vote comment thì ta xử lí như sau
+<a name="l-241"></a><span class="tm">15:07:59</span><span class="nk"> &lt;heroandtn3&gt;</span> comment.id += 1
+<a name="l-242"></a><span class="tm">15:08:07</span><span class="nk"> &lt;heroandtn3&gt;</span> nhầm
+<a name="l-243"></a><span class="tm">15:08:13</span><span class="nk"> &lt;heroandtn3&gt;</span> comment.vte += 1
+<a name="l-244"></a><span class="tm">15:08:15</span><span class="nk"> &lt;heroandtn3&gt;</span> vote
+<a name="l-245"></a><span class="tm">15:08:21</span><span class="nk"> &lt;heroandtn3&gt;</span> sau đó update nó
+<a name="l-246"></a><span class="tm">15:08:28</span><span class="nk"> &lt;heroandtn3&gt;</span> update_comment(comment)
+<a name="l-247"></a><span class="tm">15:08:39</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-248"></a><span class="tm">15:08:50</span><span class="nk"> &lt;heroandtn3&gt;</span> để xác định từng comment
+<a name="l-249"></a><span class="tm">15:08:57</span><span class="nk"> &lt;heroandtn3&gt;</span> nên có thêm:
+<a name="l-250"></a><span class="tm">15:09:07</span><span class="nk"> &lt;heroandtn3&gt;</span> 6. get_comments_by_id(id)
+<a name="l-251"></a><span class="tm">15:09:38</span><span class="nk"> &lt;heroandtn3&gt;</span> trước mắt là như vậy, nếu API của disqus hỗ trợ thêm thì cậu thêm vào nhé
+<a name="l-252"></a><span class="tm">15:09:51</span><span class="nk"> &lt;Chien&gt;</span> ok heroandtn3
+<a name="l-253"></a><span class="tm">15:09:57</span><span class="nk"> &lt;Chien&gt;</span> t nắm đc r
+<a name="l-254"></a><span class="tm">15:10:56</span><span class="nk"> &lt;heroandtn3&gt;</span> ok, vậy cậu cần thiết kế các đối tượng, các phương thức nhé
+<a name="l-255"></a><span class="tm">15:11:01</span><span class="nk"> &lt;Chien&gt;</span> tạm thời có vậy, mọi người tiếp túc phần của mình đi
+<a name="l-256"></a><span class="tm">15:11:04</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-257"></a><span class="tm">15:11:15</span><span class="nk"> &lt;heroandtn3&gt;</span> đối tượng comment chứa các thông tin như tác giả, nội dung, thời gian, vote,...
+<a name="l-258"></a><span class="tm">15:11:37</span><span class="nk"> &lt;heroandtn3&gt;</span> còn các method kia thì tớ nghĩ nên đưa vào 1 class là CommentService
+<a name="l-259"></a><span class="tm">15:11:50</span><span class="nk"> &lt;heroandtn3&gt;</span> vậy thôi
+<a name="l-260"></a><span class="tm">15:12:00</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ nghĩ là đơn giản đấy
+<a name="l-261"></a><span class="tm">15:12:05</span><span class="nk"> &lt;Chien&gt;</span> vậy thôi nhưng cũng vẽ ra đc cái xương ròi
+<a name="l-262"></a><span class="tm">15:12:06</span><span class="nk"> &lt;heroandtn3&gt;</span> cuối tuần xong thiết kế nhé
+<a name="l-263"></a><span class="tm">15:12:11</span><span class="nk"> &lt;Chien&gt;</span> ok heroandtn3
+<a name="l-264"></a><span class="tm">15:12:12</span><span class="nk"> &lt;Chien&gt;</span> :)
+<a name="l-265"></a><span class="tm">15:12:22</span><span class="nk"> &lt;heroandtn3&gt;</span> giờ sang phần của boss14420 nhé
+<a name="l-266"></a><span class="tm">15:12:26</span><span class="nk"> &lt;boss14420&gt;</span> OK
+<a name="l-267"></a><span class="tm">15:12:33</span><span class="nk"> &lt;Chien&gt;</span> ok boss14420  đi
+<a name="l-268"></a><span class="tm">15:12:36</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ thì lẹt đẹt chưa đâu vào đâu
+<a name="l-269"></a><span class="tm">15:12:38</span><span class="nk"> &lt;boss14420&gt;</span> <span class="topic">#topic </span><span class="topicline">Báo cáo về WYS Editor</span>
+<a name="l-270"></a><span class="tm">15:13:03</span><span class="nk"> &lt;boss14420&gt;</span> Chạy thử cái demo thứ 1 trong wiki đi: https://github.com/JeKitProject/MHST2013/wiki/WYSIWYG-editor-d%C3%A0nh-cho-markdown
+<a name="l-271"></a><span class="tm">15:13:47</span><span class="nk"> &lt;boss14420&gt;</span> Mấy ngày qua thì không viết lại thư viện convert html -&gt; md mà "đắp" thêm vào cái cũ cho nó tương thích với kiểu của QTextEdit
+<a name="l-272"></a><span class="tm">15:13:51</span><span class="nk"> &lt;boss14420&gt;</span> cũng có vài lỗi
+<a name="l-273"></a><span class="tm">15:14:05</span><span class="nk"> &lt;boss14420&gt;</span> Nhưng mà tốn nhiều thời gian cho cái này rồi
+<a name="l-274"></a><span class="tm">15:14:18</span><span class="nk"> &lt;boss14420&gt;</span> Từ mai mình sẽ bắt đầu hoàn thiện GUI
+<a name="l-275"></a><span class="tm">15:14:27</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-276"></a><span class="tm">15:14:29</span><span class="nk"> &lt;boss14420&gt;</span> cho giống một cái editor thật
+<a name="l-277"></a><span class="tm">15:14:42</span><span class="nk"> &lt;boss14420&gt;</span> còn xử lý ngôn ngữ thì sửa dần dần
+<a name="l-278"></a><span class="tm">15:14:42</span><span class="nk"> &lt;heroandtn3&gt;</span> Thành làm tốt quá
+<a name="l-279"></a><span class="tm">15:18:02</span><span class="nk"> &lt;boss14420&gt;</span> Về GUI
+<a name="l-280"></a><span class="tm">15:18:17</span><span class="nk"> &lt;boss14420&gt;</span> chạy thừ ví dụ của Qt ntn:
+<a name="l-281"></a><span class="tm">15:19:52</span><span class="nk"> &lt;boss14420&gt;</span> Dành cho ai dùng Linux: /usr/share/doc/qt/examples/widgets/richtext/textedit/
+<a name="l-282"></a><span class="tm">15:20:12</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> có cải tiến gì so với cái trước ko?
+<a name="l-283"></a><span class="tm">15:20:18</span><span class="nk"> &lt;boss14420&gt;</span> biên dịch bằng lệnh sudo qmake &amp;&amp; sudo make
+<a name="l-284"></a><span class="tm">15:20:28</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">heroandtn3:</span> Viết lại cho dễ hiểu hơn
+<a name="l-285"></a><span class="tm">15:20:41</span><span class="nk"> &lt;boss14420&gt;</span> Còn hiểu quả thì chưa thử nhiều
+<a name="l-286"></a><span class="tm">15:21:06</span><span class="nk"> &lt;boss14420&gt;</span> Nhưng ít nhất giờ nó đã hiểu được b, u, code, blockquote, hx
+<a name="l-287"></a><span class="tm">15:21:27</span><span class="nk"> &lt;boss14420&gt;</span> Mở file myhtml2text.py ra mà xem cách làm
+<a name="l-288"></a><span class="tm">15:21:30</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> ví dụ ở text mode viết: abc liền nhau
+<a name="l-289"></a><span class="tm">15:21:45</span><span class="nk"> &lt;heroandtn3&gt;</span> sau đó làm nghiêng chữ c chẳng hạn
+<a name="l-290"></a><span class="tm">15:21:54</span><span class="nk"> &lt;heroandtn3&gt;</span> chuyển sang visual mode thì ko đc
+<a name="l-291"></a><span class="tm">15:22:06</span><span class="nk"> &lt;heroandtn3&gt;</span> làm từ visual mode rồi chuyển sang text mode thì đc
+<a name="l-292"></a><span class="tm">15:22:46</span><span class="nk"> &lt;boss14420&gt;</span> Đây là chế độ mặc đinh của bọn python-markdown (chuyển từ md -&gt; html), sửa lại tí là được
+<a name="l-293"></a><span class="tm">15:23:45</span><span class="nk"> &lt;boss14420&gt;</span> Tắt smart_emphasis là được
+<a name="l-294"></a><span class="tm">15:24:02</span><span class="nk"> &lt;boss14420&gt;</span> Lỗi còn nhiều lắm, vì chưa test nhiều.
+<a name="l-295"></a><span class="tm">15:24:06</span><span class="nk"> &lt;heroandtn3&gt;</span> uh
+<a name="l-296"></a><span class="tm">15:24:12</span><span class="nk"> &lt;boss14420&gt;</span> Nhưng từ sau sẽ vừa làm GUI vừa sửa
+<a name="l-297"></a><span class="tm">15:24:21</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng hướng làm này của cậu có vướng mắc gì ko?
+<a name="l-298"></a><span class="tm">15:24:42</span><span class="nk"> &lt;boss14420&gt;</span> Không
+<a name="l-299"></a><span class="tm">15:24:47</span><span class="nk"> &lt;boss14420&gt;</span> Không nhiều lắm
+<a name="l-300"></a><span class="tm">15:24:57</span><span class="nk"> &lt;Chien&gt;</span> t thấy ổn đấy, vì khó cho ng code thì boss14420  đã làm tốt rồi
+<a name="l-301"></a><span class="tm">15:25:19</span><span class="nk"> &lt;heroandtn3&gt;</span> uh
+<a name="l-302"></a><span class="tm">15:25:26</span><span class="nk"> &lt;heroandtn3&gt;</span> coi như module này của boss14420 ko phải xuy nghĩ gì
+<a name="l-303"></a><span class="tm">15:25:28</span><span class="nk"> &lt;heroandtn3&gt;</span> suy
+<a name="l-304"></a><span class="tm">15:25:31</span><span class="nk"> &lt;heroandtn3&gt;</span> cứ code thôi
+<a name="l-305"></a><span class="tm">15:25:39</span><span class="nk"> &lt;heroandtn3&gt;</span> rồi lắp ghép với các module khác là ok
+<a name="l-306"></a><span class="tm">15:25:43</span><span class="nk"> &lt;Chien&gt;</span> 1
+<a name="l-307"></a><span class="tm">15:26:00</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#action </span><span class="cmdline">Sẽ hoàn thiện GUI cho editor và sửa lỗi khi chuyển đổi ngôn ngữ</span>
+<a name="l-308"></a><span class="tm">15:27:37</span><span class="nk"> &lt;heroandtn3&gt;</span> giờ đến phần của tớ
+<a name="l-309"></a><span class="tm">15:27:42</span><span class="nk"> &lt;Chien&gt;</span> t thấy boss14420  ổn nhất rồi
+<a name="l-310"></a><span class="tm">15:27:43</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-311"></a><span class="tm">15:27:52</span><span class="nk"> &lt;heroandtn3&gt;</span> xin lỗi mọi người là chưa triển khai đc cụ thể
+<a name="l-312"></a><span class="tm">15:28:05</span><span class="nk"> &lt;heroandtn3&gt;</span> mới chỉ có trong suy nghĩ thôi :3
+<a name="l-313"></a><span class="tm">15:28:19</span><span class="nk"> &lt;boss14420&gt;</span> Có gì mới để nói không ?
+<a name="l-314"></a><span class="tm">15:28:24</span><span class="nk"> &lt;Chien&gt;</span> cứ nói thôi, module jekyll hả? :P
+<a name="l-315"></a><span class="tm">15:28:28</span><span class="nk"> &lt;heroandtn3&gt;</span> không
+<a name="l-316"></a><span class="tm">15:28:49</span><span class="nk"> &lt;heroandtn3&gt;</span> cứ làm theo như đã trình bày trong các buổi trước thôi
+<a name="l-317"></a><span class="tm">15:28:57</span><span class="nk"> &lt;heroandtn3&gt;</span> https://github.com/JeKitProject/MHST2013/wiki/Module-Jekyll:-Thi%E1%BA%BFt-k%E1%BA%BF
+<a name="l-318"></a><span class="tm">15:29:22</span><span class="nk"> &lt;boss14420&gt;</span> Vậy còn ai nữa báo cáo không ?
+<a name="l-319"></a><span class="tm">15:29:26</span><span class="nk"> &lt;heroandtn3&gt;</span> thêm các class như PostService để chứa các method liên quan đến post
+<a name="l-320"></a><span class="tm">15:29:43</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ mấy cái là boss14420 nói trong buổi trước
+<a name="l-321"></a><span class="tm">15:30:21</span><span class="nk"> &lt;Chien&gt;</span> heroandtn3,  làm kĩ từ cả tháng trước nên t cũng ko nói đc gì
+<a name="l-322"></a><span class="tm">15:30:42</span><span class="nk"> &lt;boss14420&gt;</span> OK, có vấn hơn không
+<a name="l-323"></a><span class="tm">15:31:18</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Francisco_:</span> báo cáo đi
+<a name="l-324"></a><span class="tm">15:32:21</span><span class="nk"> &lt;boss14420&gt;</span> Chắc gì đã còn ở đó
+<a name="l-325"></a><span class="tm">15:32:40</span><span class="nk"> &lt;Chien&gt;</span> nháy cái là đc :D
+<a name="l-326"></a><span class="tm">15:32:44</span><span class="nk"> &lt;Chien&gt;</span> nháy đt ấy
+<a name="l-327"></a><span class="tm">15:32:52</span><span class="nk"> &lt;Francisco_&gt;</span> ok
+<a name="l-328"></a><span class="tm">15:33:10</span><span class="nk"> &lt;Francisco_&gt;</span> tình hơi hơi rắc rối chút với cái jekyll
+<a name="l-329"></a><span class="tm">15:33:19</span><span class="nk"> &lt;Francisco_&gt;</span> nên chưa public với mọi người
+<a name="l-330"></a><span class="tm">15:33:44</span><span class="nk"> &lt;boss14420&gt;</span> <span class="topic">#topic </span><span class="topicline">báo cáo về module theme</span>
+<a name="l-331"></a><span class="tm">15:33:49</span><span class="nk"> &lt;boss14420&gt;</span> rắc rối ntn ?
+<a name="l-332"></a><span class="tm">15:34:23</span><span class="nk"> &lt;heroandtn3&gt;</span> Francisco_ dùng Linux được chưa?
+<a name="l-333"></a><span class="tm">15:34:30</span><span class="nk"> &lt;Francisco_&gt;</span> rồi
+<a name="l-334"></a><span class="tm">15:34:40</span><span class="nk"> &lt;heroandtn3&gt;</span> hình như Francisco_ muốn cài Jekyll trên Windows nên gặp khó khăn
+<a name="l-335"></a><span class="tm">15:34:44</span><span class="nk"> &lt;Francisco_&gt;</span> tại trước chạy trên win
+<a name="l-336"></a><span class="tm">15:34:46</span><span class="nk"> &lt;Chien&gt;</span> chắc là có đoạn liên quan đến kyy thôi
+<a name="l-337"></a><span class="tm">15:34:53</span><span class="nk"> &lt;Chien&gt;</span> key
+<a name="l-338"></a><span class="tm">15:34:58</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Francisco_:</span> nếu cài Ubuntu thì cài Jekyll rất đơn giản
+<a name="l-339"></a><span class="tm">15:35:06</span><span class="nk"> &lt;Francisco_&gt;</span> uh
+<a name="l-340"></a><span class="tm">15:35:19</span><span class="nk"> &lt;Francisco_&gt;</span> dùng trên win phải cài mấy cái git phức tạp
+<a name="l-341"></a><span class="tm">15:35:29</span><span class="nk"> &lt;Francisco_&gt;</span> bữa cài lại win hỏng hết :(
+<a name="l-342"></a><span class="tm">15:36:30</span><span class="nk"> &lt;boss14420&gt;</span> Thế giờ rắc rối là rắc rối với cái gì ?
+<a name="l-343"></a><span class="tm">15:36:38</span><span class="nk"> &lt;boss14420&gt;</span> Win hay Linux
+<a name="l-344"></a><span class="tm">15:37:11</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ bảo là tìm hiểu Jekyll từ tận tháng 5
+<a name="l-345"></a><span class="tm">15:37:25</span><span class="nk"> &lt;heroandtn3&gt;</span> mà giờ vẫn đang gặp vấn đề với Jekyll thì làm sao làm đc :(
+<a name="l-346"></a><span class="tm">15:38:47</span><span class="nk"> &lt;boss14420&gt;</span> Nếu cần thì mở SSH để người khác cài hộ cho cũng được
+<a name="l-347"></a><span class="tm">15:39:14</span><span class="nk"> &lt;Francisco_&gt;</span> :) sr, giai đoạn vừa rồi đi làm linh tinh nên chưa nhảy vào được. Cái đầu việc của mình chắc tầm này bắt đầu cần thiết nên mới làm tiếp
+<a name="l-348"></a><span class="tm">15:39:30</span><span class="nk"> &lt;Francisco_&gt;</span> OK
+<a name="l-349"></a><span class="tm">15:39:48</span><span class="nk"> &lt;Chien&gt;</span> Francisco_, đang bị khó vs linux à?
+<a name="l-350"></a><span class="tm">15:41:10</span><span class="nk"> &lt;Francisco_&gt;</span> ah không
+<a name="l-351"></a><span class="tm">15:41:18</span><span class="nk"> &lt;Francisco_&gt;</span> giờ mới quay sang linux
+<a name="l-352"></a><span class="tm">15:41:27</span><span class="nk"> &lt;Francisco_&gt;</span> trước làm trên win :(
+<a name="l-353"></a><span class="tm">15:41:50</span><span class="nk"> &lt;Francisco_&gt;</span> có gì khó khăn sẽ hỏi anh em
+<a name="l-354"></a><span class="tm">15:42:05</span><span class="nk"> &lt;Chien&gt;</span> ok, thế thì cứ làm dân đi, tập trung thì chủ nhật là có báo cáo sơ bộ thôi :)
+<a name="l-355"></a><span class="tm">15:43:38</span><span class="nk"> &lt;heroandtn3&gt;</span> mỗi ngày dành chút thời gian chứ
+<a name="l-356"></a><span class="tm">15:43:50</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ hè này cũng đi thực tập mà
+<a name="l-357"></a><span class="tm">15:44:56</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Francisco_:</span> CN này xong vụ Jekyll nhé
+<a name="l-358"></a><span class="tm">15:45:12</span><span class="nk"> &lt;heroandtn3&gt;</span> cài đặt thế nào thì post ngay lên group để mọi người trợ giúp nhé
+<a name="l-359"></a><span class="tm">15:45:18</span><span class="nk"> &lt;heroandtn3&gt;</span> cậu dùng Ubuntu đúng o?
+<a name="l-360"></a><span class="tm">15:45:19</span><span class="nk"> &lt;Francisco_&gt;</span> ok
+<a name="l-361"></a><span class="tm">15:45:25</span><span class="nk"> &lt;Francisco_&gt;</span> uhm
+<a name="l-362"></a><span class="tm">15:45:31</span><span class="nk"> &lt;heroandtn3&gt;</span> ok, thế thì đơn giản
+<a name="l-363"></a><span class="tm">15:45:34</span><span class="nk"> &lt;heroandtn3&gt;</span> 1 tối là xong
+<a name="l-364"></a><span class="tm">15:47:37</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#agreed </span><span class="cmdline">CN này Sơn lo xong vụ Jekyll để tập trung triển khai tiếp</span>
+<a name="l-365"></a><span class="tm">15:48:12</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-366"></a><span class="tm">15:49:17</span><span class="nk"> &lt;heroandtn3&gt;</span> end meeting đi boss14420
+<a name="l-367"></a><span class="tm">15:49:22</span><span class="nk"> &lt;heroandtn3&gt;</span> thế nhé,
+<a name="l-368"></a><span class="tm">15:49:23</span><span class="nk"> &lt;heroandtn3&gt;</span> à
+<a name="l-369"></a><span class="tm">15:49:25</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#endmeeting</span><span class="cmdline"></span></pre>
+</body></html>
