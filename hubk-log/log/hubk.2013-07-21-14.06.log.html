@@ -1,0 +1,425 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<title>#hubk log</title>
+<style type="text/css">
+/* For the .log.html */
+pre { /*line-height: 125%;*/
+      white-space: pre-wrap; }
+body { background: #f0f0f0; }
+
+body .tm  { color: #007020 }                      /* time */
+body .nk  { color: #062873; font-weight: bold }   /* nick, regular */
+body .nka { color: #007020; font-weight: bold }  /* action nick */
+body .ac  { color: #00A000 }                      /* action line */
+body .hi  { color: #4070a0 }                 /* hilights */
+/* Things to make particular MeetBot commands stick out */
+body .topic     { color: #007020; font-weight: bold }
+body .topicline { color: #000080; font-weight: bold }
+body .cmd       { color: #007020; font-weight: bold }
+body .cmdline  { font-weight: bold }
+
+</style>
+</head>
+
+<body>
+<pre><a name="l-1"></a><span class="tm">14:06:18</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#startmeeting</span><span class="cmdline"></span>
+<a name="l-2"></a><span class="tm">14:06:18</span><span class="nk"> &lt;hubkbot&gt;</span> Meeting started Sun Jul 21 14:06:18 2013 UTC.  The chair is boss14420. Information about MeetBot at http://wiki.debian.org/MeetBot.
+<a name="l-3"></a><span class="tm">14:06:18</span><span class="nk"> &lt;hubkbot&gt;</span> Useful Commands: #action #agreed #help #info #idea #link #topic.
+<a name="l-4"></a><span class="tm">14:06:31</span><span class="nk"> &lt;boss14420&gt;</span> ok
+<a name="l-5"></a><span class="tm">14:07:01</span><span class="nk"> &lt;heroandtn3&gt;</span> trước tiên cũng xin báo với mọi người, bà nội tớ vừa mất nên tuần này tớ ko làm đc thêm gì
+<a name="l-6"></a><span class="tm">14:07:19</span><span class="nk"> &lt;heroandtn3&gt;</span> chỉ có thể họp và cùng mọi người trao đổi
+<a name="l-7"></a><span class="tm">14:07:28</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#chair </span><span class="cmdline">Chien Cuong heroandtn3</span>
+<a name="l-8"></a><span class="tm">14:07:28</span><span class="nk"> &lt;hubkbot&gt;</span> Current chairs: Chien Cuong boss14420 heroandtn3
+<a name="l-9"></a><span class="tm">14:07:49</span><span class="nk"> &lt;Chien&gt;</span> haizz
+<a name="l-10"></a><span class="tm">14:08:01</span><span class="nk"> &lt;Chien&gt;</span> onl chờ m.ng mà giờ ms vào à ^_^
+<a name="l-11"></a><span class="tm">14:08:15</span><span class="nk"> &lt;boss14420&gt;</span> đúng giờ mà
+<a name="l-12"></a><span class="tm">14:08:31</span><span class="nk"> &lt;heroandtn3&gt;</span> bắt đầu thôi
+<a name="l-13"></a><span class="tm">14:08:37</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-14"></a><span class="tm">14:08:48</span><span class="nk"> &lt;Chien&gt;</span> chia buồn vs Sang trc nhé!
+<a name="l-15"></a><span class="tm">14:10:00</span><span class="nk"> &lt;heroandtn3&gt;</span> thôi bắt đầu thôi
+<a name="l-16"></a><span class="tm">14:10:09</span><span class="nk"> &lt;heroandtn3&gt;</span> giờ bạn nào xung phong báo cáo trước?
+<a name="l-17"></a><span class="tm">14:10:43</span><span class="nk"> &lt;boss14420&gt;</span> Chien đi
+<a name="l-18"></a><span class="tm">14:10:54</span><span class="nk"> &lt;boss14420&gt;</span> mình tuần rồi cũng chả làm được gì mấy
+<a name="l-19"></a><span class="tm">14:11:16</span><span class="nk"> &lt;heroandtn3&gt;</span> có vướng mắc gì à?
+<a name="l-20"></a><span class="tm">14:11:42</span><span class="nk"> &lt;Chien&gt;</span> sr sr, t vừa có điện thoại
+<a name="l-21"></a><span class="tm">14:11:52</span><span class="nk"> &lt;Chien&gt;</span> t xin phép 10' nói chuyện điện thoại :D
+<a name="l-22"></a><span class="tm">14:11:54</span><span class="nk"> &lt;boss14420&gt;</span> Một phần là bận, cũng có chút vướng mắc
+<a name="l-23"></a><span class="tm">14:13:31</span><span class="nk"> &lt;Cuong&gt;</span> cụ thể vướng mắc gì thế chú?
+<a name="l-24"></a><span class="tm">14:14:27</span><span class="nk"> &lt;boss14420&gt;</span> Vướng mắc liên quan đến cái thư viện có sẵn, code hơi khó hiểu
+<a name="l-25"></a><span class="tm">14:15:25</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng tuần trước nhóm mình thống nhất là tuần này tập trung thiết kế mà
+<a name="l-26"></a><span class="tm">14:16:11</span><span class="nk"> &lt;boss14420&gt;</span> Nhưng mà phần của mình là UI, dùng lại chức năng của các phần khác
+<a name="l-27"></a><span class="tm">14:16:44</span><span class="nk"> &lt;boss14420&gt;</span> nên thiết kế để sau cũng không ảnh hưởng mấy, giờ tập trung xử lý ngôn ngữ
+<a name="l-28"></a><span class="tm">14:20:15</span><span class="nk"> &lt;heroandtn3&gt;</span> vậy ai đó báo cáo đi, anh Cương
+<a name="l-29"></a><span class="tm">14:22:33</span><span class="nk"> &lt;Chien&gt;</span> t xong rồi
+<a name="l-30"></a><span class="tm">14:22:45</span><span class="nk"> &lt;Chien&gt;</span> m.ng còn đó ko?
+<a name="l-31"></a><span class="tm">14:23:15</span><span class="nk"> &lt;boss14420&gt;</span> còn
+<a name="l-32"></a><span class="tm">14:23:21</span><span class="nk"> &lt;heroandtn3&gt;</span> tất nhiên là còn rồi
+<a name="l-33"></a><span class="tm">14:23:30</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-34"></a><span class="tm">14:23:40</span><span class="nk"> &lt;heroandtn3&gt;</span> Chien hoặc anh Cuong báo cáo
+<a name="l-35"></a><span class="tm">14:23:52</span><span class="nk"> &lt;Chien&gt;</span> a Cuong  có đó ko?
+<a name="l-36"></a><span class="tm">14:24:24</span><span class="nk"> &lt;Chien&gt;</span> nếu ko có thì để em báo cáo luôn tiết kiệm thời gian
+<a name="l-37"></a><span class="tm">14:24:45</span><span class="nk"> &lt;Chien&gt;</span> chả hiểu 1 tuần time đi đâu hết mà nhanh khiếp, chưa làm đc j mấy :v
+<a name="l-38"></a><span class="tm">14:25:07</span><span class="nk"> &lt;Cuong&gt;</span> chú Chiến báo cáo đi
+<a name="l-39"></a><span class="tm">14:25:10</span><span class="nk"> &lt;Cuong&gt;</span> rồi đến anh
+<a name="l-40"></a><span class="tm">14:25:20</span><span class="nk"> &lt;Chien&gt;</span> # Báo cáo tiến độ module bình luận
+<a name="l-41"></a><span class="tm">14:25:33</span><span class="nk"> &lt;boss14420&gt;</span> phai la #topic
+<a name="l-42"></a><span class="tm">14:25:39</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="topic">#topic </span><span class="topicline">Báo cáo tiến độ module bình luận</span>
+<a name="l-43"></a><span class="tm">14:25:52</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-44"></a><span class="tm">14:26:58</span><span class="nk"> &lt;Chien&gt;</span> tuần vừa rồi thì thông nhất từ trc là t làm thiết kế vs demo gui (nếu có thể)
+<a name="l-45"></a><span class="tm">14:27:07</span><span class="nk"> &lt;heroandtn3&gt;</span> uh
+<a name="l-46"></a><span class="tm">14:27:26</span><span class="nk"> &lt;Chien&gt;</span> thiết kế thì t chưa hoàn thành hẳn do vẫn chưa chuyển hết code sang python 3 đc
+<a name="l-47"></a><span class="tm">14:27:37</span><span class="nk"> &lt;Chien&gt;</span> nhưng mà cũng liệt kê đc các hàm cơ bản ra đây rồi
+<a name="l-48"></a><span class="tm">14:27:53</span><span class="nk"> &lt;Chien&gt;</span> https://github.com/JeKitProject/MHST2013/wiki/Module-B%C3%ACnh-lu%E1%BA%ADn-v%E1%BB%9Bi-Disqus:-Thi%E1%BA%BFt-k%E1%BA%BF
+<a name="l-49"></a><span class="tm">14:28:25</span><span class="nk"> &lt;heroandtn3&gt;</span> thiết kế thì liên quan gì đến việc nó là py2 hay py3
+<a name="l-50"></a><span class="tm">14:28:30</span><span class="nk"> &lt;Chien&gt;</span> mình bị hút phần lớn thơì gian vào phần làm GUI
+<a name="l-51"></a><span class="tm">14:28:58</span><span class="nk"> &lt;Chien&gt;</span> à, do cái việc chuyển sang 3 chiếm mất kha khá time của t nên t chưa hoàn thành vội thiết kế
+<a name="l-52"></a><span class="tm">14:29:13</span><span class="nk"> &lt;Chien&gt;</span> hiện cũng demo đc gui
+<a name="l-53"></a><span class="tm">14:29:32</span><span class="nk"> &lt;Chien&gt;</span> (ms làm đc cái bảng vs mấy cái nút thôi)
+<a name="l-54"></a><span class="tm">14:29:52</span><span class="nk"> &lt;Chien&gt;</span> nhưng vì qt vs pyside hơi ms nên bị hút
+<a name="l-55"></a><span class="tm">14:29:56</span><span class="nk"> &lt;Chien&gt;</span> sr m.ng
+<a name="l-56"></a><span class="tm">14:30:56</span><span class="nk"> &lt;boss14420&gt;</span> GUI đâu ?
+<a name="l-57"></a><span class="tm">14:32:13</span><span class="nk"> &lt;Chien&gt;</span> gui show kiểu gì đc?
+<a name="l-58"></a><span class="tm">14:32:30</span><span class="nk"> &lt;heroandtn3&gt;</span> í boss14420 là demo í Chien
+<a name="l-59"></a><span class="tm">14:32:45</span><span class="nk"> &lt;Chien&gt;</span> à, up code lên github à
+<a name="l-60"></a><span class="tm">14:33:21</span><span class="nk"> &lt;Chien&gt;</span> t đã nối đc vs hàm đâu, chỉ làm đc cái bảng vs nút thôi :D
+<a name="l-61"></a><span class="tm">14:34:19</span><span class="nk"> &lt;Chien&gt;</span> nhìn chung là tiến độ của t vẫn chậm, sr m.ng, hix
+<a name="l-62"></a><span class="tm">14:35:52</span><span class="nk"> &lt;heroandtn3&gt;</span> :-?
+<a name="l-63"></a><span class="tm">14:36:07</span><span class="nk"> &lt;boss14420&gt;</span> Thể hình thù của nó ntn ?
+<a name="l-64"></a><span class="tm">14:36:54</span><span class="nk"> &lt;heroandtn3&gt;</span> bây giờ mọi người phải xác định thế này
+<a name="l-65"></a><span class="tm">14:37:33</span><span class="nk"> &lt;heroandtn3&gt;</span> trong quá trình code thì có rất nhiều vướng mắc
+<a name="l-66"></a><span class="tm">14:37:45</span><span class="nk"> &lt;heroandtn3&gt;</span> nên nếu cứ tập trung vào 1 cái thì ko bao giờ xong đc
+<a name="l-67"></a><span class="tm">14:37:53</span><span class="nk"> &lt;heroandtn3&gt;</span> mà người khác lại phải chờ đợi mình
+<a name="l-68"></a><span class="tm">14:40:11</span><span class="nk"> &lt;heroandtn3&gt;</span> trước kia, thời kì mới ptr của công nghệ phần mềm thì thời gian code chiếm tới 80%
+<a name="l-69"></a><span class="tm">14:40:47</span><span class="nk"> &lt;heroandtn3&gt;</span> sau đó con số này giảm xuống còn khoảng 35% vì ng ta nhận thấy là vấn đề thiết kế quan trọng hơn rất nhiều đến sự thành công của dự án
+<a name="l-70"></a><span class="tm">14:41:01</span><span class="nk"> &lt;heroandtn3&gt;</span> giờ mọi người cứ code code code mà ko biết code cái gì
+<a name="l-71"></a><span class="tm">14:41:06</span><span class="nk"> &lt;heroandtn3&gt;</span> vậy code xong thì nó thành cái gì?
+<a name="l-72"></a><span class="tm">14:41:45</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu bây giờ Chiến cứ ngồi học code GUI với python
+<a name="l-73"></a><span class="tm">14:41:56</span><span class="nk"> &lt;heroandtn3&gt;</span> thì đảm bảo 1 tháng nữa mới gọi là thạo thạo đc
+<a name="l-74"></a><span class="tm">14:41:59</span><span class="nk"> &lt;Chien&gt;</span> boss14420, t code theo hướng dẫn của quyển này: Python GUI programming with PySide
+<a name="l-75"></a><span class="tm">14:42:13</span><span class="nk"> &lt;heroandtn3&gt;</span> ko lẽ để mọi người đợi sao?
+<a name="l-76"></a><span class="tm">14:42:29</span><span class="nk"> &lt;Chien&gt;</span> sr heroandtn3 , t dễ bị hút quá :(
+<a name="l-77"></a><span class="tm">14:42:49</span><span class="nk"> &lt;boss14420&gt;</span> Trở về vấn đề thiết kế, mấy cái method đó còn khá sơ sài
+<a name="l-78"></a><span class="tm">14:43:05</span><span class="nk"> &lt;boss14420&gt;</span> nên cho thêm thông tin về giá trị đầu vào, giá trị trả về
+<a name="l-79"></a><span class="tm">14:43:14</span><span class="nk"> &lt;Chien&gt;</span> boss14420, t đang bổ sung cái ấy
+<a name="l-80"></a><span class="tm">14:43:27</span><span class="nk"> &lt;Chien&gt;</span> nhưng t có thắc mắc là có phải liệt kê toàn bộ class và method ko?
+<a name="l-81"></a><span class="tm">14:43:50</span><span class="nk"> &lt;boss14420&gt;</span> Không. Chỉ cần liệt kê những cái mà các module khác cần dùng đến
+<a name="l-82"></a><span class="tm">14:44:10</span><span class="nk"> &lt;Chien&gt;</span> uh, vậy thì c vào lại link là vừa đủ rồi
+<a name="l-83"></a><span class="tm">14:44:40</span><span class="nk"> &lt;Chien&gt;</span> còn 1 ít thì t đang làm nốt :D
+<a name="l-84"></a><span class="tm">14:44:52</span><span class="nk"> &lt;Chien&gt;</span> t làm theo mẫu trong module git của a Cuong
+<a name="l-85"></a><span class="tm">14:44:54</span><span class="nk"> &lt;boss14420&gt;</span> Còn tham số đầu vào ?
+<a name="l-86"></a><span class="tm">14:45:07</span><span class="nk"> &lt;Chien&gt;</span> trong mẫu của a Cuong ko thấy ghi?
+<a name="l-87"></a><span class="tm">14:45:31</span><span class="nk"> &lt;heroandtn3&gt;</span> mẫu của anh Cuong là mẫu nào?
+<a name="l-88"></a><span class="tm">14:45:46</span><span class="nk"> &lt;Chien&gt;</span> https://github.com/JeKitProject/MHST2013/wiki/Module-Git
+<a name="l-89"></a><span class="tm">14:45:49</span><span class="nk"> &lt;Chien&gt;</span> đấy heroandtn3
+<a name="l-90"></a><span class="tm">14:46:44</span><span class="nk"> &lt;Chien&gt;</span> thực sự là t thấy ko khí làm việc của nhóm mình n hơi trầm m.ng ạ!
+<a name="l-91"></a><span class="tm">14:46:47</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-92"></a><span class="tm">14:47:05</span><span class="nk"> &lt;heroandtn3&gt;</span> tuy nhiên anh Cuong lưu ý là tuần trước nhóm mình thống nhất code style rồi mà
+<a name="l-93"></a><span class="tm">14:47:18</span><span class="nk"> &lt;heroandtn3&gt;</span> sao còn viết tên hàm kiểu kia?
+<a name="l-94"></a><span class="tm">14:47:33</span><span class="nk"> &lt;Chien&gt;</span> đúng rồi, viết thường hêt a Cuong ạ
+<a name="l-95"></a><span class="tm">14:47:50</span><span class="nk"> &lt;Cuong&gt;</span> ừ
+<a name="l-96"></a><span class="tm">14:48:04</span><span class="nk"> &lt;Cuong&gt;</span> anh quên đấy
+<a name="l-97"></a><span class="tm">14:48:07</span><span class="nk"> &lt;Cuong&gt;</span> tí anh sửa
+<a name="l-98"></a><span class="tm">14:48:44</span><span class="nk"> &lt;heroandtn3&gt;</span> 1 cái nữa là trả về bool thì phải nói rõ true/false có í nghĩa gì chứ
+<a name="l-99"></a><span class="tm">14:48:57</span><span class="nk"> &lt;heroandtn3&gt;</span> true là có lỗi hay ko có lỗi
+<a name="l-100"></a><span class="tm">14:49:34</span><span class="nk"> &lt;Cuong&gt;</span> ok
+<a name="l-101"></a><span class="tm">14:49:36</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> trầm thì mỗi người phải cố gắng trao đổi
+<a name="l-102"></a><span class="tm">14:49:56</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ cũng cố gắng bám sát tiến độ của mọi người
+<a name="l-103"></a><span class="tm">14:50:01</span><span class="nk"> &lt;heroandtn3&gt;</span> rồi thảo luận trên group
+<a name="l-104"></a><span class="tm">14:50:10</span><span class="nk"> &lt;heroandtn3&gt;</span> chỉ cần mỗi người trong nhóm ai cũng vậy là ok
+<a name="l-105"></a><span class="tm">14:50:30</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ thấy nhóm mình có 4 ng đang họp ở đây thì ai cũng nhiệt tình
+<a name="l-106"></a><span class="tm">14:50:43</span><span class="nk"> &lt;heroandtn3&gt;</span> chỉ có cái là đang vướng mắc 1 chút ở khâu xác định việc cần làm
+<a name="l-107"></a><span class="tm">14:51:03</span><span class="nk"> &lt;heroandtn3&gt;</span> giờ đang chưa đâu vào đâu nên cảm thấy khó và có lúc nản
+<a name="l-108"></a><span class="tm">14:51:08</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng chỉ cần kiên trì là đc
+<a name="l-109"></a><span class="tm">14:51:20</span><span class="nk"> &lt;heroandtn3&gt;</span> cứ đi từ từ rồi sẽ đến đích
+<a name="l-110"></a><span class="tm">14:51:59</span><span class="nk"> &lt;Chien&gt;</span> uh , t vẫn muốn offline nói chuyện 1 chuyến
+<a name="l-111"></a><span class="tm">14:52:03</span><span class="nk"> &lt;Chien&gt;</span> à mà
+<a name="l-112"></a><span class="tm">14:52:17</span><span class="nk"> &lt;Chien&gt;</span> m.ng thống nhất dùng tiếng Anh hay Việt trong thiết kế?
+<a name="l-113"></a><span class="tm">14:52:41</span><span class="nk"> &lt;heroandtn3&gt;</span> theo tớ thì cứ tiếng Việt cho dễ
+<a name="l-114"></a><span class="tm">14:52:48</span><span class="nk"> &lt;boss14420&gt;</span> Tiếng Việt đi
+<a name="l-115"></a><span class="tm">14:52:54</span><span class="nk"> &lt;Chien&gt;</span> các comment cũng thế chứ?
+<a name="l-116"></a><span class="tm">14:53:02</span><span class="nk"> &lt;Chien&gt;</span> comment trong code ấy?
+<a name="l-117"></a><span class="tm">14:53:11</span><span class="nk"> &lt;heroandtn3&gt;</span> sau cuộc thi thì có thể chuyển sang Anh để ng nước ngoài đọc có thể hiểu và tham gia
+<a name="l-118"></a><span class="tm">14:53:15</span><span class="nk"> &lt;heroandtn3&gt;</span> tiếng Việt đi
+<a name="l-119"></a><span class="tm">14:54:01</span><span class="nk"> &lt;Chien&gt;</span> ok vậy note cái này vào đi, nên cho các note vào 1 file để m.ng xem đc đầy đủ
+<a name="l-120"></a><span class="tm">14:54:17</span><span class="nk"> &lt;Chien&gt;</span> ko lại như code style, bị phân mảnh có ng ko để ý
+<a name="l-121"></a><span class="tm">14:54:38</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#agreed </span><span class="cmdline">Sử dụng Tiếng Việt trong tài liệt thiết kế và comment</span>
+<a name="l-122"></a><span class="tm">14:54:42</span><span class="nk"> &lt;Chien&gt;</span> ghi cả nhiệm vụ tuần của mỗi ng vào ấy nữa để cuối tuần phán xét cho dễ
+<a name="l-123"></a><span class="tm">14:55:51</span><span class="nk"> &lt;heroandtn3&gt;</span> uh
+<a name="l-124"></a><span class="tm">14:55:59</span><span class="nk"> &lt;heroandtn3&gt;</span> lẽ ra cái đó mỗi người phải note vào
+<a name="l-125"></a><span class="tm">14:56:10</span><span class="nk"> &lt;Chien&gt;</span> vậy thôi, phần của t và ý kiến của t cũng đã nói hết
+<a name="l-126"></a><span class="tm">14:56:15</span><span class="nk"> &lt;boss14420&gt;</span> Nhiệm vụ ai thì người đó tự ghi
+<a name="l-127"></a><span class="tm">14:56:22</span><span class="nk"> &lt;Chien&gt;</span> uh :D , nhưng có tổ chức giám sát vẫn hơn mà
+<a name="l-128"></a><span class="tm">14:56:44</span><span class="nk"> &lt;heroandtn3&gt;</span> thì từ cái note đó mình giám sát thôi
+<a name="l-129"></a><span class="tm">14:56:56</span><span class="nk"> &lt;heroandtn3&gt;</span> chẳng lẽ ghi note ra rồi lại sửa lại ko cho ng khác đọc à :P
+<a name="l-130"></a><span class="tm">14:57:12</span><span class="nk"> &lt;boss14420&gt;</span> Của ai thì người ấy viết note đi, dùng lệnh #action
+<a name="l-131"></a><span class="tm">14:57:22</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-132"></a><span class="tm">14:57:45</span><span class="nk"> &lt;Chien&gt;</span> ok, như t bây giờ dùng cái XCHat này thì nó có tự lưu log tỏng máy t ko?
+<a name="l-133"></a><span class="tm">14:57:53</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#agreed </span><span class="cmdline">Trong cuộc họp mọi người phải tự note nhiệm vụ của mình</span>
+<a name="l-134"></a><span class="tm">14:58:04</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> cậu tìm hiểu xem
+<a name="l-135"></a><span class="tm">14:58:14</span><span class="nk"> &lt;boss14420&gt;</span> Một số client có thể tự lưu
+<a name="l-136"></a><span class="tm">14:58:27</span><span class="nk"> &lt;heroandtn3&gt;</span> thường thì là có, nhưng nó chỉ lưu khi cậu tham gia chat
+<a name="l-137"></a><span class="tm">14:58:59</span><span class="nk"> &lt;heroandtn3&gt;</span> còn con bot của boss14420 thì nó lưu tất cả message trong room khi nó chạy
+<a name="l-138"></a><span class="tm">14:59:16</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-139"></a><span class="tm">14:59:44</span><span class="nk"> &lt;Chien&gt;</span> nếu ko còn lưu ý gì thì phần tiếp theo đi :)
+<a name="l-140"></a><span class="tm">14:59:51</span><span class="nk"> &lt;boss14420&gt;</span> ai ?
+<a name="l-141"></a><span class="tm">15:00:01</span><span class="nk"> &lt;Cuong_&gt;</span> Vậy đến anh báo cáo
+<a name="l-142"></a><span class="tm">15:01:59</span><span class="nk"> &lt;Cuong&gt;</span> aloo
+<a name="l-143"></a><span class="tm">15:02:02</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-144"></a><span class="tm">15:02:06</span><span class="nk"> &lt;Cuong&gt;</span> mọi người có thấy anh chat không
+<a name="l-145"></a><span class="tm">15:02:15</span><span class="nk"> &lt;Chien&gt;</span> có đây anh
+<a name="l-146"></a><span class="tm">15:02:27</span><span class="nk"> &lt;Chien&gt;</span> anh note topic đi
+<a name="l-147"></a><span class="tm">15:02:30</span><span class="nk"> &lt;Cuong&gt;</span> ok
+<a name="l-148"></a><span class="tm">15:02:35</span><span class="nk"> &lt;Cuong&gt;</span> anh báo cáo nhé
+<a name="l-149"></a><span class="tm">15:02:49</span><span class="nk"> &lt;Cuong&gt;</span> tuần qua anh làm thiết kế module Git
+<a name="l-150"></a><span class="tm">15:03:01</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="topic">#topic </span><span class="topicline">Cường báo cáo module Git</span>
+<a name="l-151"></a><span class="tm">15:03:21</span><span class="nk"> &lt;Cuong&gt;</span> anh mới nghĩ đến các hàm cơ bản
+<a name="l-152"></a><span class="tm">15:03:33</span><span class="nk"> &lt;Cuong&gt;</span> add, commit, push
+<a name="l-153"></a><span class="tm">15:04:05</span><span class="nk"> &lt;Cuong&gt;</span> ngoài ra cần các hàm kiểm tra trạng thái, và reset khi người dùng không muốn commit nữa
+<a name="l-154"></a><span class="tm">15:04:08</span><span class="nk"> &lt;heroandtn3&gt;</span> thiết kế của anh thiếu rất nhiều
+<a name="l-155"></a><span class="tm">15:04:29</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ gitStatus
+<a name="l-156"></a><span class="tm">15:04:39</span><span class="nk"> &lt;heroandtn3&gt;</span> anh ghi là "Return value: List of files are tracked, otherwise return None"
+<a name="l-157"></a><span class="tm">15:05:11</span><span class="nk"> &lt;heroandtn3&gt;</span> trong lệnh git status trả lại nhiều kết quả
+<a name="l-158"></a><span class="tm">15:05:28</span><span class="nk"> &lt;heroandtn3&gt;</span> chỉ trả về danh sách các file tracked thì liệu có đủ và cần?
+<a name="l-159"></a><span class="tm">15:05:52</span><span class="nk"> &lt;heroandtn3&gt;</span> muốn xem file nào bị xóa, bị sửa, file nào mới thì sao?
+<a name="l-160"></a><span class="tm">15:06:19</span><span class="nk"> &lt;heroandtn3&gt;</span> thứ 2 là gitReset
+<a name="l-161"></a><span class="tm">15:06:26</span><span class="nk"> &lt;heroandtn3&gt;</span> "Reset state of tracking filesReturn value: None"
+<a name="l-162"></a><span class="tm">15:06:35</span><span class="nk"> &lt;heroandtn3&gt;</span> reset file nào mới đc?
+<a name="l-163"></a><span class="tm">15:06:43</span><span class="nk"> &lt;heroandtn3&gt;</span> reset đến commit nào?
+<a name="l-164"></a><span class="tm">15:06:52</span><span class="nk"> &lt;heroandtn3&gt;</span> ko thấy truyền tham số gì cả
+<a name="l-165"></a><span class="tm">15:07:24</span><span class="nk"> &lt;Cuong&gt;</span> ừ, anh mói nghĩ đến làm với file hiện tại thôi
+<a name="l-166"></a><span class="tm">15:07:40</span><span class="nk"> &lt;heroandtn3&gt;</span> file hiện tại là file nào?
+<a name="l-167"></a><span class="tm">15:07:48</span><span class="nk"> &lt;Cuong&gt;</span> còn muốn xem file bị xóa, sửa thì phải thêm git_log
+<a name="l-168"></a><span class="tm">15:08:01</span><span class="nk"> &lt;Cuong&gt;</span> cơ mà cái đấy có cần không?
+<a name="l-169"></a><span class="tm">15:08:41</span><span class="nk"> &lt;heroandtn3&gt;</span> cần ko thì em cũng chưa biết, còn tùy vào các module khác có cần ko
+<a name="l-170"></a><span class="tm">15:08:52</span><span class="nk"> &lt;boss14420&gt;</span> Chương trình của ta mỗi lần thao tác chỉ tác động tới 1 file thôi
+<a name="l-171"></a><span class="tm">15:08:59</span><span class="nk"> &lt;heroandtn3&gt;</span> nên em mới bảo m ng thiết kế trước
+<a name="l-172"></a><span class="tm">15:09:23</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> tớ cũng nghĩ vậy, như vậy thì phải có tham số truyền vào thông tin file đó
+<a name="l-173"></a><span class="tm">15:09:55</span><span class="nk"> &lt;Cuong&gt;</span> cái này sẽ làm khi viết code
+<a name="l-174"></a><span class="tm">15:09:58</span><span class="nk"> &lt;Cuong&gt;</span> sẽ có chỉnh sửa
+<a name="l-175"></a><span class="tm">15:10:00</span><span class="nk"> &lt;Chien&gt;</span> nhưng sửa 1 file thì các file liên quan cũng bị thay đổi mà?
+<a name="l-176"></a><span class="tm">15:10:18</span><span class="nk"> &lt;Cuong&gt;</span> anh nghĩ cái thiết kế này chỉ nêu ra tổng quan ban đầu
+<a name="l-177"></a><span class="tm">15:10:24</span><span class="nk"> &lt;Chien&gt;</span> phải biết file sửa chính là file nào, file nào là file auto chứ ạ?
+<a name="l-178"></a><span class="tm">15:10:29</span><span class="nk"> &lt;heroandtn3&gt;</span> 1 cái nữa là hôm trước có nói với anh Cường là add post, add layout, sửa post,... thì commit phải khác nhau
+<a name="l-179"></a><span class="tm">15:10:50</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Cuong:</span> ko anh ạ, thiết kế chính là những gì anh sẽ code
+<a name="l-180"></a><span class="tm">15:11:01</span><span class="nk"> &lt;heroandtn3&gt;</span> chứ ko phải thiết kế qua qua rồi code theo 1 kiểu khác
+<a name="l-181"></a><span class="tm">15:11:26</span><span class="nk"> &lt;Cuong&gt;</span> ý anh không phải qua qua
+<a name="l-182"></a><span class="tm">15:11:49</span><span class="nk"> &lt;Cuong&gt;</span> mà là có cái tổng thể trước, như cái khung ấy
+<a name="l-183"></a><span class="tm">15:12:04</span><span class="nk"> &lt;Cuong&gt;</span> khi làm mình sẽ "đắp" thêm những cái cụ thể vào
+<a name="l-184"></a><span class="tm">15:12:37</span><span class="nk"> &lt;heroandtn3&gt;</span> tức là khi code?
+<a name="l-185"></a><span class="tm">15:12:39</span><span class="nk"> &lt;Chien&gt;</span> nhưng mà khi thiết kế mà càng cụ thể thì khi code sẽ ít sai sót + nhanh hơn mà
+<a name="l-186"></a><span class="tm">15:12:42</span><span class="nk"> &lt;Cuong&gt;</span> còn cái commit khác nhau thì anh chưa hiểu lắm
+<a name="l-187"></a><span class="tm">15:12:57</span><span class="nk"> &lt;heroandtn3&gt;</span> vậy nếu giờ em muốn sử dụng module của anh
+<a name="l-188"></a><span class="tm">15:13:09</span><span class="nk"> &lt;heroandtn3&gt;</span> mà chưa biết cụ thể 1 hàm của anh gọi thế nào thì làm sao em dùng đc?
+<a name="l-189"></a><span class="tm">15:13:44</span><span class="nk"> &lt;Cuong&gt;</span> lúc đấy anh sẽ có doc cho chú chứ
+<a name="l-190"></a><span class="tm">15:14:04</span><span class="nk"> &lt;heroandtn3&gt;</span> í em là phải thiết kế cụ thể để code theo
+<a name="l-191"></a><span class="tm">15:14:19</span><span class="nk"> &lt;heroandtn3&gt;</span> vì thời gian anh code sẽ mất rất nhiều
+<a name="l-192"></a><span class="tm">15:14:34</span><span class="nk"> &lt;heroandtn3&gt;</span> giả sử cài đặt có vấn đề gì đó có thể hàng tuần chưa xong
+<a name="l-193"></a><span class="tm">15:14:59</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng em ko thể đợi được, như vậy nếu có sẵn bản docs của anh trước khi có code
+<a name="l-194"></a><span class="tm">15:15:10</span><span class="nk"> &lt;heroandtn3&gt;</span> thì em có thể tiến hành song song với anh
+<a name="l-195"></a><span class="tm">15:15:42</span><span class="nk"> &lt;heroandtn3&gt;</span> còn chuyện anh chưa hiểu mấy cái trên thì anh có thể thảo luận trên mail
+<a name="l-196"></a><span class="tm">15:15:53</span><span class="nk"> &lt;heroandtn3&gt;</span> mọi người phải tận dụng mail chứ
+<a name="l-197"></a><span class="tm">15:15:58</span><span class="nk"> &lt;heroandtn3&gt;</span> :(
+<a name="l-198"></a><span class="tm">15:16:35</span><span class="nk"> &lt;Chien&gt;</span> bình tĩnh nào, chỉ cần gọi tên đc vấn đề là giải quyết đc thôi mà
+<a name="l-199"></a><span class="tm">15:16:59</span><span class="nk"> &lt;Chien&gt;</span> tí nữa a Cuong  đưa lên mail vân đề để m.ng cùng tìm hiểu là đc thôi
+<a name="l-200"></a><span class="tm">15:17:00</span><span class="nk"> &lt;Cuong&gt;</span> ừ
+<a name="l-201"></a><span class="tm">15:18:10</span><span class="nk"> &lt;Cuong&gt;</span> có vấn đề gì đâu, mà ở đây anh không hiểu cách diễn đạt "commit phải khác nhau" của Sang nghĩa là gì?
+<a name="l-202"></a><span class="tm">15:18:18</span><span class="nk"> &lt;boss14420&gt;</span> Trở về vấn đề, trước đây đã thống nhất là nên có chức năng phục hồi lại lich sử edit
+<a name="l-203"></a><span class="tm">15:18:40</span><span class="nk"> &lt;boss14420&gt;</span> cái này ta có nên tận dụng chức năng của git không ?
+<a name="l-204"></a><span class="tm">15:18:50</span><span class="nk"> &lt;boss14420&gt;</span> hay là implement riêng ?
+<a name="l-205"></a><span class="tm">15:18:59</span><span class="nk"> &lt;heroandtn3&gt;</span> có nên tận dụng
+<a name="l-206"></a><span class="tm">15:19:13</span><span class="nk"> &lt;Cuong&gt;</span> đúng
+<a name="l-207"></a><span class="tm">15:19:41</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Cuong:</span> trong quá trình commit
+<a name="l-208"></a><span class="tm">15:20:07</span><span class="nk"> &lt;heroandtn3&gt;</span> ta cần lọc các commit liên quan đến post để xem history của nó chẳng hạn
+<a name="l-209"></a><span class="tm">15:20:30</span><span class="nk"> &lt;heroandtn3&gt;</span> nên em muốn chia ra các loại commit
+<a name="l-210"></a><span class="tm">15:20:45</span><span class="nk"> &lt;heroandtn3&gt;</span> commit post khác, layout khác
+<a name="l-211"></a><span class="tm">15:20:57</span><span class="nk"> &lt;heroandtn3&gt;</span> có thể phân biệt bằng prefix chẳng hạn
+<a name="l-212"></a><span class="tm">15:21:10</span><span class="nk"> &lt;Cuong&gt;</span> git có chức năng đấy không?
+<a name="l-213"></a><span class="tm">15:21:16</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ chèn post thì message là Post: add ...
+<a name="l-214"></a><span class="tm">15:21:32</span><span class="nk"> &lt;Cuong&gt;</span> cùng một repo nhưng quản lý log commit các thư mục con khác nhau?
+<a name="l-215"></a><span class="tm">15:21:33</span><span class="nk"> &lt;heroandtn3&gt;</span> em nghĩ là cho vào message
+<a name="l-216"></a><span class="tm">15:21:43</span><span class="nk"> &lt;heroandtn3&gt;</span> ko đc
+<a name="l-217"></a><span class="tm">15:21:48</span><span class="nk"> &lt;boss14420&gt;</span> Không, mesage không đảm bảo
+<a name="l-218"></a><span class="tm">15:21:53</span><span class="nk"> &lt;boss14420&gt;</span> nó không có cấu trúc
+<a name="l-219"></a><span class="tm">15:22:07</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> nhưng ta có thể commit theo cấu trúc
+<a name="l-220"></a><span class="tm">15:22:27</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ vậy thôi
+<a name="l-221"></a><span class="tm">15:22:36</span><span class="nk"> &lt;heroandtn3&gt;</span> anh Cuong là ng phụ trách module
+<a name="l-222"></a><span class="tm">15:22:43</span><span class="nk"> &lt;heroandtn3&gt;</span> thì phải tìm hiểu là module cần những cái gì
+<a name="l-223"></a><span class="tm">15:22:58</span><span class="nk"> &lt;heroandtn3&gt;</span> mọi người chỉ góp í thôi
+<a name="l-224"></a><span class="tm">15:23:52</span><span class="nk"> &lt;Chien&gt;</span> git ko có chức năng ấy, nhưng mình làm cả giao diên WYS thì nên có
+<a name="l-225"></a><span class="tm">15:24:21</span><span class="nk"> &lt;heroandtn3&gt;</span> cũng có thể lọc kết quả
+<a name="l-226"></a><span class="tm">15:24:57</span><span class="nk"> &lt;heroandtn3&gt;</span> ko biết git history trong pygit2 có hỗ trợ hiển thị danh sách các file ko
+<a name="l-227"></a><span class="tm">15:25:12</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu có thì mình có thể lọc ra những file mình quan tâm
+<a name="l-228"></a><span class="tm">15:25:29</span><span class="nk"> &lt;Chien&gt;</span> chắc là có, nhưng sao heroandtn3 bảo ko quản lí theo thư mục con đc?
+<a name="l-229"></a><span class="tm">15:25:47</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> í anh Cuong là mỗi thư mục 1 history riêng
+<a name="l-230"></a><span class="tm">15:25:48</span><span class="nk"> &lt;Chien&gt;</span> post có thư mục post, quản lí theo thư mục cũng đc chứ?
+<a name="l-231"></a><span class="tm">15:26:01</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng điều đó là ko hỗ trợ trong git thì phải
+<a name="l-232"></a><span class="tm">15:26:12</span><span class="nk"> &lt;Chien&gt;</span> uh, cái đó git ko hỗ trợ
+<a name="l-233"></a><span class="tm">15:26:34</span><span class="nk"> &lt;heroandtn3&gt;</span> http://stackoverflow.com/questions/2851918/how-to-get-change-history-for-a-specific-file-in-git-repository
+<a name="l-234"></a><span class="tm">15:26:39</span><span class="nk"> &lt;heroandtn3&gt;</span> hình như có
+<a name="l-235"></a><span class="tm">15:27:16</span><span class="nk"> &lt;heroandtn3&gt;</span> thảo luận cụ thể thì tốn rất nhiều thời gian nên mấy cái này thảo luận trước trên mail thì tiện hơn
+<a name="l-236"></a><span class="tm">15:27:39</span><span class="nk"> &lt;heroandtn3&gt;</span> nhìn báo cáo của anh Cuong và Chien cũng sơ sài lắm, chắc là chưa đầu tư thời gian :P
+<a name="l-237"></a><span class="tm">15:27:55</span><span class="nk"> &lt;boss14420&gt;</span> Đương nhiên là phải có
+<a name="l-238"></a><span class="tm">15:28:07</span><span class="nk"> &lt;Chien&gt;</span> uh, t thích làm GUI :D
+<a name="l-239"></a><span class="tm">15:28:11</span><span class="nk"> &lt;boss14420&gt;</span> nếu không thì sao mà git nó tở lại trạng thái cũ được
+<a name="l-240"></a><span class="tm">15:28:50</span><span class="nk"> &lt;Chien&gt;</span> uh, vào mỗi thư mục đều có nút history kìa
+<a name="l-241"></a><span class="tm">15:28:54</span><span class="nk"> &lt;Chien&gt;</span> xem đc
+<a name="l-242"></a><span class="tm">15:29:02</span><span class="nk"> &lt;heroandtn3&gt;</span> uh
+<a name="l-243"></a><span class="tm">15:29:05</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu có thì ok
+<a name="l-244"></a><span class="tm">15:29:52</span><span class="nk"> &lt;heroandtn3&gt;</span> nói qua 1 chút phần của boss14420
+<a name="l-245"></a><span class="tm">15:29:56</span><span class="nk"> &lt;boss14420&gt;</span> OK
+<a name="l-246"></a><span class="tm">15:30:05</span><span class="nk"> &lt;heroandtn3&gt;</span> hôm trước tớ cũng nói với cậu rồi
+<a name="l-247"></a><span class="tm">15:30:15</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ module của cậu cần mở 1 post lên để sửa
+<a name="l-248"></a><span class="tm">15:30:32</span><span class="nk"> &lt;heroandtn3&gt;</span> thì cậu cần gọi 1 method trong module jekyll chẳng hạn
+<a name="l-249"></a><span class="tm">15:30:37</span><span class="nk"> &lt;boss14420&gt;</span> <span class="topic">#topic </span><span class="topicline">Báo cáo về Editor và xử lý ngôn ngữ</span>
+<a name="l-250"></a><span class="tm">15:31:17</span><span class="nk"> &lt;heroandtn3&gt;</span> method đó nhận tham số là tên file
+<a name="l-251"></a><span class="tm">15:31:21</span><span class="nk"> &lt;heroandtn3&gt;</span> và trả về object là Post
+<a name="l-252"></a><span class="tm">15:31:42</span><span class="nk"> &lt;heroandtn3&gt;</span> trong Post thì có các thông tin của post cũng như nội dung
+<a name="l-253"></a><span class="tm">15:32:11</span><span class="nk"> &lt;heroandtn3&gt;</span> như vậy thì cậu cần phải thiết kế 1 số thứ
+<a name="l-254"></a><span class="tm">15:32:25</span><span class="nk"> &lt;heroandtn3&gt;</span> để cậu cần cho việc lập trình module đúng ko?
+<a name="l-255"></a><span class="tm">15:32:41</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ Post phải chứa thông tin gì chẳng hạn
+<a name="l-256"></a><span class="tm">15:32:49</span><span class="nk"> &lt;boss14420&gt;</span> Về khoản này thì tùy ý mọi người thiết kế. Mình sẽ theo đó mà điều chỉnh cho phù hợp.
+<a name="l-257"></a><span class="tm">15:33:07</span><span class="nk"> &lt;heroandtn3&gt;</span> uh
+<a name="l-258"></a><span class="tm">15:33:15</span><span class="nk"> &lt;heroandtn3&gt;</span> vậy thì chỗ đó tớ sẽ làm
+<a name="l-259"></a><span class="tm">15:33:27</span><span class="nk"> &lt;heroandtn3&gt;</span> cậu gợi í những method mà cậu cần
+<a name="l-260"></a><span class="tm">15:33:39</span><span class="nk"> &lt;heroandtn3&gt;</span> để tớ đưa vào nhé
+<a name="l-261"></a><span class="tm">15:33:58</span><span class="nk"> &lt;boss14420&gt;</span> CƠ bản thì cần những method sau:
+<a name="l-262"></a><span class="tm">15:34:05</span><span class="nk"> &lt;boss14420&gt;</span> new_post(name)
+<a name="l-263"></a><span class="tm">15:34:10</span><span class="nk"> &lt;boss14420&gt;</span> list_post()
+<a name="l-264"></a><span class="tm">15:34:26</span><span class="nk"> &lt;boss14420&gt;</span> get_post(name)
+<a name="l-265"></a><span class="tm">15:34:43</span><span class="nk"> &lt;boss14420&gt;</span> save_post()
+<a name="l-266"></a><span class="tm">15:34:54</span><span class="nk"> &lt;boss14420&gt;</span> tương tự với page
+<a name="l-267"></a><span class="tm">15:34:59</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-268"></a><span class="tm">15:35:04</span><span class="nk"> &lt;heroandtn3&gt;</span> kiểu như vậy
+<a name="l-269"></a><span class="tm">15:35:33</span><span class="nk"> &lt;heroandtn3&gt;</span> mấy cái đó cậu viết trong báo cáo của cậu, tớ đọc là biết và đưa vào phần của mình cho phù hợp
+<a name="l-270"></a><span class="tm">15:35:37</span><span class="nk"> &lt;heroandtn3&gt;</span> ok ko
+<a name="l-271"></a><span class="tm">15:35:55</span><span class="nk"> &lt;boss14420&gt;</span> Có 1 vấn đề, đó là trong jekyll thì vị trí của post là tùy ý, trong các thư mục con nào cũng được.
+<a name="l-272"></a><span class="tm">15:36:05</span><span class="nk"> &lt;boss14420&gt;</span> Nên có thể có 2 post khác nhau nhưng trùng tên
+<a name="l-273"></a><span class="tm">15:37:01</span><span class="nk"> &lt;heroandtn3&gt;</span> cái đó module của tớ nó sẽ xử lí
+<a name="l-274"></a><span class="tm">15:37:15</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu trùng thì thêm -i ở cuối
+<a name="l-275"></a><span class="tm">15:37:20</span><span class="nk"> &lt;heroandtn3&gt;</span> i từ 1 đến n
+<a name="l-276"></a><span class="tm">15:37:36</span><span class="nk"> &lt;boss14420&gt;</span> Không phải vậy.
+<a name="l-277"></a><span class="tm">15:37:36</span><span class="nk"> &lt;Chien&gt;</span> trùng tên là loại chứ?
+<a name="l-278"></a><span class="tm">15:37:46</span><span class="nk"> &lt;Chien&gt;</span> t nghĩ là nên nhắc nhở ng dùng thay tên
+<a name="l-279"></a><span class="tm">15:37:54</span><span class="nk"> &lt;boss14420&gt;</span> Tên ở đây là tên file. Tuy trùng nhau nhưng ở thư mục con khác nhau
+<a name="l-280"></a><span class="tm">15:38:02</span><span class="nk"> &lt;boss14420&gt;</span> nên vẫn là hợp lệ với jekyll
+<a name="l-281"></a><span class="tm">15:38:20</span><span class="nk"> &lt;Chien&gt;</span> boss14420, nhưng vs của mình thì ko nên hợp lệ
+<a name="l-282"></a><span class="tm">15:38:20</span><span class="nk"> &lt;boss14420&gt;</span> cho nên thông tin về post phải có đường dẫn đầy đủ
+<a name="l-283"></a><span class="tm">15:38:37</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> đồng ý
+<a name="l-284"></a><span class="tm">15:38:57</span><span class="nk"> &lt;heroandtn3&gt;</span> có thể dùng đường dẫn tương đối với thư mục _posts
+<a name="l-285"></a><span class="tm">15:39:00</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">Chien:</span> Ngăn cản việc trùng tên sẽ làm cho mọi thứ rắc rối hơn
+<a name="l-286"></a><span class="tm">15:39:40</span><span class="nk"> &lt;Chien&gt;</span> nhưng trùng tên lại gây rắc rối cho ng dùng khi sử dụng, chẳng hạn khi tìm bài thì chẳng lẽ cứ phải để ý đường dẫn?
+<a name="l-287"></a><span class="tm">15:40:14</span><span class="nk"> &lt;boss14420&gt;</span> Nói chung về vấn đề này thì heroandtn3 cứ tùy ý thiết kế, có gì mình bổ sung thêm
+<a name="l-288"></a><span class="tm">15:40:24</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> ko cần đâu
+<a name="l-289"></a><span class="tm">15:40:36</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ khi họ xem danh sách bài
+<a name="l-290"></a><span class="tm">15:40:44</span><span class="nk"> &lt;Chien&gt;</span> ok, còn phải có thời gian kiểm thử
+<a name="l-291"></a><span class="tm">15:40:52</span><span class="nk"> &lt;heroandtn3&gt;</span> mình hiển thị cho họ lên theo Tên bài viết
+<a name="l-292"></a><span class="tm">15:41:00</span><span class="nk"> &lt;heroandtn3&gt;</span> có thêm cột ngày tháng, thời gian chẳng hạn
+<a name="l-293"></a><span class="tm">15:41:22</span><span class="nk"> &lt;heroandtn3&gt;</span> họ có thể dựa vào thứ tự ngày tháng để phân biệt
+<a name="l-294"></a><span class="tm">15:41:32</span><span class="nk"> &lt;heroandtn3&gt;</span> cái này giống như trong wordpress vậy
+<a name="l-295"></a><span class="tm">15:41:44</span><span class="nk"> &lt;heroandtn3&gt;</span> tuy nhiên cái này chi tiết quá
+<a name="l-296"></a><span class="tm">15:41:52</span><span class="nk"> &lt;heroandtn3&gt;</span> nói bây giờ thì sau này quên nên ko làm gì cả
+<a name="l-297"></a><span class="tm">15:41:53</span><span class="nk"> &lt;Chien&gt;</span> khi mà số lượng post đã nhiều thì họ làm sao nhớ nổi? T nghĩ nên nhắc nhở, nếu họ vẫn thế thì ms cho dùng
+<a name="l-298"></a><span class="tm">15:42:15</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> ko đúng, nếu cậu dùng wp thì sẽ thấy là ko vấn đề gì cả
+<a name="l-299"></a><span class="tm">15:42:20</span><span class="nk"> &lt;Chien&gt;</span> uh, cứ làm dần dần
+<a name="l-300"></a><span class="tm">15:42:50</span><span class="nk"> &lt;Chien&gt;</span> t đang dùng wp, t cũng ko muốn có 2 bài trùng tên đc chấp nhận
+<a name="l-301"></a><span class="tm">15:43:02</span><span class="nk"> &lt;Chien&gt;</span> thành ra t chưa cho trùng tên
+<a name="l-302"></a><span class="tm">15:44:26</span><span class="nk"> &lt;heroandtn3&gt;</span> trùng tên o có vấn đề gì cả
+<a name="l-303"></a><span class="tm">15:44:35</span><span class="nk"> &lt;heroandtn3&gt;</span> các post khác nhau ít nhất là về thời gian
+<a name="l-304"></a><span class="tm">15:44:47</span><span class="nk"> &lt;Chien&gt;</span> vs lại wp còn phân ra là catelogies mà
+<a name="l-305"></a><span class="tm">15:44:51</span><span class="nk"> &lt;heroandtn3&gt;</span> sau đó họ cũng có thể soi đường dẫn
+<a name="l-306"></a><span class="tm">15:45:06</span><span class="nk"> &lt;heroandtn3&gt;</span> jekyll cũng làm đc vậy mà
+<a name="l-307"></a><span class="tm">15:45:45</span><span class="nk"> &lt;Chien&gt;</span> uh, nhưng t nghĩ mình phải làm gọi là cải tiến hơn
+<a name="l-308"></a><span class="tm">15:45:51</span><span class="nk"> &lt;boss14420&gt;</span> Nếu đương dẫn khác nhau thì thời gian vẫn có thể giống nhau
+<a name="l-309"></a><span class="tm">15:46:21</span><span class="nk"> &lt;Chien&gt;</span> t chỉ thấy bất tiện cho ng dùng
+<a name="l-310"></a><span class="tm">15:46:34</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> tớ ko thấy bất tiện gì lắm
+<a name="l-311"></a><span class="tm">15:46:43</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu bắt ng ta đặt tên khác thì mới là bất tiện
+<a name="l-312"></a><span class="tm">15:47:00</span><span class="nk"> &lt;heroandtn3&gt;</span> ko nên làm phức tạp quá
+<a name="l-313"></a><span class="tm">15:47:06</span><span class="nk"> &lt;Chien&gt;</span> chỉ nhắc nhở là đã có bài trùng, như kiểu trong forum ấy
+<a name="l-314"></a><span class="tm">15:47:41</span><span class="nk"> &lt;Chien&gt;</span> để lúc mà nói về cái mà làm cho github khác vs cái khác thì là chức năng nhắc nhở khi có bài trùng chẳng hạn
+<a name="l-315"></a><span class="tm">15:47:43</span><span class="nk"> &lt;heroandtn3&gt;</span> chức năng đó trong forum là để khi lập topic hỏi đáp gì đó
+<a name="l-316"></a><span class="tm">15:47:55</span><span class="nk"> &lt;heroandtn3&gt;</span> nó đảm bảo ko hỏi lại những cái đã có rồi
+<a name="l-317"></a><span class="tm">15:48:15</span><span class="nk"> &lt;heroandtn3&gt;</span> uh thì cũng là 1 tính năng
+<a name="l-318"></a><span class="tm">15:48:23</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng ko quan trọng lắm
+<a name="l-319"></a><span class="tm">15:48:39</span><span class="nk"> &lt;boss14420&gt;</span> Đây không phải là bài trùng.
+<a name="l-320"></a><span class="tm">15:48:42</span><span class="nk"> &lt;boss14420&gt;</span> Giả sử
+<a name="l-321"></a><span class="tm">15:49:02</span><span class="nk"> &lt;boss14420&gt;</span> người ta thích chia các post ra làm nhiều thư mục con trong _post cho dễ quản lý
+<a name="l-322"></a><span class="tm">15:49:14</span><span class="nk"> &lt;Chien&gt;</span> heroandtn3, ng dùng là chính, có ng sẽ vì có chức năng này mà dùng, có ng vì có chức năng kia khác lạ mà thử mà
+<a name="l-323"></a><span class="tm">15:49:45</span><span class="nk"> &lt;boss14420&gt;</span> trong cùng 1 ngày, người ta cùng tạo ra 2 post đều tên là yy-mm-dd-hello-world.md ở hai thư mục con khác nhau
+<a name="l-324"></a><span class="tm">15:49:52</span><span class="nk"> &lt;boss14420&gt;</span> nhưng nội dung khác nhau
+<a name="l-325"></a><span class="tm">15:49:58</span><span class="nk"> &lt;boss14420&gt;</span> thì vấn là hợp lệ
+<a name="l-326"></a><span class="tm">15:50:49</span><span class="nk"> &lt;Chien&gt;</span> uh, vs jekyll thì vẫn là hợp lệ
+<a name="l-327"></a><span class="tm">15:51:02</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> việc đặt tên và đặt vào thư mục nào ko phải do ng dùng quyết định
+<a name="l-328"></a><span class="tm">15:51:12</span><span class="nk"> &lt;heroandtn3&gt;</span> mà do module jekyll quyết định
+<a name="l-329"></a><span class="tm">15:51:30</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ cậu tạo post Hello World
+<a name="l-330"></a><span class="tm">15:51:38</span><span class="nk"> &lt;Chien&gt;</span> uh, như kiểu dùng jkbootstrap để post thì các định dạng kia cũng là nó quyết định
+<a name="l-331"></a><span class="tm">15:51:46</span><span class="nk"> &lt;heroandtn3&gt;</span> jekyll sẽ tự động tạo file yy-mm-dd-hello-world.md
+<a name="l-332"></a><span class="tm">15:51:53</span><span class="nk"> &lt;heroandtn3&gt;</span> kiểu như thế
+<a name="l-333"></a><span class="tm">15:51:54</span><span class="nk"> &lt;boss14420&gt;</span> Lỡ ra người ta tạo post thủ công mà không dùng đến chương trình thì sao ?
+<a name="l-334"></a><span class="tm">15:51:57</span><span class="nk"> &lt;heroandtn3&gt;</span> nên ta ko cần quan tâm lắm
+<a name="l-335"></a><span class="tm">15:52:40</span><span class="nk"> &lt;Chien&gt;</span> boss14420, mình đang làm để ng ta dùng cái của mình post, sao lại làm thủ công đc?
+<a name="l-336"></a><span class="tm">15:52:42</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> đó là 1 vấn đề khó trong số rất nhiều vấn đề khó liên quan đến việc: làm sao đồng bộ giữa blog có sẵn và blog theo chuẩn của mình
+<a name="l-337"></a><span class="tm">15:52:54</span><span class="nk"> &lt;boss14420&gt;</span> tức là vì lý do gì đó mà không mở được chương trình, những post được tạo thủ công sẽ bị bỏ qua lần sau ?
+<a name="l-338"></a><span class="tm">15:53:06</span><span class="nk"> &lt;boss14420&gt;</span> chính nó
+<a name="l-339"></a><span class="tm">15:53:20</span><span class="nk"> &lt;heroandtn3&gt;</span> thì tớ bảo nó khó mà
+<a name="l-340"></a><span class="tm">15:53:25</span><span class="nk"> &lt;heroandtn3&gt;</span> giờ chức năng cơ bản cái đã
+<a name="l-341"></a><span class="tm">15:53:31</span><span class="nk"> &lt;heroandtn3&gt;</span> rồi từ từ giải quyết sau
+<a name="l-342"></a><span class="tm">15:53:56</span><span class="nk"> &lt;Chien&gt;</span> uh uh, lắp ghép vào để chạy đc đã
+<a name="l-343"></a><span class="tm">15:54:00</span><span class="nk"> &lt;Chien&gt;</span> cải tiến sau
+<a name="l-344"></a><span class="tm">15:54:05</span><span class="nk"> &lt;Chien&gt;</span> bàn sâu quá chưa làm gì :v
+<a name="l-345"></a><span class="tm">15:55:50</span><span class="nk"> &lt;Chien&gt;</span> vậy là cuộc họp thứ 7 cũng kết đc r nhỉ
+<a name="l-346"></a><span class="tm">15:55:55</span><span class="nk"> &lt;Chien&gt;</span> vẫn bộn bề công việc :)
+<a name="l-347"></a><span class="tm">15:56:03</span><span class="nk"> &lt;Chien&gt;</span> nhưng càng ngày càng chuyên môn hơn rồi :D
+<a name="l-348"></a><span class="tm">15:56:03</span><span class="nk"> &lt;heroandtn3&gt;</span> tổng kết lại buổi họp hôm nay
+<a name="l-349"></a><span class="tm">15:56:25</span><span class="nk"> &lt;heroandtn3&gt;</span> vấn đề nhóm mình là vẫn chưa đầu tư đúng vào thiết kế
+<a name="l-350"></a><span class="tm">15:56:43</span><span class="nk"> &lt;heroandtn3&gt;</span> riêng phần của boss14420 thì có thể coi nhẹ và tập trung hơn vào code ngay bây giờ
+<a name="l-351"></a><span class="tm">15:56:57</span><span class="nk"> &lt;heroandtn3&gt;</span> còn lại thì của anh Cuong, Chien và tớ đều cần thiết kế cụ thể
+<a name="l-352"></a><span class="tm">15:57:09</span><span class="nk"> &lt;heroandtn3&gt;</span> để sau này có thể lắp ghép dễ dàng ngay cả khi mình chưa code xong
+<a name="l-353"></a><span class="tm">15:57:25</span><span class="nk"> &lt;heroandtn3&gt;</span> vấn đề thứ 2 là mọi người chưa đầu tư thời gian
+<a name="l-354"></a><span class="tm">15:57:31</span><span class="nk"> &lt;heroandtn3&gt;</span> nhìn vào báo cáo là biết
+<a name="l-355"></a><span class="tm">15:58:02</span><span class="nk"> &lt;heroandtn3&gt;</span> vậy nên nhóm mình rút kinh nghiệm bằng việc từ tuần sau thì tuần họp 2 lần
+<a name="l-356"></a><span class="tm">15:58:11</span><span class="nk"> &lt;heroandtn3&gt;</span> thứ 4 và cn
+<a name="l-357"></a><span class="tm">15:58:13</span><span class="nk"> &lt;heroandtn3&gt;</span> ok o?
+<a name="l-358"></a><span class="tm">15:58:16</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-359"></a><span class="tm">15:58:19</span><span class="nk"> &lt;boss14420&gt;</span> OK
+<a name="l-360"></a><span class="tm">15:58:21</span><span class="nk"> &lt;Cuong&gt;</span> ok
+<a name="l-361"></a><span class="tm">15:58:23</span><span class="nk"> &lt;Chien&gt;</span> t cũng nghĩ nên thế
+<a name="l-362"></a><span class="tm">15:58:37</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#agreed </span><span class="cmdline">Tuần họp 2 lần vào thứ 4 và CN</span>
+<a name="l-363"></a><span class="tm">15:58:38</span><span class="nk"> &lt;Chien&gt;</span> mà còn việc của Sơn là gì thế heroandtn3 ?
+<a name="l-364"></a><span class="tm">15:58:51</span><span class="nk"> &lt;Chien&gt;</span> giao việc r thì làm gì đến nỗi ko đáng để nhắc đến?!
+<a name="l-365"></a><span class="tm">15:58:52</span><span class="nk"> &lt;heroandtn3&gt;</span> Sơn làm về thiết kế
+<a name="l-366"></a><span class="tm">15:59:02</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng cậu thấy đấy
+<a name="l-367"></a><span class="tm">15:59:15</span><span class="nk"> &lt;heroandtn3&gt;</span> mình họp đc 7 buổi rồi mà bạn í đã báo cáo đc buổi nào đâu?
+<a name="l-368"></a><span class="tm">15:59:24</span><span class="nk"> &lt;heroandtn3&gt;</span> giờ còn chưa biết bạn í đang làm cái gì
+<a name="l-369"></a><span class="tm">15:59:36</span><span class="nk"> &lt;heroandtn3&gt;</span> chỉ biết là vẫn đang dùng win!
+<a name="l-370"></a><span class="tm">16:00:16</span><span class="nk"> &lt;Chien&gt;</span> uh, ý t ko phải nhắc đến để chỉ trích, mà để xem còn thiếu phần nào thì làm nốt ko là ko xong đc ấy
+<a name="l-371"></a><span class="tm">16:00:45</span><span class="nk"> &lt;heroandtn3&gt;</span> phần của Sơn thì muốn làm tốt thì rất khó
+<a name="l-372"></a><span class="tm">16:00:53</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ như kéo thả giao diện
+<a name="l-373"></a><span class="tm">16:01:11</span><span class="nk"> &lt;heroandtn3&gt;</span> cái đó có lẽ để sau cuộc thi
+<a name="l-374"></a><span class="tm">16:01:16</span><span class="nk"> &lt;heroandtn3&gt;</span> còn làm đơn giản thì dễ
+<a name="l-375"></a><span class="tm">16:01:20</span><span class="nk"> &lt;heroandtn3&gt;</span> nên cũng ko lo ngại lắm
+<a name="l-376"></a><span class="tm">16:01:44</span><span class="nk"> &lt;heroandtn3&gt;</span> làm đơn giản là mình hiển thị giao diện cho ng dùng select thôi
+<a name="l-377"></a><span class="tm">16:01:54</span><span class="nk"> &lt;Chien&gt;</span> uh, có vẻ khó đấy, cứ xong đơn giản đã r tính!
+<a name="l-378"></a><span class="tm">16:01:54</span><span class="nk"> &lt;heroandtn3&gt;</span> giống jekyll bootstrap vậy
+<a name="l-379"></a><span class="tm">16:02:00</span><span class="nk"> &lt;heroandtn3&gt;</span> hoặc giống wordpress
+<a name="l-380"></a><span class="tm">16:02:13</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-381"></a><span class="tm">16:02:17</span><span class="nk"> &lt;Chien&gt;</span> vậy là ngon rồi
+<a name="l-382"></a><span class="tm">16:02:37</span><span class="nk"> &lt;Chien&gt;</span> nếu muốn tham khảo kéo thả thì vào weebly.com mà t bảo hôm trc nhé :)
+<a name="l-383"></a><span class="tm">16:02:44</span><span class="nk"> &lt;heroandtn3&gt;</span> uh
+<a name="l-384"></a><span class="tm">16:03:14</span><span class="nk"> &lt;heroandtn3&gt;</span> chuyện thiết kế tớ nói nhiều rồi nhưng vẫn muốn nói lại vì có vẻ mọi người chưa thông
+<a name="l-385"></a><span class="tm">16:03:29</span><span class="nk"> &lt;heroandtn3&gt;</span> đó là khi mọi người định code cái gì thì đừng code vội
+<a name="l-386"></a><span class="tm">16:03:38</span><span class="nk"> &lt;heroandtn3&gt;</span> mà hãy ghi nó vào bản thiết kế
+<a name="l-387"></a><span class="tm">16:03:44</span><span class="nk"> &lt;heroandtn3&gt;</span> code có thể mất vài ngày
+<a name="l-388"></a><span class="tm">16:03:54</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng ghi vào thiết kế chỉ mất 1'
+<a name="l-389"></a><span class="tm">16:04:25</span><span class="nk"> &lt;heroandtn3&gt;</span> như vậy sẽ nhanh chóng lên được bộ khung cho module hơn là cặm cụi code
+<a name="l-390"></a><span class="tm">16:05:12</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-391"></a><span class="tm">16:05:20</span><span class="nk"> &lt;heroandtn3&gt;</span> cuối cùng thì mọi người tận dụng mail để trao đổi nhé
+<a name="l-392"></a><span class="tm">16:05:26</span><span class="nk"> &lt;Chien&gt;</span> t nhớ rồi
+<a name="l-393"></a><span class="tm">16:05:34</span><span class="nk"> &lt;heroandtn3&gt;</span> để giảm tải cho cuộc họp :D
+<a name="l-394"></a><span class="tm">16:05:45</span><span class="nk"> &lt;heroandtn3&gt;</span> chứ họp thế này nói cảm giác như mãi ko hết
+<a name="l-395"></a><span class="tm">16:05:55</span><span class="nk"> &lt;Chien&gt;</span> <span class="cmd">#agree </span><span class="cmdline">code vài ngày nhưng thiết kế 1', tận dụng mail</span>
+<a name="l-396"></a><span class="tm">16:05:57</span><span class="nk"> &lt;Chien&gt;</span> :D
+<a name="l-397"></a><span class="tm">16:05:59</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-398"></a><span class="tm">16:06:50</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#endmeeting</span><span class="cmdline"></span></pre>
+</body></html>

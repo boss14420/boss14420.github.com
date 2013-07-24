@@ -1,0 +1,398 @@
+14:06:18 <boss14420> #startmeeting
+14:06:18 <hubkbot> Meeting started Sun Jul 21 14:06:18 2013 UTC.  The chair is boss14420. Information about MeetBot at http://wiki.debian.org/MeetBot.
+14:06:18 <hubkbot> Useful Commands: #action #agreed #help #info #idea #link #topic.
+14:06:31 <boss14420> ok
+14:07:01 <heroandtn3> trước tiên cũng xin báo với mọi người, bà nội tớ vừa mất nên tuần này tớ ko làm đc thêm gì
+14:07:19 <heroandtn3> chỉ có thể họp và cùng mọi người trao đổi
+14:07:28 <boss14420> #chair Chien Cuong heroandtn3
+14:07:28 <hubkbot> Current chairs: Chien Cuong boss14420 heroandtn3
+14:07:49 <Chien> haizz
+14:08:01 <Chien> onl chờ m.ng mà giờ ms vào à ^_^
+14:08:15 <boss14420> đúng giờ mà
+14:08:31 <heroandtn3> bắt đầu thôi
+14:08:37 <Chien> ok
+14:08:48 <Chien> chia buồn vs Sang trc nhé!
+14:10:00 <heroandtn3> thôi bắt đầu thôi
+14:10:09 <heroandtn3> giờ bạn nào xung phong báo cáo trước?
+14:10:43 <boss14420> Chien đi
+14:10:54 <boss14420> mình tuần rồi cũng chả làm được gì mấy
+14:11:16 <heroandtn3> có vướng mắc gì à?
+14:11:42 <Chien> sr sr, t vừa có điện thoại
+14:11:52 <Chien> t xin phép 10' nói chuyện điện thoại :D
+14:11:54 <boss14420> Một phần là bận, cũng có chút vướng mắc
+14:13:31 <Cuong> cụ thể vướng mắc gì thế chú?
+14:14:27 <boss14420> Vướng mắc liên quan đến cái thư viện có sẵn, code hơi khó hiểu
+14:15:25 <heroandtn3> nhưng tuần trước nhóm mình thống nhất là tuần này tập trung thiết kế mà
+14:16:11 <boss14420> Nhưng mà phần của mình là UI, dùng lại chức năng của các phần khác
+14:16:44 <boss14420> nên thiết kế để sau cũng không ảnh hưởng mấy, giờ tập trung xử lý ngôn ngữ
+14:20:15 <heroandtn3> vậy ai đó báo cáo đi, anh Cương
+14:22:33 <Chien> t xong rồi
+14:22:45 <Chien> m.ng còn đó ko?
+14:23:15 <boss14420> còn
+14:23:21 <heroandtn3> tất nhiên là còn rồi
+14:23:30 <Chien> ok
+14:23:40 <heroandtn3> Chien hoặc anh Cuong báo cáo
+14:23:52 <Chien> a Cuong  có đó ko?
+14:24:24 <Chien> nếu ko có thì để em báo cáo luôn tiết kiệm thời gian
+14:24:45 <Chien> chả hiểu 1 tuần time đi đâu hết mà nhanh khiếp, chưa làm đc j mấy :v
+14:25:07 <Cuong> chú Chiến báo cáo đi
+14:25:10 <Cuong> rồi đến anh
+14:25:20 <Chien> # Báo cáo tiến độ module bình luận
+14:25:33 <boss14420> phai la #topic
+14:25:39 <heroandtn3> #topic Báo cáo tiến độ module bình luận
+14:25:52 <Chien> ok
+14:26:58 <Chien> tuần vừa rồi thì thông nhất từ trc là t làm thiết kế vs demo gui (nếu có thể)
+14:27:07 <heroandtn3> uh
+14:27:26 <Chien> thiết kế thì t chưa hoàn thành hẳn do vẫn chưa chuyển hết code sang python 3 đc
+14:27:37 <Chien> nhưng mà cũng liệt kê đc các hàm cơ bản ra đây rồi
+14:27:53 <Chien> https://github.com/JeKitProject/MHST2013/wiki/Module-B%C3%ACnh-lu%E1%BA%ADn-v%E1%BB%9Bi-Disqus:-Thi%E1%BA%BFt-k%E1%BA%BF
+14:28:25 <heroandtn3> thiết kế thì liên quan gì đến việc nó là py2 hay py3
+14:28:30 <Chien> mình bị hút phần lớn thơì gian vào phần làm GUI
+14:28:58 <Chien> à, do cái việc chuyển sang 3 chiếm mất kha khá time của t nên t chưa hoàn thành vội thiết kế
+14:29:13 <Chien> hiện cũng demo đc gui
+14:29:32 <Chien> (ms làm đc cái bảng vs mấy cái nút thôi)
+14:29:52 <Chien> nhưng vì qt vs pyside hơi ms nên bị hút
+14:29:56 <Chien> sr m.ng
+14:30:56 <boss14420> GUI đâu ?
+14:32:13 <Chien> gui show kiểu gì đc?
+14:32:30 <heroandtn3> í boss14420 là demo í Chien
+14:32:45 <Chien> à, up code lên github à
+14:33:21 <Chien> t đã nối đc vs hàm đâu, chỉ làm đc cái bảng vs nút thôi :D
+14:34:19 <Chien> nhìn chung là tiến độ của t vẫn chậm, sr m.ng, hix
+14:35:52 <heroandtn3> :-?
+14:36:07 <boss14420> Thể hình thù của nó ntn ?
+14:36:54 <heroandtn3> bây giờ mọi người phải xác định thế này
+14:37:33 <heroandtn3> trong quá trình code thì có rất nhiều vướng mắc
+14:37:45 <heroandtn3> nên nếu cứ tập trung vào 1 cái thì ko bao giờ xong đc
+14:37:53 <heroandtn3> mà người khác lại phải chờ đợi mình
+14:40:11 <heroandtn3> trước kia, thời kì mới ptr của công nghệ phần mềm thì thời gian code chiếm tới 80%
+14:40:47 <heroandtn3> sau đó con số này giảm xuống còn khoảng 35% vì ng ta nhận thấy là vấn đề thiết kế quan trọng hơn rất nhiều đến sự thành công của dự án
+14:41:01 <heroandtn3> giờ mọi người cứ code code code mà ko biết code cái gì
+14:41:06 <heroandtn3> vậy code xong thì nó thành cái gì?
+14:41:45 <heroandtn3> nếu bây giờ Chiến cứ ngồi học code GUI với python
+14:41:56 <heroandtn3> thì đảm bảo 1 tháng nữa mới gọi là thạo thạo đc
+14:41:59 <Chien> boss14420, t code theo hướng dẫn của quyển này: Python GUI programming with PySide
+14:42:13 <heroandtn3> ko lẽ để mọi người đợi sao?
+14:42:29 <Chien> sr heroandtn3 , t dễ bị hút quá :(
+14:42:49 <boss14420> Trở về vấn đề thiết kế, mấy cái method đó còn khá sơ sài
+14:43:05 <boss14420> nên cho thêm thông tin về giá trị đầu vào, giá trị trả về
+14:43:14 <Chien> boss14420, t đang bổ sung cái ấy
+14:43:27 <Chien> nhưng t có thắc mắc là có phải liệt kê toàn bộ class và method ko?
+14:43:50 <boss14420> Không. Chỉ cần liệt kê những cái mà các module khác cần dùng đến
+14:44:10 <Chien> uh, vậy thì c vào lại link là vừa đủ rồi
+14:44:40 <Chien> còn 1 ít thì t đang làm nốt :D
+14:44:52 <Chien> t làm theo mẫu trong module git của a Cuong
+14:44:54 <boss14420> Còn tham số đầu vào ?
+14:45:07 <Chien> trong mẫu của a Cuong ko thấy ghi?
+14:45:31 <heroandtn3> mẫu của anh Cuong là mẫu nào?
+14:45:46 <Chien> https://github.com/JeKitProject/MHST2013/wiki/Module-Git
+14:45:49 <Chien> đấy heroandtn3
+14:46:44 <Chien> thực sự là t thấy ko khí làm việc của nhóm mình n hơi trầm m.ng ạ!
+14:46:47 <heroandtn3> ok
+14:47:05 <heroandtn3> tuy nhiên anh Cuong lưu ý là tuần trước nhóm mình thống nhất code style rồi mà
+14:47:18 <heroandtn3> sao còn viết tên hàm kiểu kia?
+14:47:33 <Chien> đúng rồi, viết thường hêt a Cuong ạ
+14:47:50 <Cuong> ừ
+14:48:04 <Cuong> anh quên đấy
+14:48:07 <Cuong> tí anh sửa
+14:48:44 <heroandtn3> 1 cái nữa là trả về bool thì phải nói rõ true/false có í nghĩa gì chứ
+14:48:57 <heroandtn3> true là có lỗi hay ko có lỗi
+14:49:34 <Cuong> ok
+14:49:36 <heroandtn3> Chien: trầm thì mỗi người phải cố gắng trao đổi
+14:49:56 <heroandtn3> tớ cũng cố gắng bám sát tiến độ của mọi người
+14:50:01 <heroandtn3> rồi thảo luận trên group
+14:50:10 <heroandtn3> chỉ cần mỗi người trong nhóm ai cũng vậy là ok
+14:50:30 <heroandtn3> tớ thấy nhóm mình có 4 ng đang họp ở đây thì ai cũng nhiệt tình
+14:50:43 <heroandtn3> chỉ có cái là đang vướng mắc 1 chút ở khâu xác định việc cần làm
+14:51:03 <heroandtn3> giờ đang chưa đâu vào đâu nên cảm thấy khó và có lúc nản
+14:51:08 <heroandtn3> nhưng chỉ cần kiên trì là đc
+14:51:20 <heroandtn3> cứ đi từ từ rồi sẽ đến đích
+14:51:59 <Chien> uh , t vẫn muốn offline nói chuyện 1 chuyến
+14:52:03 <Chien> à mà
+14:52:17 <Chien> m.ng thống nhất dùng tiếng Anh hay Việt trong thiết kế?
+14:52:41 <heroandtn3> theo tớ thì cứ tiếng Việt cho dễ
+14:52:48 <boss14420> Tiếng Việt đi
+14:52:54 <Chien> các comment cũng thế chứ?
+14:53:02 <Chien> comment trong code ấy?
+14:53:11 <heroandtn3> sau cuộc thi thì có thể chuyển sang Anh để ng nước ngoài đọc có thể hiểu và tham gia
+14:53:15 <heroandtn3> tiếng Việt đi
+14:54:01 <Chien> ok vậy note cái này vào đi, nên cho các note vào 1 file để m.ng xem đc đầy đủ
+14:54:17 <Chien> ko lại như code style, bị phân mảnh có ng ko để ý
+14:54:38 <boss14420> #agreed Sử dụng Tiếng Việt trong tài liệt thiết kế và comment
+14:54:42 <Chien> ghi cả nhiệm vụ tuần của mỗi ng vào ấy nữa để cuối tuần phán xét cho dễ
+14:55:51 <heroandtn3> uh
+14:55:59 <heroandtn3> lẽ ra cái đó mỗi người phải note vào
+14:56:10 <Chien> vậy thôi, phần của t và ý kiến của t cũng đã nói hết
+14:56:15 <boss14420> Nhiệm vụ ai thì người đó tự ghi
+14:56:22 <Chien> uh :D , nhưng có tổ chức giám sát vẫn hơn mà
+14:56:44 <heroandtn3> thì từ cái note đó mình giám sát thôi
+14:56:56 <heroandtn3> chẳng lẽ ghi note ra rồi lại sửa lại ko cho ng khác đọc à :P
+14:57:12 <boss14420> Của ai thì người ấy viết note đi, dùng lệnh #action
+14:57:22 <heroandtn3> ok
+14:57:45 <Chien> ok, như t bây giờ dùng cái XCHat này thì nó có tự lưu log tỏng máy t ko?
+14:57:53 <heroandtn3> #agreed Trong cuộc họp mọi người phải tự note nhiệm vụ của mình
+14:58:04 <heroandtn3> Chien: cậu tìm hiểu xem
+14:58:14 <boss14420> Một số client có thể tự lưu
+14:58:27 <heroandtn3> thường thì là có, nhưng nó chỉ lưu khi cậu tham gia chat
+14:58:59 <heroandtn3> còn con bot của boss14420 thì nó lưu tất cả message trong room khi nó chạy
+14:59:16 <Chien> ok
+14:59:44 <Chien> nếu ko còn lưu ý gì thì phần tiếp theo đi :)
+14:59:51 <boss14420> ai ?
+15:00:01 <Cuong_> Vậy đến anh báo cáo
+15:01:59 <Cuong> aloo
+15:02:02 <heroandtn3> ok
+15:02:06 <Cuong> mọi người có thấy anh chat không
+15:02:15 <Chien> có đây anh
+15:02:27 <Chien> anh note topic đi
+15:02:30 <Cuong> ok
+15:02:35 <Cuong> anh báo cáo nhé
+15:02:49 <Cuong> tuần qua anh làm thiết kế module Git
+15:03:01 <heroandtn3> #topic Cường báo cáo module Git
+15:03:21 <Cuong> anh mới nghĩ đến các hàm cơ bản
+15:03:33 <Cuong> add, commit, push
+15:04:05 <Cuong> ngoài ra cần các hàm kiểm tra trạng thái, và reset khi người dùng không muốn commit nữa
+15:04:08 <heroandtn3> thiết kế của anh thiếu rất nhiều
+15:04:29 <heroandtn3> ví dụ gitStatus
+15:04:39 <heroandtn3> anh ghi là "Return value: List of files are tracked, otherwise return None"
+15:05:11 <heroandtn3> trong lệnh git status trả lại nhiều kết quả
+15:05:28 <heroandtn3> chỉ trả về danh sách các file tracked thì liệu có đủ và cần?
+15:05:52 <heroandtn3> muốn xem file nào bị xóa, bị sửa, file nào mới thì sao?
+15:06:19 <heroandtn3> thứ 2 là gitReset
+15:06:26 <heroandtn3> "Reset state of tracking filesReturn value: None"
+15:06:35 <heroandtn3> reset file nào mới đc?
+15:06:43 <heroandtn3> reset đến commit nào?
+15:06:52 <heroandtn3> ko thấy truyền tham số gì cả
+15:07:24 <Cuong> ừ, anh mói nghĩ đến làm với file hiện tại thôi
+15:07:40 <heroandtn3> file hiện tại là file nào?
+15:07:48 <Cuong> còn muốn xem file bị xóa, sửa thì phải thêm git_log
+15:08:01 <Cuong> cơ mà cái đấy có cần không?
+15:08:41 <heroandtn3> cần ko thì em cũng chưa biết, còn tùy vào các module khác có cần ko
+15:08:52 <boss14420> Chương trình của ta mỗi lần thao tác chỉ tác động tới 1 file thôi
+15:08:59 <heroandtn3> nên em mới bảo m ng thiết kế trước
+15:09:23 <heroandtn3> boss14420: tớ cũng nghĩ vậy, như vậy thì phải có tham số truyền vào thông tin file đó
+15:09:55 <Cuong> cái này sẽ làm khi viết code
+15:09:58 <Cuong> sẽ có chỉnh sửa
+15:10:00 <Chien> nhưng sửa 1 file thì các file liên quan cũng bị thay đổi mà?
+15:10:18 <Cuong> anh nghĩ cái thiết kế này chỉ nêu ra tổng quan ban đầu
+15:10:24 <Chien> phải biết file sửa chính là file nào, file nào là file auto chứ ạ?
+15:10:29 <heroandtn3> 1 cái nữa là hôm trước có nói với anh Cường là add post, add layout, sửa post,... thì commit phải khác nhau
+15:10:50 <heroandtn3> Cuong: ko anh ạ, thiết kế chính là những gì anh sẽ code
+15:11:01 <heroandtn3> chứ ko phải thiết kế qua qua rồi code theo 1 kiểu khác
+15:11:26 <Cuong> ý anh không phải qua qua
+15:11:49 <Cuong> mà là có cái tổng thể trước, như cái khung ấy
+15:12:04 <Cuong> khi làm mình sẽ "đắp" thêm những cái cụ thể vào
+15:12:37 <heroandtn3> tức là khi code?
+15:12:39 <Chien> nhưng mà khi thiết kế mà càng cụ thể thì khi code sẽ ít sai sót + nhanh hơn mà
+15:12:42 <Cuong> còn cái commit khác nhau thì anh chưa hiểu lắm
+15:12:57 <heroandtn3> vậy nếu giờ em muốn sử dụng module của anh
+15:13:09 <heroandtn3> mà chưa biết cụ thể 1 hàm của anh gọi thế nào thì làm sao em dùng đc?
+15:13:44 <Cuong> lúc đấy anh sẽ có doc cho chú chứ
+15:14:04 <heroandtn3> í em là phải thiết kế cụ thể để code theo
+15:14:19 <heroandtn3> vì thời gian anh code sẽ mất rất nhiều
+15:14:34 <heroandtn3> giả sử cài đặt có vấn đề gì đó có thể hàng tuần chưa xong
+15:14:59 <heroandtn3> nhưng em ko thể đợi được, như vậy nếu có sẵn bản docs của anh trước khi có code
+15:15:10 <heroandtn3> thì em có thể tiến hành song song với anh
+15:15:42 <heroandtn3> còn chuyện anh chưa hiểu mấy cái trên thì anh có thể thảo luận trên mail
+15:15:53 <heroandtn3> mọi người phải tận dụng mail chứ
+15:15:58 <heroandtn3> :(
+15:16:35 <Chien> bình tĩnh nào, chỉ cần gọi tên đc vấn đề là giải quyết đc thôi mà
+15:16:59 <Chien> tí nữa a Cuong  đưa lên mail vân đề để m.ng cùng tìm hiểu là đc thôi
+15:17:00 <Cuong> ừ
+15:18:10 <Cuong> có vấn đề gì đâu, mà ở đây anh không hiểu cách diễn đạt "commit phải khác nhau" của Sang nghĩa là gì?
+15:18:18 <boss14420> Trở về vấn đề, trước đây đã thống nhất là nên có chức năng phục hồi lại lich sử edit
+15:18:40 <boss14420> cái này ta có nên tận dụng chức năng của git không ?
+15:18:50 <boss14420> hay là implement riêng ?
+15:18:59 <heroandtn3> có nên tận dụng
+15:19:13 <Cuong> đúng
+15:19:41 <heroandtn3> Cuong: trong quá trình commit
+15:20:07 <heroandtn3> ta cần lọc các commit liên quan đến post để xem history của nó chẳng hạn
+15:20:30 <heroandtn3> nên em muốn chia ra các loại commit
+15:20:45 <heroandtn3> commit post khác, layout khác
+15:20:57 <heroandtn3> có thể phân biệt bằng prefix chẳng hạn
+15:21:10 <Cuong> git có chức năng đấy không?
+15:21:16 <heroandtn3> ví dụ chèn post thì message là Post: add ...
+15:21:32 <Cuong> cùng một repo nhưng quản lý log commit các thư mục con khác nhau?
+15:21:33 <heroandtn3> em nghĩ là cho vào message
+15:21:43 <heroandtn3> ko đc
+15:21:48 <boss14420> Không, mesage không đảm bảo
+15:21:53 <boss14420> nó không có cấu trúc
+15:22:07 <heroandtn3> boss14420: nhưng ta có thể commit theo cấu trúc
+15:22:27 <heroandtn3> ví dụ vậy thôi
+15:22:36 <heroandtn3> anh Cuong là ng phụ trách module
+15:22:43 <heroandtn3> thì phải tìm hiểu là module cần những cái gì
+15:22:58 <heroandtn3> mọi người chỉ góp í thôi
+15:23:52 <Chien> git ko có chức năng ấy, nhưng mình làm cả giao diên WYS thì nên có
+15:24:21 <heroandtn3> cũng có thể lọc kết quả
+15:24:57 <heroandtn3> ko biết git history trong pygit2 có hỗ trợ hiển thị danh sách các file ko
+15:25:12 <heroandtn3> nếu có thì mình có thể lọc ra những file mình quan tâm
+15:25:29 <Chien> chắc là có, nhưng sao heroandtn3 bảo ko quản lí theo thư mục con đc?
+15:25:47 <heroandtn3> Chien: í anh Cuong là mỗi thư mục 1 history riêng
+15:25:48 <Chien> post có thư mục post, quản lí theo thư mục cũng đc chứ?
+15:26:01 <heroandtn3> nhưng điều đó là ko hỗ trợ trong git thì phải
+15:26:12 <Chien> uh, cái đó git ko hỗ trợ
+15:26:34 <heroandtn3> http://stackoverflow.com/questions/2851918/how-to-get-change-history-for-a-specific-file-in-git-repository
+15:26:39 <heroandtn3> hình như có
+15:27:16 <heroandtn3> thảo luận cụ thể thì tốn rất nhiều thời gian nên mấy cái này thảo luận trước trên mail thì tiện hơn
+15:27:39 <heroandtn3> nhìn báo cáo của anh Cuong và Chien cũng sơ sài lắm, chắc là chưa đầu tư thời gian :P
+15:27:55 <boss14420> Đương nhiên là phải có
+15:28:07 <Chien> uh, t thích làm GUI :D
+15:28:11 <boss14420> nếu không thì sao mà git nó tở lại trạng thái cũ được
+15:28:50 <Chien> uh, vào mỗi thư mục đều có nút history kìa
+15:28:54 <Chien> xem đc
+15:29:02 <heroandtn3> uh
+15:29:05 <heroandtn3> nếu có thì ok
+15:29:52 <heroandtn3> nói qua 1 chút phần của boss14420
+15:29:56 <boss14420> OK
+15:30:05 <heroandtn3> hôm trước tớ cũng nói với cậu rồi
+15:30:15 <heroandtn3> ví dụ module của cậu cần mở 1 post lên để sửa
+15:30:32 <heroandtn3> thì cậu cần gọi 1 method trong module jekyll chẳng hạn
+15:30:37 <boss14420> #topic Báo cáo về Editor và xử lý ngôn ngữ
+15:31:17 <heroandtn3> method đó nhận tham số là tên file
+15:31:21 <heroandtn3> và trả về object là Post
+15:31:42 <heroandtn3> trong Post thì có các thông tin của post cũng như nội dung
+15:32:11 <heroandtn3> như vậy thì cậu cần phải thiết kế 1 số thứ
+15:32:25 <heroandtn3> để cậu cần cho việc lập trình module đúng ko?
+15:32:41 <heroandtn3> ví dụ Post phải chứa thông tin gì chẳng hạn
+15:32:49 <boss14420> Về khoản này thì tùy ý mọi người thiết kế. Mình sẽ theo đó mà điều chỉnh cho phù hợp.
+15:33:07 <heroandtn3> uh
+15:33:15 <heroandtn3> vậy thì chỗ đó tớ sẽ làm
+15:33:27 <heroandtn3> cậu gợi í những method mà cậu cần
+15:33:39 <heroandtn3> để tớ đưa vào nhé
+15:33:58 <boss14420> CƠ bản thì cần những method sau:
+15:34:05 <boss14420> new_post(name)
+15:34:10 <boss14420> list_post()
+15:34:26 <boss14420> get_post(name)
+15:34:43 <boss14420> save_post()
+15:34:54 <boss14420> tương tự với page
+15:34:59 <heroandtn3> ok
+15:35:04 <heroandtn3> kiểu như vậy
+15:35:33 <heroandtn3> mấy cái đó cậu viết trong báo cáo của cậu, tớ đọc là biết và đưa vào phần của mình cho phù hợp
+15:35:37 <heroandtn3> ok ko
+15:35:55 <boss14420> Có 1 vấn đề, đó là trong jekyll thì vị trí của post là tùy ý, trong các thư mục con nào cũng được.
+15:36:05 <boss14420> Nên có thể có 2 post khác nhau nhưng trùng tên
+15:37:01 <heroandtn3> cái đó module của tớ nó sẽ xử lí
+15:37:15 <heroandtn3> nếu trùng thì thêm -i ở cuối
+15:37:20 <heroandtn3> i từ 1 đến n
+15:37:36 <boss14420> Không phải vậy.
+15:37:36 <Chien> trùng tên là loại chứ?
+15:37:46 <Chien> t nghĩ là nên nhắc nhở ng dùng thay tên
+15:37:54 <boss14420> Tên ở đây là tên file. Tuy trùng nhau nhưng ở thư mục con khác nhau
+15:38:02 <boss14420> nên vẫn là hợp lệ với jekyll
+15:38:20 <Chien> boss14420, nhưng vs của mình thì ko nên hợp lệ
+15:38:20 <boss14420> cho nên thông tin về post phải có đường dẫn đầy đủ
+15:38:37 <heroandtn3> boss14420: đồng ý
+15:38:57 <heroandtn3> có thể dùng đường dẫn tương đối với thư mục _posts
+15:39:00 <boss14420> Chien: Ngăn cản việc trùng tên sẽ làm cho mọi thứ rắc rối hơn
+15:39:40 <Chien> nhưng trùng tên lại gây rắc rối cho ng dùng khi sử dụng, chẳng hạn khi tìm bài thì chẳng lẽ cứ phải để ý đường dẫn?
+15:40:14 <boss14420> Nói chung về vấn đề này thì heroandtn3 cứ tùy ý thiết kế, có gì mình bổ sung thêm
+15:40:24 <heroandtn3> Chien: ko cần đâu
+15:40:36 <heroandtn3> ví dụ khi họ xem danh sách bài
+15:40:44 <Chien> ok, còn phải có thời gian kiểm thử
+15:40:52 <heroandtn3> mình hiển thị cho họ lên theo Tên bài viết
+15:41:00 <heroandtn3> có thêm cột ngày tháng, thời gian chẳng hạn
+15:41:22 <heroandtn3> họ có thể dựa vào thứ tự ngày tháng để phân biệt
+15:41:32 <heroandtn3> cái này giống như trong wordpress vậy
+15:41:44 <heroandtn3> tuy nhiên cái này chi tiết quá
+15:41:52 <heroandtn3> nói bây giờ thì sau này quên nên ko làm gì cả
+15:41:53 <Chien> khi mà số lượng post đã nhiều thì họ làm sao nhớ nổi? T nghĩ nên nhắc nhở, nếu họ vẫn thế thì ms cho dùng
+15:42:15 <heroandtn3> Chien: ko đúng, nếu cậu dùng wp thì sẽ thấy là ko vấn đề gì cả
+15:42:20 <Chien> uh, cứ làm dần dần
+15:42:50 <Chien> t đang dùng wp, t cũng ko muốn có 2 bài trùng tên đc chấp nhận
+15:43:02 <Chien> thành ra t chưa cho trùng tên
+15:44:26 <heroandtn3> trùng tên o có vấn đề gì cả
+15:44:35 <heroandtn3> các post khác nhau ít nhất là về thời gian
+15:44:47 <Chien> vs lại wp còn phân ra là catelogies mà
+15:44:51 <heroandtn3> sau đó họ cũng có thể soi đường dẫn
+15:45:06 <heroandtn3> jekyll cũng làm đc vậy mà
+15:45:45 <Chien> uh, nhưng t nghĩ mình phải làm gọi là cải tiến hơn
+15:45:51 <boss14420> Nếu đương dẫn khác nhau thì thời gian vẫn có thể giống nhau
+15:46:21 <Chien> t chỉ thấy bất tiện cho ng dùng
+15:46:34 <heroandtn3> Chien: tớ ko thấy bất tiện gì lắm
+15:46:43 <heroandtn3> nếu bắt ng ta đặt tên khác thì mới là bất tiện
+15:47:00 <heroandtn3> ko nên làm phức tạp quá
+15:47:06 <Chien> chỉ nhắc nhở là đã có bài trùng, như kiểu trong forum ấy
+15:47:41 <Chien> để lúc mà nói về cái mà làm cho github khác vs cái khác thì là chức năng nhắc nhở khi có bài trùng chẳng hạn
+15:47:43 <heroandtn3> chức năng đó trong forum là để khi lập topic hỏi đáp gì đó
+15:47:55 <heroandtn3> nó đảm bảo ko hỏi lại những cái đã có rồi
+15:48:15 <heroandtn3> uh thì cũng là 1 tính năng
+15:48:23 <heroandtn3> nhưng ko quan trọng lắm
+15:48:39 <boss14420> Đây không phải là bài trùng.
+15:48:42 <boss14420> Giả sử
+15:49:02 <boss14420> người ta thích chia các post ra làm nhiều thư mục con trong _post cho dễ quản lý
+15:49:14 <Chien> heroandtn3, ng dùng là chính, có ng sẽ vì có chức năng này mà dùng, có ng vì có chức năng kia khác lạ mà thử mà
+15:49:45 <boss14420> trong cùng 1 ngày, người ta cùng tạo ra 2 post đều tên là yy-mm-dd-hello-world.md ở hai thư mục con khác nhau
+15:49:52 <boss14420> nhưng nội dung khác nhau
+15:49:58 <boss14420> thì vấn là hợp lệ
+15:50:49 <Chien> uh, vs jekyll thì vẫn là hợp lệ
+15:51:02 <heroandtn3> boss14420: việc đặt tên và đặt vào thư mục nào ko phải do ng dùng quyết định
+15:51:12 <heroandtn3> mà do module jekyll quyết định
+15:51:30 <heroandtn3> ví dụ cậu tạo post Hello World
+15:51:38 <Chien> uh, như kiểu dùng jkbootstrap để post thì các định dạng kia cũng là nó quyết định
+15:51:46 <heroandtn3> jekyll sẽ tự động tạo file yy-mm-dd-hello-world.md
+15:51:53 <heroandtn3> kiểu như thế
+15:51:54 <boss14420> Lỡ ra người ta tạo post thủ công mà không dùng đến chương trình thì sao ?
+15:51:57 <heroandtn3> nên ta ko cần quan tâm lắm
+15:52:40 <Chien> boss14420, mình đang làm để ng ta dùng cái của mình post, sao lại làm thủ công đc?
+15:52:42 <heroandtn3> boss14420: đó là 1 vấn đề khó trong số rất nhiều vấn đề khó liên quan đến việc: làm sao đồng bộ giữa blog có sẵn và blog theo chuẩn của mình
+15:52:54 <boss14420> tức là vì lý do gì đó mà không mở được chương trình, những post được tạo thủ công sẽ bị bỏ qua lần sau ?
+15:53:06 <boss14420> chính nó
+15:53:20 <heroandtn3> thì tớ bảo nó khó mà
+15:53:25 <heroandtn3> giờ chức năng cơ bản cái đã
+15:53:31 <heroandtn3> rồi từ từ giải quyết sau
+15:53:56 <Chien> uh uh, lắp ghép vào để chạy đc đã
+15:54:00 <Chien> cải tiến sau
+15:54:05 <Chien> bàn sâu quá chưa làm gì :v
+15:55:50 <Chien> vậy là cuộc họp thứ 7 cũng kết đc r nhỉ
+15:55:55 <Chien> vẫn bộn bề công việc :)
+15:56:03 <Chien> nhưng càng ngày càng chuyên môn hơn rồi :D
+15:56:03 <heroandtn3> tổng kết lại buổi họp hôm nay
+15:56:25 <heroandtn3> vấn đề nhóm mình là vẫn chưa đầu tư đúng vào thiết kế
+15:56:43 <heroandtn3> riêng phần của boss14420 thì có thể coi nhẹ và tập trung hơn vào code ngay bây giờ
+15:56:57 <heroandtn3> còn lại thì của anh Cuong, Chien và tớ đều cần thiết kế cụ thể
+15:57:09 <heroandtn3> để sau này có thể lắp ghép dễ dàng ngay cả khi mình chưa code xong
+15:57:25 <heroandtn3> vấn đề thứ 2 là mọi người chưa đầu tư thời gian
+15:57:31 <heroandtn3> nhìn vào báo cáo là biết
+15:58:02 <heroandtn3> vậy nên nhóm mình rút kinh nghiệm bằng việc từ tuần sau thì tuần họp 2 lần
+15:58:11 <heroandtn3> thứ 4 và cn
+15:58:13 <heroandtn3> ok o?
+15:58:16 <Chien> ok
+15:58:19 <boss14420> OK
+15:58:21 <Cuong> ok
+15:58:23 <Chien> t cũng nghĩ nên thế
+15:58:37 <heroandtn3> #agreed Tuần họp 2 lần vào thứ 4 và CN
+15:58:38 <Chien> mà còn việc của Sơn là gì thế heroandtn3 ?
+15:58:51 <Chien> giao việc r thì làm gì đến nỗi ko đáng để nhắc đến?!
+15:58:52 <heroandtn3> Sơn làm về thiết kế
+15:59:02 <heroandtn3> nhưng cậu thấy đấy
+15:59:15 <heroandtn3> mình họp đc 7 buổi rồi mà bạn í đã báo cáo đc buổi nào đâu?
+15:59:24 <heroandtn3> giờ còn chưa biết bạn í đang làm cái gì
+15:59:36 <heroandtn3> chỉ biết là vẫn đang dùng win!
+16:00:16 <Chien> uh, ý t ko phải nhắc đến để chỉ trích, mà để xem còn thiếu phần nào thì làm nốt ko là ko xong đc ấy
+16:00:45 <heroandtn3> phần của Sơn thì muốn làm tốt thì rất khó
+16:00:53 <heroandtn3> ví dụ như kéo thả giao diện
+16:01:11 <heroandtn3> cái đó có lẽ để sau cuộc thi
+16:01:16 <heroandtn3> còn làm đơn giản thì dễ
+16:01:20 <heroandtn3> nên cũng ko lo ngại lắm
+16:01:44 <heroandtn3> làm đơn giản là mình hiển thị giao diện cho ng dùng select thôi
+16:01:54 <Chien> uh, có vẻ khó đấy, cứ xong đơn giản đã r tính!
+16:01:54 <heroandtn3> giống jekyll bootstrap vậy
+16:02:00 <heroandtn3> hoặc giống wordpress
+16:02:13 <Chien> ok
+16:02:17 <Chien> vậy là ngon rồi
+16:02:37 <Chien> nếu muốn tham khảo kéo thả thì vào weebly.com mà t bảo hôm trc nhé :)
+16:02:44 <heroandtn3> uh
+16:03:14 <heroandtn3> chuyện thiết kế tớ nói nhiều rồi nhưng vẫn muốn nói lại vì có vẻ mọi người chưa thông
+16:03:29 <heroandtn3> đó là khi mọi người định code cái gì thì đừng code vội
+16:03:38 <heroandtn3> mà hãy ghi nó vào bản thiết kế
+16:03:44 <heroandtn3> code có thể mất vài ngày
+16:03:54 <heroandtn3> nhưng ghi vào thiết kế chỉ mất 1'
+16:04:25 <heroandtn3> như vậy sẽ nhanh chóng lên được bộ khung cho module hơn là cặm cụi code
+16:05:12 <Chien> ok
+16:05:20 <heroandtn3> cuối cùng thì mọi người tận dụng mail để trao đổi nhé
+16:05:26 <Chien> t nhớ rồi
+16:05:34 <heroandtn3> để giảm tải cho cuộc họp :D
+16:05:45 <heroandtn3> chứ họp thế này nói cảm giác như mãi ko hết
+16:05:55 <Chien> #agree code vài ngày nhưng thiết kế 1', tận dụng mail
+16:05:57 <Chien> :D
+16:05:59 <Chien> ok
+16:06:50 <boss14420> #endmeeting
