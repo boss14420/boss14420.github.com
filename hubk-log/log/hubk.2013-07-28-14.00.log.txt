@@ -1,0 +1,447 @@
+14:00:56 <boss14420> #startmeeting
+14:00:56 <hubkbot> Meeting started Sun Jul 28 14:00:56 2013 UTC.  The chair is boss14420. Information about MeetBot at http://wiki.debian.org/MeetBot.
+14:00:56 <hubkbot> Useful Commands: #action #agreed #help #info #idea #link #topic.
+14:01:06 <boss14420> #chair Cuong heroandtn3
+14:01:06 <hubkbot> Current chairs: Cuong boss14420 heroandtn3
+14:01:44 <heroandtn3> Sơn đang vào
+14:03:28 <heroandtn3> ok
+14:03:32 <boss14420> #chair Francisco
+14:03:32 <hubkbot> Current chairs: Cuong Francisco boss14420 heroandtn3
+14:03:51 <heroandtn3> #info Chiến 10h mới onl được
+14:04:27 <heroandtn3> anh Cuong sẵn sàng chưa?
+14:04:36 <Cuong> go thôi :)
+14:06:01 <boss14420> Ai bắt đầu
+14:06:52 <heroandtn3> tớ bắt đầu vậy
+14:07:05 <heroandtn3> #topic Sang báo cáo module Jekyll
+14:07:24 <heroandtn3> #info Nhiệm vụ tuần này là hoàn thành thiết kế
+14:08:20 <heroandtn3> Đây là báo cáo thiết kế của tớ: https://github.com/JeKitProject/MHST2013/wiki/Module-Jekyll:-Thi%E1%BA%BFt-k%E1%BA%BF
+14:08:52 <heroandtn3> Đầu tiên là lớp Blog đại diện cho 1 blog jekyll
+14:09:10 <heroandtn3> thông tin bao gồm:
+14:09:30 <heroandtn3> mọi người xem trong hình thiết kế lớp nhé
+14:09:31 <heroandtn3> :D
+14:10:10 <boss14420> push với delete là ntn ?
+14:11:18 <heroandtn3> push() là push blog lên server
+14:11:38 <heroandtn3> delete là xóa blog này
+14:11:50 <boss14420> Còn thiếu các method liên quan đến page
+14:12:07 <heroandtn3> ừ quên
+14:12:12 <heroandtn3> add_page
+14:12:43 <heroandtn3> get_all_post(x): trả về toàn bộ post
+14:12:57 <heroandtn3> và get_all_page(x): trả về toàn bộ page
+14:13:00 <heroandtn3> tớ sẽ bổ sung vào
+14:13:12 <boss14420> Có nên cần các method liên quan đến thao tác với command line không ? VD method rebuild() ?
+14:15:37 <heroandtn3> rebuild để làm gì thế?
+14:16:13 <heroandtn3> thao tác command line nghĩa là sao?
+14:16:43 <boss14420> VD, khi WYS Editor yêu cầu preview blog
+14:16:52 <boss14420> thì cần phải rebuild
+14:16:55 <heroandtn3> Cuong và Guest73140 cũng vào thảo luận đi chứ
+14:16:56 <boss14420> để xem kết quả
+14:17:30 <boss14420> tất nhiên là cũng phải cần method start_server() nữa
+14:17:42 <heroandtn3> boss14420: cái đó muốn xem thì có cần chạy server ko?
+14:17:46 <heroandtn3> ok
+14:18:49 <boss14420> OK thì note lại đi
+14:19:34 <Guest73140> giờ tớ cần cung cấp các API
+14:19:43 <heroandtn3> boss14420: trả lời câu trên của tớ đã
+14:19:47 <Guest73140> sau đó sẽ áp vào trên code design
+14:19:55 <boss14420> có cần chạy server
+14:19:58 <heroandtn3> #action thêm 1 số method liên quan đến page, build, server
+14:20:23 <heroandtn3> boss14420: thế thì gọi build để làm gì? mình có thể gọi server luôn
+14:20:45 <boss14420> Có thể chỉ cần build những không cần chạy server
+14:20:59 <boss14420> để làm gì đó
+14:22:11 <boss14420> Guest73140: đợi đến phiên báo cáo rồi nói, xen vào thế này khó theo dõi. Bây giờ bàn về module Jekyll thôi
+14:24:26 <heroandtn3> ok vậy cứ thêm cái build vào
+14:24:34 <heroandtn3> mà chỉ cần gọi build là được, cần gì phải rebuild
+14:25:30 <boss14420> re là để nhấn mạnh nó có thể được build nhiều lần.
+14:25:47 <boss14420> Với các cầu hình khác nhau có thể cho nội dung khác nhau
+14:26:28 <heroandtn3> như bản chất là nó gọi lệnh build của jekyll
+14:26:44 <heroandtn3> thì giống nhau chứ làm sao cho nội dung khác nhau?
+14:27:21 <boss14420> thôi, buid cũng được
+14:28:02 <Cuong> cứ note lại đi, sau làm thấy cái nào hợp lý thì quyết định sau
+14:28:26 <boss14420> build, cho giống lệnh của jekyll
+14:28:44 <heroandtn3> ok
+14:29:04 <heroandtn3> tiếp theo đến lớp Setting
+14:29:07 <heroandtn3> à từ đã
+14:29:28 <heroandtn3> lớp Blog này cần phải lưu thông tin tài khoản người dùng hay cái gì ko nhỉ
+14:29:39 <heroandtn3> có lẽ cái đó phải do module của anh Cuong
+14:29:54 <heroandtn3> ví dụ bên anh Cuong có 1 lớp là Repository
+14:30:03 <boss14420> tài khoản người dùng là cái gì ?
+14:30:12 <heroandtn3> thì lớp Blog cần lưu thông tin 1 repository
+14:30:20 <heroandtn3> boss14420: để upload blog lên, ví dụ tài khoản GitHub
+14:30:50 <heroandtn3> module Git từ đó biết được cần upload lên repo nào
+14:30:58 <boss14420> Nên có một thuộc tính liên quan module git
+14:31:01 <heroandtn3> tớ nghĩ là cho thành 1 repo thì hơn
+14:31:11 <heroandtn3> ừ, cái đó phải do anh Cuong thiết kế để thêm vào
+14:32:05 <Cuong> như kiểu file config của git đấy hả?
+14:32:29 <heroandtn3> kiểu như thế
+14:32:50 <heroandtn3> 1 cái kiểu như Repository
+14:32:59 <heroandtn3> khi nào em cần Push
+14:33:10 <heroandtn3> thì truyền cái repository đó cho module của anh
+14:33:15 <heroandtn3> là anh biết phải push lên đâu
+14:33:38 <heroandtn3> tiếp theo là Blog còn có 1 tùy chọn là theme
+14:33:43 <Cuong> khoan
+14:33:48 <Cuong> anh nghĩ
+14:33:57 <Cuong> tất cả chỉ có 1 repo thôi chứ?
+14:34:14 <heroandtn3> đúng
+14:34:28 <heroandtn3> nhưng ví dụ muốn thay đổi thì làm thế nào?
+14:34:43 <heroandtn3> cái đó lưu trong module của anh
+14:34:54 <heroandtn3> nhưng làm sao để kết nối 2 cái
+14:36:35 <Cuong> cụ thể là thay đổi gì?blog á?
+14:36:40 <boss14420> Đương nhiên là thuộc tính repo đó phải có các phương thức comit, push, ... rồi
+14:36:49 <boss14420> còn sử dụng ntn là việc của module jekyll
+14:37:41 <heroandtn3> Cuong: ví dụ thay đổi sang repo khác thì làm thế nào?
+14:37:49 <heroandtn3> boss14420: đúng rồi, kiểu như thế
+14:38:04 <heroandtn3> thật ra commit thì ko cần
+14:38:09 <heroandtn3> chỉ quan tâm đến cái push thôi
+14:38:56 <boss14420> Sao không cần ? Lúc lưu file vừa edit chẳng hạn
+14:39:45 <Cuong> thay đổi repo thì phải sang thư mục khác làm việc thôi chứ, git ăn theo thư mục local của mình mà
+14:39:57 <Cuong> chú đổi thư mục rồi gọi git_init
+14:39:58 <Cuong> git_add
+14:40:42 <boss14420> Thôi lạc đề rồi, nói chung là cần có đối tượng repo với các phương thức thao tác với git
+14:40:55 <boss14420> còn chi tiết ntn tí nữa nói sau
+14:41:16 <heroandtn3> Cuong: anh ko hiểu
+14:41:46 <heroandtn3> ví dụ em đổi remote
+14:41:54 <heroandtn3> để upload lên các host khác nhau
+14:42:20 <heroandtn3> boss14420: ừ thật ra là có cần
+14:42:51 <heroandtn3> nhưng tớ ko định gọi thẳng commit luôn
+14:43:09 <heroandtn3> mà chỉ cần gọi add_post, add_page, edit_post,...
+14:43:17 <heroandtn3> là module Git tự động làm, nó làm gì thì làm :D
+14:43:31 <boss14420> không phải add_post, add_page, ... gọi đến commit à ?
+14:46:47 <heroandtn3> thì tớ muốn trừu tượng hóa đấy mà
+14:47:05 <heroandtn3> ở đây chỉ gọi thế thôi
+14:47:10 <heroandtn3> chứ nó commit hay ko thì còn tùy
+14:47:16 <heroandtn3> ví dụ nếu cài trên di động
+14:47:22 <boss14420> Thì phải cần thuộc tính repo có các phương thức đó để mấy thứ của Blog nó dùng
+14:47:38 <heroandtn3> thì nó có thể ko commit hoặc làm gì đó khác
+14:47:45 <heroandtn3> uh
+14:48:27 <boss14420> thôi, vậy qua Setting
+14:48:33 <boss14420> có vài thứ để nói
+14:49:05 <boss14420> Thứ nhất là các option của Jekyll có thể tùy ý thêm vào
+14:49:16 <boss14420> và nó có thể được phân cấp
+14:49:37 <boss14420> vậy nên tổ chức lớp ntn cho hợp lý để dễ truy xuất sau này ?
+14:51:23 <heroandtn3> các cái có sẵn của nó thì tớ đều thêm vào
+14:51:38 <heroandtn3> các cái tùy chọn thì mình sẽ lưu ở 1 lớp là Custom
+14:52:05 <heroandtn3> các setting có sẵn là Global, Build, Server
+14:52:14 <heroandtn3> thêm 1 cái tùy chọn là Custom là ok
+14:52:17 <boss14420> Tổ chức phân cấp ntn ?
+14:52:43 <boss14420> Có thể xem xét tính năng introspection của python không ?
+14:53:19 <boss14420> Trong python người ta có thể tạo lớp, đối tượng từ code
+14:53:37 <boss14420> chứ không phải viết ra tường minh
+14:53:43 <heroandtn3> Phân cấp tức là trong Setting có 3 cái setting chuẩn là global, build và server, và 1 cái tùy chọn là custom
+14:54:12 <heroandtn3> boss14420: tính năng introspection là gì?
+14:54:34 <heroandtn3> boss14420: còn tạo lớp thì đằng nào chả viết code
+14:54:39 <boss14420> là tính năng tạo lớp, đối tượng trong khi chạy
+14:54:43 <heroandtn3> mình cần viết tường minh và riêng ra 1 chỗ
+14:54:52 <heroandtn3> để cái khác tái sử dụng
+14:55:02 <heroandtn3> chứ ko phải là chỗ nào dùng thì viết code tạo 1 lớp
+14:56:34 <boss14420> Giả sử bây giờ trong file cấu hình yaml
+14:57:19 <boss14420> Mà thôi
+14:57:30 <boss14420> mở file cấu hình của jk bootstrap ra xem đi
+14:57:48 <boss14420> Nhận thấy là mấy cái option này nó có chia level
+14:58:08 <boss14420> bằng cách dòng sau thụt lề sang phải so với dòng trước
+14:58:23 <boss14420> truy xuất bằng các JB.comments.provider
+14:58:29 <boss14420> bằng cách
+14:58:38 <boss14420> vậy thì nên tổ chức CTDL ntn ?
+15:00:40 <heroandtn3> tức là lưu dữ liệu thế nào để truy xuất?
+15:00:56 <boss14420> ừ
+15:01:20 <boss14420> Chú ý là dữ liệu cũng phải thể hiện được sự phân cấp đó
+15:02:02 <heroandtn3> cái đó là phần cài đặt cụ thể
+15:02:08 <heroandtn3> mình chưa xét đến
+15:02:21 <heroandtn3> đây là đang xét module của mình có những gì
+15:02:33 <heroandtn3> để các module khác tương tác với nhau
+15:03:02 <boss14420> Đây là điều cần phải chỉ rõ. Giả sử module khác cần truy xuất giá trị 1 thuộc tính nào đó thì làm ntn ?
+15:03:37 <heroandtn3> đơn giản
+15:03:46 <heroandtn3> gọi Blog.setting
+15:03:55 <heroandtn3> trong setting có get_setting
+15:04:07 <heroandtn3> setting.<tên thuộc tính>
+15:04:22 <boss14420> nếu đó là thuộc tính custom ?
+15:05:37 <heroandtn3> setting.custom.<tên>
+15:06:09 <heroandtn3> cái này cậu học hướng đối tượng thì phải biết chứ nhỉ :-?
+15:06:28 <boss14420> Vấn đề là <tên> này không được xác định trong lúc code
+15:07:01 <heroandtn3> sao lại ko?
+15:07:18 <heroandtn3> các biến của nó phải tuân theo chuẩn
+15:07:41 <heroandtn3> ví dụ giờ muốn thêm 1 thuộc tính là author trong custom
+15:07:46 <boss14420> Ta đâu có biết người dùng sẽ thêm thuộc tính gì trong file config của họ ?
+15:07:58 <heroandtn3> thì code của class đó phải là custom.author
+15:08:17 <boss14420> Chú ý thời điểm
+15:08:19 <heroandtn3> boss14420: đấy là vấn đề tương thích giữa blog có sẵn và blog theo chuẩn jekyll
+15:08:26 <heroandtn3> nhầm
+15:08:30 <heroandtn3> theo chuẩn jekit
+15:08:41 <heroandtn3> vấn đề đó thì mình bàn sau mà
+15:08:43 <boss14420> lại bó buộc ??
+15:08:58 <heroandtn3> ko thì làm sao giải quyết được?
+15:09:31 <boss14420> Thực ra dự định ban đầu là cho GUI để chỉnh sửa thêm xóa tùy ý trong setting
+15:09:43 <boss14420> phải nghĩ cách giải quyết chứ
+15:09:59 <boss14420> có thể dùng dict
+15:10:22 <heroandtn3> thế thì GUI cũng ko biết nó là gì
+15:10:39 <heroandtn3> nó chỉ đọc thấy có author
+15:10:46 <heroandtn3> nhưng ko biết author có í nghĩa gì
+15:10:56 <boss14420> Thì GUI không cần phải biết
+15:11:12 <boss14420> người dùng tự thêm vào thì tự họ quyết định việc dùng nó
+15:11:36 <heroandtn3> thế thì giải quyết đơn giản
+15:11:49 <heroandtn3> tạo 1 cái list lưu custom setting
+15:12:12 <heroandtn3> đọc được cái setting nào mà nó ko hiểu thì cho vào list
+15:12:19 <boss14420> dict hay list ?
+15:12:21 <heroandtn3> rồi hiển thị lên cho người dùng sửa
+15:12:35 <heroandtn3> ừ dict
+15:12:41 <boss14420> rồi còn kiểu abc.def rồi thì abc.def.ghi nữa
+15:12:51 <boss14420> chẳng lẽ dict sẽ có dạng như:
+15:13:20 <boss14420> { 'abc' : 1, 'abc.def' : 2 } ?
+15:14:06 <heroandtn3> ko hiểu í cậu lắm
+15:14:23 <boss14420> Đã nói rồi đấy, setting trong jk có tính phân cấp
+15:14:24 <heroandtn3> nếu abc.def thì sao?
+15:14:47 <boss14420> lưu kiểu này không thể hiện được tính phân cấp của nó
+15:15:03 <boss14420> à
+15:15:06 <boss14420> mà cũng được
+15:15:12 <boss14420> nhưng xử lý hơi mệt
+15:15:30 <boss14420> Nhưng vẫn còn một cách khác
+15:15:36 <heroandtn3> là cách gì?
+15:16:10 <boss14420> python có thể thêm lớp, thuộc tính "động", tức là thêm vào lúc runtime chứ không phải code-time
+15:16:22 <boss14420> ta có thể truy cập theo kiểu
+15:16:30 <boss14420> setting.abc.def = ...
+15:16:52 <boss14420> thử nghiên cứu đi
+15:16:56 <boss14420> http://stackoverflow.com/questions/1325673/python-how-to-add-property-to-a-class-dynamically
+15:17:10 <heroandtn3> cái đó lúc nào cài đặt cụ thể rồi tính
+15:17:35 <boss14420> http://stackoverflow.com/questions/10967551/how-do-i-dynamically-create-properties-in-python
+15:17:43 <boss14420> Không
+15:17:43 <heroandtn3> vì tớ nghĩ nếu bài về cài đặt cụ thể thì có rất nhiều vấn đề khác
+15:17:46 <heroandtn3> chứ ko riêng gì cái này
+15:17:55 <boss14420> đây không chỉ là vấn đề cài đặt
+15:18:14 <boss14420> đã nói rồi đấy. Hai cách khác nhau dẫn đến giao diện với module khác cũng khác nhau
+15:18:50 <boss14420> một bên là truy cập qua dict, một bên là truy cập theo kiểu <lớp>.<thuộc tính>
+15:18:58 <boss14420> phải nghiên cứu kỹ
+15:19:37 <boss14420> http://stackoverflow.com/questions/10967551/how-do-i-dynamically-create-properties-in-python
+15:19:41 <boss14420> đây nữa
+15:19:53 <heroandtn3> thì cái dict đó
+15:20:05 <heroandtn3> đằng nào cũng sẽ cho vào trong setting
+15:20:36 <heroandtn3> mình cũng sẽ gọi theo kiểu setting.custom.get[i]
+15:20:40 <heroandtn3> tớ nghĩ thế
+15:20:48 <boss14420> cụ thể hơn là đây: http://docs.python.org/3.3/reference/datamodel.html#customizing-attribute-access
+15:20:58 <heroandtn3> chứ phần GUI ko quan tâm nó là dict hay list hay thuộc tính
+15:21:04 <boss14420> gọi theo kiểu kia ngắn hơn
+15:21:17 <boss14420> không chỉ GUI cần cái này, module khác cũng có thể cần
+15:21:41 <heroandtn3> nhưng để đảm bảo nguyên tắc OOP thì cái khác ko được tự gọi
+15:21:47 <heroandtn3> mà phải thông qua setting hết chứ
+15:22:10 <boss14420> thì thông qua setting đấy thôi
+15:22:10 <heroandtn3> được rồi mấy cái này tớ sẽ tìm hiểu để đưa ra hướng giải quyết
+15:22:18 <heroandtn3> ok
+15:22:36 <boss14420> OK
+15:22:40 <boss14420> note đi
+15:23:52 <heroandtn3> #action Tìm hiểu vấn đề lưu trữ custom setting
+15:25:04 <heroandtn3> #action Thêm các phần liên quan đến Git, Comment, Theme
+15:25:26 <heroandtn3> phần của tớ còn vấn đề gì nữa ko?
+15:25:51 <boss14420> lớp Post
+15:26:00 <boss14420> quên
+15:26:02 <boss14420> có rồi
+15:26:10 <boss14420> thuộc tính path
+15:26:15 <boss14420> à
+15:26:25 <boss14420> cần method full_path()
+15:26:43 <boss14420> chỉ vị trí của file mã nguồn của post đó
+15:27:44 <Chien> Chào mọi người, sorry mọi người vì mưa to quá bây giờ ms về đến nhà@@
+15:28:02 <heroandtn3> boss14420: full_path có thể suy ra từ path nên tớ ko cho vào
+15:28:15 <heroandtn3> path tớ định dùng là tương đối
+15:28:43 <heroandtn3> còn full_path thì chỉ cần lấy cái tương đối ghép với path của thư mục _posts là được
+15:28:45 <heroandtn3> à
+15:28:53 <heroandtn3> cũng nên cho vào để các cái khác tiện dùng
+15:28:53 <heroandtn3> ok
+15:29:36 <boss14420> thôi, có lẽ module jekyll thế là được rồi
+15:30:04 <heroandtn3> ok
+15:30:14 <heroandtn3> #action Thêm full_path cho Post, Page
+15:32:09 <heroandtn3> boss14420 báo cáo tiếp đi
+15:33:09 <boss14420> thì nhiệm vụ của mình là hoàn thiện GUI với sửa lỗi xử lý ngôn ngữ
+15:34:21 <boss14420> mấy ngày qua chỉ có sửa GUI, vẫn đang làm nên không có gì mới để báo cáo
+15:34:28 <boss14420> dự định GUI sẽ kiểu ntn: http://ckeditor.com/demo
+15:35:15 <Chien> đẹp đó boss14420 !
+15:35:23 <heroandtn3> làm được giống CKEditor thì hơi bị bá đạo đấy
+15:35:24 <heroandtn3> :D
+15:35:53 <boss14420> Hình dạng thôi
+15:36:04 <boss14420> mà GUI thì cái nào cũng kiểu như vậy
+15:36:15 <Chien> đẹp hơn so với cái mặc định của jekyll rồi mà :D
+15:37:47 <boss14420> mặc định của jekyll là cái gì ?
+15:38:04 <Chien> à, hình dạng thôi
+15:39:04 <heroandtn3> mấy cái GUI cho Markdown ví dụ như retext, github đều khá đơn giản
+15:39:15 <heroandtn3> nếu làm được giống như CKEditor hoặc gần giống
+15:39:19 <heroandtn3> thì sẽ là 1 sự khác biệt
+15:39:37 <heroandtn3> mình muốn hỏi là quá trình làm có vướng mắc gì cần trao đổi ko boss14420?
+15:40:28 <boss14420> có nhưng có thể giải quyết được.
+15:40:36 <boss14420> khi nào có gì sẽ báo lên group
+15:41:18 <heroandtn3> ok
+15:41:50 <heroandtn3> #topic Thành báo cáo module Editor
+15:42:10 <heroandtn3> #info Làm giống CKEditor và đang triển khai
+15:42:16 <heroandtn3> giờ chuyển sang phần của Chien đi
+15:42:26 <Chien> ok
+15:42:34 <Chien> vậy là xong hết 1 lượt mọi người rồi hả?
+15:42:54 <boss14420> mới xong phần của Sang thôi
+15:43:07 <Chien> của t thì trên tinh thần như trc thì t thấy chỉ làm đơn giản như thế này:
+15:43:09 <Chien> https://github.com/JeKitProject/MHST2013/wiki/Module-B%C3%ACnh-lu%E1%BA%ADn-v%E1%BB%9Bi-Disqus:-Thi%E1%BA%BFt-k%E1%BA%BF
+15:43:19 <Chien> vậy là xong phần của 2 ng rồi
+15:43:57 <Chien> có vấn đề gì thì t sửa ngay hnay :)
+15:44:17 <boss14420> #topic Chiến báo cáo thiết kế module bình luận
+15:44:56 <Chien> đã đưa về 1 class duy nhất là Api
+15:45:06 <Chien> và các thuộc tính như ở trang :D
+15:45:36 <Chien> à, các phương thức, moij ng xem sao?
+15:45:41 <boss14420> tên metho get_all_comments tối nghĩa
+15:46:19 <heroandtn3> Chien: câu hỏi đầu tiên: class Comment của cậu đâu?
+15:46:24 <boss14420> sao không là get_lastest_comments ?
+15:46:37 <boss14420> Rồi kiểu giá trị trả về ?
+15:47:02 <Chien> về cái tên thì ok, sẽ đổi
+15:47:14 <Chien> heroandtn3: chỉ có 1 class thôi mà
+15:47:24 <Chien> ko làm những cái cấp thấp mà?
+15:47:41 <Chien> kiểu giá trị trả về, bổ sung đây :D
+15:50:09 <heroandtn3> Chien: vậy làm thế nào tớ biết 1 Comment của cậu có những gì bên trong?
+15:52:04 <Chien> có những gì bên trong? Chỉ cần gọi hàm get_comment_by_id(id)
+15:54:23 <heroandtn3> hàm đó trả về cái gì?
+15:55:45 <Chien> trả về đối tượng comment gồm các thuộc tính ngày, nội dung, tác giả
+15:55:52 <Chien> phải ghi cả những cái này à?!
+15:56:10 <boss14420> Chỉ cần ghi là đối tượng comment
+15:56:20 <Chien> ok, đã ghi rồi đấy
+15:56:29 <boss14420> còn chi tiết thế nào thì thuộc về thiết kế lớp comment
+15:56:30 <Chien> đã sửa xong trong link nhé :)
+15:57:07 <Chien> còn phải thiết kế chi tiêts cả nó cơ à, t tưởng bảo ko phải nêu ra cấp thấp :v
+15:57:24 <heroandtn3> boss14420: nói như cậu thì vẫn phải có lớp comment đúng ko :))
+15:57:38 <heroandtn3> Chien: cái comment là cái mà thằng khác sẽ dùng
+15:57:42 <boss14420> Phải biết lớp comment có cái gì thì mới xem thông tin được chứ ?
+15:57:50 <heroandtn3> nếu cậu không nêu ra thì làm sao biết mà sử dụng :3
+15:58:56 <Chien> ok, t sửa ngay đây! Sorry sorry, hôm qua Sang ko bảo t luôn :
+15:59:41 <heroandtn3> :P
+16:00:09 <heroandtn3> cả cái tên method như boss14420 bảo nữa
+16:00:12 <heroandtn3> note vào đi
+16:00:32 <heroandtn3> 1 điều nữa là mấy method kiểu như delete, aprove thì có thể đưa vào trong lớp comment
+16:00:56 <heroandtn3> update cũng có thể đưa vào
+16:01:19 <Chien> cái tên t cũng vừa sửa rồi
+16:01:48 <Chien> #agreed Đưa delete, approve, update vào lớp comment
+16:03:42 <heroandtn3> còn gì nữa ko nhỉ
+16:03:50 <heroandtn3> tớ thì thấy chưa có vấn đề gì
+16:04:52 <Chien> t hỏi 1 chút
+16:05:02 <Chien> cái này phải là đối tượng comment
+16:05:06 <Chien> sao lại nói là thiết kế lớp?
+16:05:32 <Chien> lớp thì chỉ có 1 lớp duy nhất là Api bao gồm các method xử lý thôi chứ?
+16:05:42 <heroandtn3> đối tượng là 1 thể hiện của lớp
+16:05:57 <heroandtn3> ví dụ có lớp Xe đạp
+16:06:04 <heroandtn3> là chung cho tất cả các xe đạp
+16:06:18 <heroandtn3> còn đối tượng Xe đạp của Chiến
+16:06:27 <heroandtn3> là 1 xe đạp cụ thể
+16:06:35 <Chien> vậy khái niệm lớp nói ở đây ko phải là Class trong code à?
+16:06:43 <heroandtn3> chính là nó mà
+16:06:54 <Chien> nếu thế thì lúc trc thống nhất chỉ có 1 lớp
+16:07:00 <Chien> bây giờ lại tòi ra 2 sao?
+16:07:16 <heroandtn3> ơ tớ bảo 1 lớp à
+16:07:18 <heroandtn3> :))
+16:07:21 <heroandtn3> ko nhớ nữa
+16:07:45 <Chien> uh, bảo 1 lớp
+16:07:54 <Chien> mà thực ra nếu đưa các cái kia vào cũng chỉ cần 1 lớp
+16:08:11 <Chien> vậy phải thêm từng mô tả vào các method hả heroandtn3 ?
+16:08:12 <heroandtn3> nếu cậu đưa vào thế nào cho hợp lí thì tốt
+16:08:20 <heroandtn3> ừ đúng rồi
+16:08:29 <heroandtn3> giá trị trả về, các biến truyền vào
+16:08:33 <heroandtn3> đều phải ghi rõ hết
+16:08:49 <Chien> nếu vậy thì phần thiết kế của t đủ mà
+16:09:12 <Chien> chỉ thiếu đối tượng bao gồm những gì
+16:09:21 <Chien> giờ viết vào đâu đc?
+16:10:44 <heroandtn3> viết lên wiki đấy
+16:10:52 <heroandtn3> giống như class API của cậu vậy
+16:11:47 <heroandtn3> https://github.com/JeKitProject/MHST2013/wiki/L%E1%BB%9Bp-Setting
+16:11:57 <heroandtn3> hoặc làm giống tớ
+16:11:58 <heroandtn3> :))
+16:12:43 <Chien> ý t là bây giờ  đã có class API, thực chất chính là class Comment, vậy thì t chỉ cần nêu các thuộc tính của các đối tượng trả về là ok rồi đúng ko?
+16:13:01 <Chien> của c thì nhiều class ms làm thế đc, đây có mỗi 1 class mà :p
+16:14:49 <heroandtn3> class API nên đổi tên là CommentService
+16:14:59 <heroandtn3> tức là các dịch vụ liên quan đến comment
+16:15:27 <heroandtn3> và thêm 1 lớp nữa là Comment để mô tả đối tượng comment có những gì
+16:16:31 <Chien> uh, tại vì tuần trc thống nhất là 1 lớp rồi, đúng là chưa đủ chi tiết, t sửa đây :)
+16:18:05 <boss14420> thôi để sau
+16:18:19 <boss14420> họp là để báo cáo những việc đã làm chứ không phải để làm
+16:18:27 <Chien> còn gì để báo cáo nữa sao? :D
+16:18:51 <Chien> #agreed Thêm 1 lớp mô tả đối tượng comment
+16:19:21 <heroandtn3> ok
+16:19:30 <heroandtn3> phần của Chien còn ai có ý kiến gì ko
+16:19:38 <heroandtn3> nếu ko gì đến phần của Guest26307
+16:20:05 <Chien> a Cuong vừa onl báo cáo chưa?
+16:21:02 <boss14420> chưa
+16:21:15 <Guest26307> ok
+16:21:42 <Guest26307> giờ tớ sẽ thiết kế một cái template mẫu
+16:21:49 <Guest26307> dựng khung chuẩn
+16:22:20 <heroandtn3> anh Cường ko tham dự
+16:22:30 <heroandtn3> ko tham dự cuộc thi í
+16:22:35 <heroandtn3> nên phần đó tớ làm
+16:22:36 <boss14420> #topic Sơn báo cáo về module giao diện
+16:22:37 <Guest26307> cần API liên quan đến giao diện
+16:22:39 <Chien> ok, Guest26307  tiếp đi
+16:23:03 <Guest26307> như các thẻ header, footer,...
+16:23:20 <Guest26307> các thuộc tính liên quan màu sắc, chiều dài, rộng ,...
+16:24:35 <Guest26307> chương trình sẽ sửa đổi giao diện thông qua các phương thức mà API cung cấp
+16:25:36 <boss14420> API khồng có sẵn đâu
+16:26:04 <boss14420> Về vấn đề này trước đây đã bàn thì có 2 hướng
+16:26:07 <Chien> t cũng nghĩ ko có sẵn
+16:26:24 <boss14420> thứ nhất là tạo sẵn một số mẫu rồi cho người dùng chọn
+16:26:52 <boss14420> thứ hai là tạo GUI để người ta tùy chọn chỉnh sửa giao diện một cách trực quan
+16:27:10 <Guest26307> cách thứ 2 có vẻ hợp lý hơn
+16:27:44 <boss14420> và khó hơn
+16:28:16 <boss14420> Cách thực hiện thì thử tham khảo một số chương trình tạo GUI hoặc dịch vụ khác
+16:28:34 <Guest26307> nếu ko ít nhất mình có thể tạo cho người dùng khả năng thay đổi qua màu sắc, hoặc hình ảnh giao diện chứ không
+16:28:39 <boss14420> Mình nghĩ nên định sẵn một số thành phần cơ bản của layout
+16:28:52 <Guest26307> dùng fix cứng một giao diện thì cực kì bất tiện
+16:29:06 <boss14420> những thành phần này có một số thuộc tính: màu sắc, nền, dài, rộng, ...
+16:29:29 <boss14420> rồi tạo GUI cho phép kéo thả, tùy chỉnh vị trí các thành phần cơ bản này
+16:29:57 <heroandtn3> đồng ý với ý của boss14420
+16:30:05 <Guest26307> nhất trí
+16:30:24 <heroandtn3> vấn đề là Guest26307 cần tìm ra cơ chế để thay đổi giao diện
+16:30:27 <boss14420> Sẽ có 2 tùy chọn tạo theme: bằng code hoặc bằng kéo thả trực quan. Nếu đã chọn một cách thì sẽ phải đi theo cách đó
+16:30:47 <heroandtn3> bên bootstrap nó làm thế nào đấy, Guest26307 tìm hiểu xem
+16:31:05 <boss14420> bootstrap nó tạo sẵn một số giao diện
+16:31:06 <heroandtn3> cái này tớ đã nói với cậu từ hôm trước rồi
+16:31:18 <Guest26307> cơ chế chung là ntn:
+16:31:51 <Guest26307> định sẵn thuộc tính, tên trường, ...
+16:32:01 <Guest26307> bằng biến
+16:32:11 <boss14420> Guest26307: nên tham khảo một số mẫu giao diện sẵn để xác định các "thành phần cơ bản" là gì. Giống như kéo thả tạo GUI trong lập trình ấy.
+16:32:47 <boss14420> Mình nghĩ có một số thành phần sau: post content, comments, page header, ...
+16:32:51 <Guest26307> phần kéo thả khó đấy
+16:33:00 <heroandtn3> kiểu như theo 1 cấu trúc định sẵn
+16:33:10 <heroandtn3> chỉ khác 1 chút ở màu mè, font chữ,...
+16:33:24 <heroandtn3> có thể cho ng dùng chỉnh 1 số cái đơn giản như vậy
+16:33:35 <heroandtn3> còn kéo thả thì có thể tham khảo 1 số phần mềm khác
+16:33:44 <heroandtn3> như cái mà Chien hôm trước nói
+16:33:48 <heroandtn3> tớ o nhớ link nữa
+16:33:56 <boss14420> Cứ xác định thành phần trước. Còn làm kéo thả như nào thì khi nào đến sẽ có sách để tham khảo.
+16:34:26 <boss14420> Với Qt thì việc này không khó
+16:34:38 <Chien> là weebly
+16:34:43 <Chien> weebly.com!
+16:36:37 <heroandtn3> mà Sơn đã tạo được blog Jekyll để demo chưa?
+16:37:05 <Guest26307> giống ntn là ok rồi: wix.com
+16:38:50 <heroandtn3> Guest26307: trả lời câu của tớ đi?
+16:39:23 <Guest26307> ah, cài xong jekyll rồi
+16:39:35 <Guest26307> blog vẫn chưa xong
+16:39:57 <Chien> Guest26307,  thử vào weebly tạo web đi
+16:40:04 <Chien> sẽ thấy nhiều cái hay đấy
+16:40:07 <Guest26307> ok
+16:40:16 <Guest26307> giống wix.com
+16:40:43 <heroandtn3> vẫn chưa xong thì làm sao làm được :(
+16:41:15 <heroandtn3> http://jekyllrb.com/docs/home/
+16:41:24 <heroandtn3> theo cái này thì 15' là có ngay 1 blog demo
+16:48:02 <boss14420> Nếu đã cài xong jekll thì chả có lý do gì để chưa xong blog
+16:48:45 <Guest26307> ok, đang cài lại
+16:49:05 <Guest26307> mấy bữa lười quá
+16:51:30 <Chien> phần này hay và khó, Guest26307  cố gắng lên!
+16:51:42 <Chien> làm tốt là tạo khác biệt đấy :d
+16:53:28 <heroandtn3> ok
+16:53:51 <heroandtn3> nếu không có gì thì cuộc họp kết thúc tại đây
+16:53:58 <Chien> heroandtn3,  bình tĩnh
+16:54:09 <heroandtn3> mọi người nhớ đăng lên nhiệm vụ của mình vào mail của boss14420 nhé
+16:54:11 <heroandtn3> ơi
+16:54:12 <heroandtn3> :D
+16:54:18 <Chien> 31/7 này là có 1 cái hẹn nộp gì đó liên quan đến dự án phải ko?
+16:54:35 <Chien> nhiệm vụ ok
+16:55:03 <heroandtn3> thế à
+16:55:09 <heroandtn3> tớ ko rõ lắm
+16:55:23 <heroandtn3> cậu có link nào về cái đó ko
+16:55:57 <Chien> có chứ, về tiến độ thì hình như qua 31 tháng 7 là 1 giai đoạn
+16:55:59 <Chien> chờ t chút
+16:58:54 <Chien> http://vfossa.vn/vi/mhst/2013/Khoi-dong-cuoc-thi-Mua-he-sang-tao-2013-49/
+16:58:59 <Chien> đây rồi, đúng là 1 mốc
+16:59:05 <Chien> 31/7 hết giai đoạn 1!
+16:59:21 <Chien> Giai đoạn 1 (15/6 – 31/7/2013) : Các đội lọt qua sơ tuyển nhận một nửa số tiền tài trợ của BTC và bắt tay thực hiện dự án. Ngày 30/7/2013: hướng dẫn viên chính (mentor) gửi phiếu đánh giá (theo mẫu) tiến độ thực hiện dự án do mình hướng dẫn về cho BTC và kiến nghị về việc có cho đội dự án tiếp tục hay không.
+17:02:18 <heroandtn3> uh
+17:02:26 <heroandtn3> cái này phải bảo anh mentor thôi
+17:02:32 <heroandtn3> tớ sẽ mail lên group
+17:05:35 <heroandtn3> còn vấn đề gì nữa ko?
+17:05:55 <boss14420> ko
+17:05:59 <Chien> ok, ko có vấn đề gì đâu
+17:06:04 <boss14420> #endmeeting

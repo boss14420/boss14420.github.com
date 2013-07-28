@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<title>#hubk log</title>
+<style type="text/css">
+/* For the .log.html */
+pre { /*line-height: 125%;*/
+      white-space: pre-wrap; }
+body { background: #f0f0f0; }
+
+body .tm  { color: #007020 }                      /* time */
+body .nk  { color: #062873; font-weight: bold }   /* nick, regular */
+body .nka { color: #007020; font-weight: bold }  /* action nick */
+body .ac  { color: #00A000 }                      /* action line */
+body .hi  { color: #4070a0 }                 /* hilights */
+/* Things to make particular MeetBot commands stick out */
+body .topic     { color: #007020; font-weight: bold }
+body .topicline { color: #000080; font-weight: bold }
+body .cmd       { color: #007020; font-weight: bold }
+body .cmdline  { font-weight: bold }
+
+</style>
+</head>
+
+<body>
+<pre><a name="l-1"></a><span class="tm">14:00:56</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#startmeeting</span><span class="cmdline"></span>
+<a name="l-2"></a><span class="tm">14:00:56</span><span class="nk"> &lt;hubkbot&gt;</span> Meeting started Sun Jul 28 14:00:56 2013 UTC.  The chair is boss14420. Information about MeetBot at http://wiki.debian.org/MeetBot.
+<a name="l-3"></a><span class="tm">14:00:56</span><span class="nk"> &lt;hubkbot&gt;</span> Useful Commands: #action #agreed #help #info #idea #link #topic.
+<a name="l-4"></a><span class="tm">14:01:06</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#chair </span><span class="cmdline">Cuong heroandtn3</span>
+<a name="l-5"></a><span class="tm">14:01:06</span><span class="nk"> &lt;hubkbot&gt;</span> Current chairs: Cuong boss14420 heroandtn3
+<a name="l-6"></a><span class="tm">14:01:44</span><span class="nk"> &lt;heroandtn3&gt;</span> Sơn đang vào
+<a name="l-7"></a><span class="tm">14:03:28</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-8"></a><span class="tm">14:03:32</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#chair </span><span class="cmdline">Francisco</span>
+<a name="l-9"></a><span class="tm">14:03:32</span><span class="nk"> &lt;hubkbot&gt;</span> Current chairs: Cuong Francisco boss14420 heroandtn3
+<a name="l-10"></a><span class="tm">14:03:51</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#info </span><span class="cmdline">Chiến 10h mới onl được</span>
+<a name="l-11"></a><span class="tm">14:04:27</span><span class="nk"> &lt;heroandtn3&gt;</span> anh Cuong sẵn sàng chưa?
+<a name="l-12"></a><span class="tm">14:04:36</span><span class="nk"> &lt;Cuong&gt;</span> go thôi :)
+<a name="l-13"></a><span class="tm">14:06:01</span><span class="nk"> &lt;boss14420&gt;</span> Ai bắt đầu
+<a name="l-14"></a><span class="tm">14:06:52</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ bắt đầu vậy
+<a name="l-15"></a><span class="tm">14:07:05</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="topic">#topic </span><span class="topicline">Sang báo cáo module Jekyll</span>
+<a name="l-16"></a><span class="tm">14:07:24</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#info </span><span class="cmdline">Nhiệm vụ tuần này là hoàn thành thiết kế</span>
+<a name="l-17"></a><span class="tm">14:08:20</span><span class="nk"> &lt;heroandtn3&gt;</span> Đây là báo cáo thiết kế của tớ: https://github.com/JeKitProject/MHST2013/wiki/Module-Jekyll:-Thi%E1%BA%BFt-k%E1%BA%BF
+<a name="l-18"></a><span class="tm">14:08:52</span><span class="nk"> &lt;heroandtn3&gt;</span> Đầu tiên là lớp Blog đại diện cho 1 blog jekyll
+<a name="l-19"></a><span class="tm">14:09:10</span><span class="nk"> &lt;heroandtn3&gt;</span> thông tin bao gồm:
+<a name="l-20"></a><span class="tm">14:09:30</span><span class="nk"> &lt;heroandtn3&gt;</span> mọi người xem trong hình thiết kế lớp nhé
+<a name="l-21"></a><span class="tm">14:09:31</span><span class="nk"> &lt;heroandtn3&gt;</span> :D
+<a name="l-22"></a><span class="tm">14:10:10</span><span class="nk"> &lt;boss14420&gt;</span> push với delete là ntn ?
+<a name="l-23"></a><span class="tm">14:11:18</span><span class="nk"> &lt;heroandtn3&gt;</span> push() là push blog lên server
+<a name="l-24"></a><span class="tm">14:11:38</span><span class="nk"> &lt;heroandtn3&gt;</span> delete là xóa blog này
+<a name="l-25"></a><span class="tm">14:11:50</span><span class="nk"> &lt;boss14420&gt;</span> Còn thiếu các method liên quan đến page
+<a name="l-26"></a><span class="tm">14:12:07</span><span class="nk"> &lt;heroandtn3&gt;</span> ừ quên
+<a name="l-27"></a><span class="tm">14:12:12</span><span class="nk"> &lt;heroandtn3&gt;</span> add_page
+<a name="l-28"></a><span class="tm">14:12:43</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">get_all_post(x):</span> trả về toàn bộ post
+<a name="l-29"></a><span class="tm">14:12:57</span><span class="nk"> &lt;heroandtn3&gt;</span> và get_all_page(x): trả về toàn bộ page
+<a name="l-30"></a><span class="tm">14:13:00</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ sẽ bổ sung vào
+<a name="l-31"></a><span class="tm">14:13:12</span><span class="nk"> &lt;boss14420&gt;</span> Có nên cần các method liên quan đến thao tác với command line không ? VD method rebuild() ?
+<a name="l-32"></a><span class="tm">14:15:37</span><span class="nk"> &lt;heroandtn3&gt;</span> rebuild để làm gì thế?
+<a name="l-33"></a><span class="tm">14:16:13</span><span class="nk"> &lt;heroandtn3&gt;</span> thao tác command line nghĩa là sao?
+<a name="l-34"></a><span class="tm">14:16:43</span><span class="nk"> &lt;boss14420&gt;</span> VD, khi WYS Editor yêu cầu preview blog
+<a name="l-35"></a><span class="tm">14:16:52</span><span class="nk"> &lt;boss14420&gt;</span> thì cần phải rebuild
+<a name="l-36"></a><span class="tm">14:16:55</span><span class="nk"> &lt;heroandtn3&gt;</span> Cuong và Guest73140 cũng vào thảo luận đi chứ
+<a name="l-37"></a><span class="tm">14:16:56</span><span class="nk"> &lt;boss14420&gt;</span> để xem kết quả
+<a name="l-38"></a><span class="tm">14:17:30</span><span class="nk"> &lt;boss14420&gt;</span> tất nhiên là cũng phải cần method start_server() nữa
+<a name="l-39"></a><span class="tm">14:17:42</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> cái đó muốn xem thì có cần chạy server ko?
+<a name="l-40"></a><span class="tm">14:17:46</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-41"></a><span class="tm">14:18:49</span><span class="nk"> &lt;boss14420&gt;</span> OK thì note lại đi
+<a name="l-42"></a><span class="tm">14:19:34</span><span class="nk"> &lt;Guest73140&gt;</span> giờ tớ cần cung cấp các API
+<a name="l-43"></a><span class="tm">14:19:43</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> trả lời câu trên của tớ đã
+<a name="l-44"></a><span class="tm">14:19:47</span><span class="nk"> &lt;Guest73140&gt;</span> sau đó sẽ áp vào trên code design
+<a name="l-45"></a><span class="tm">14:19:55</span><span class="nk"> &lt;boss14420&gt;</span> có cần chạy server
+<a name="l-46"></a><span class="tm">14:19:58</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#action </span><span class="cmdline">thêm 1 số method liên quan đến page, build, server</span>
+<a name="l-47"></a><span class="tm">14:20:23</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> thế thì gọi build để làm gì? mình có thể gọi server luôn
+<a name="l-48"></a><span class="tm">14:20:45</span><span class="nk"> &lt;boss14420&gt;</span> Có thể chỉ cần build những không cần chạy server
+<a name="l-49"></a><span class="tm">14:20:59</span><span class="nk"> &lt;boss14420&gt;</span> để làm gì đó
+<a name="l-50"></a><span class="tm">14:22:11</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">Guest73140:</span> đợi đến phiên báo cáo rồi nói, xen vào thế này khó theo dõi. Bây giờ bàn về module Jekyll thôi
+<a name="l-51"></a><span class="tm">14:24:26</span><span class="nk"> &lt;heroandtn3&gt;</span> ok vậy cứ thêm cái build vào
+<a name="l-52"></a><span class="tm">14:24:34</span><span class="nk"> &lt;heroandtn3&gt;</span> mà chỉ cần gọi build là được, cần gì phải rebuild
+<a name="l-53"></a><span class="tm">14:25:30</span><span class="nk"> &lt;boss14420&gt;</span> re là để nhấn mạnh nó có thể được build nhiều lần.
+<a name="l-54"></a><span class="tm">14:25:47</span><span class="nk"> &lt;boss14420&gt;</span> Với các cầu hình khác nhau có thể cho nội dung khác nhau
+<a name="l-55"></a><span class="tm">14:26:28</span><span class="nk"> &lt;heroandtn3&gt;</span> như bản chất là nó gọi lệnh build của jekyll
+<a name="l-56"></a><span class="tm">14:26:44</span><span class="nk"> &lt;heroandtn3&gt;</span> thì giống nhau chứ làm sao cho nội dung khác nhau?
+<a name="l-57"></a><span class="tm">14:27:21</span><span class="nk"> &lt;boss14420&gt;</span> thôi, buid cũng được
+<a name="l-58"></a><span class="tm">14:28:02</span><span class="nk"> &lt;Cuong&gt;</span> cứ note lại đi, sau làm thấy cái nào hợp lý thì quyết định sau
+<a name="l-59"></a><span class="tm">14:28:26</span><span class="nk"> &lt;boss14420&gt;</span> build, cho giống lệnh của jekyll
+<a name="l-60"></a><span class="tm">14:28:44</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-61"></a><span class="tm">14:29:04</span><span class="nk"> &lt;heroandtn3&gt;</span> tiếp theo đến lớp Setting
+<a name="l-62"></a><span class="tm">14:29:07</span><span class="nk"> &lt;heroandtn3&gt;</span> à từ đã
+<a name="l-63"></a><span class="tm">14:29:28</span><span class="nk"> &lt;heroandtn3&gt;</span> lớp Blog này cần phải lưu thông tin tài khoản người dùng hay cái gì ko nhỉ
+<a name="l-64"></a><span class="tm">14:29:39</span><span class="nk"> &lt;heroandtn3&gt;</span> có lẽ cái đó phải do module của anh Cuong
+<a name="l-65"></a><span class="tm">14:29:54</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ bên anh Cuong có 1 lớp là Repository
+<a name="l-66"></a><span class="tm">14:30:03</span><span class="nk"> &lt;boss14420&gt;</span> tài khoản người dùng là cái gì ?
+<a name="l-67"></a><span class="tm">14:30:12</span><span class="nk"> &lt;heroandtn3&gt;</span> thì lớp Blog cần lưu thông tin 1 repository
+<a name="l-68"></a><span class="tm">14:30:20</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> để upload blog lên, ví dụ tài khoản GitHub
+<a name="l-69"></a><span class="tm">14:30:50</span><span class="nk"> &lt;heroandtn3&gt;</span> module Git từ đó biết được cần upload lên repo nào
+<a name="l-70"></a><span class="tm">14:30:58</span><span class="nk"> &lt;boss14420&gt;</span> Nên có một thuộc tính liên quan module git
+<a name="l-71"></a><span class="tm">14:31:01</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ nghĩ là cho thành 1 repo thì hơn
+<a name="l-72"></a><span class="tm">14:31:11</span><span class="nk"> &lt;heroandtn3&gt;</span> ừ, cái đó phải do anh Cuong thiết kế để thêm vào
+<a name="l-73"></a><span class="tm">14:32:05</span><span class="nk"> &lt;Cuong&gt;</span> như kiểu file config của git đấy hả?
+<a name="l-74"></a><span class="tm">14:32:29</span><span class="nk"> &lt;heroandtn3&gt;</span> kiểu như thế
+<a name="l-75"></a><span class="tm">14:32:50</span><span class="nk"> &lt;heroandtn3&gt;</span> 1 cái kiểu như Repository
+<a name="l-76"></a><span class="tm">14:32:59</span><span class="nk"> &lt;heroandtn3&gt;</span> khi nào em cần Push
+<a name="l-77"></a><span class="tm">14:33:10</span><span class="nk"> &lt;heroandtn3&gt;</span> thì truyền cái repository đó cho module của anh
+<a name="l-78"></a><span class="tm">14:33:15</span><span class="nk"> &lt;heroandtn3&gt;</span> là anh biết phải push lên đâu
+<a name="l-79"></a><span class="tm">14:33:38</span><span class="nk"> &lt;heroandtn3&gt;</span> tiếp theo là Blog còn có 1 tùy chọn là theme
+<a name="l-80"></a><span class="tm">14:33:43</span><span class="nk"> &lt;Cuong&gt;</span> khoan
+<a name="l-81"></a><span class="tm">14:33:48</span><span class="nk"> &lt;Cuong&gt;</span> anh nghĩ
+<a name="l-82"></a><span class="tm">14:33:57</span><span class="nk"> &lt;Cuong&gt;</span> tất cả chỉ có 1 repo thôi chứ?
+<a name="l-83"></a><span class="tm">14:34:14</span><span class="nk"> &lt;heroandtn3&gt;</span> đúng
+<a name="l-84"></a><span class="tm">14:34:28</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng ví dụ muốn thay đổi thì làm thế nào?
+<a name="l-85"></a><span class="tm">14:34:43</span><span class="nk"> &lt;heroandtn3&gt;</span> cái đó lưu trong module của anh
+<a name="l-86"></a><span class="tm">14:34:54</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng làm sao để kết nối 2 cái
+<a name="l-87"></a><span class="tm">14:36:35</span><span class="nk"> &lt;Cuong&gt;</span> cụ thể là thay đổi gì?blog á?
+<a name="l-88"></a><span class="tm">14:36:40</span><span class="nk"> &lt;boss14420&gt;</span> Đương nhiên là thuộc tính repo đó phải có các phương thức comit, push, ... rồi
+<a name="l-89"></a><span class="tm">14:36:49</span><span class="nk"> &lt;boss14420&gt;</span> còn sử dụng ntn là việc của module jekyll
+<a name="l-90"></a><span class="tm">14:37:41</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Cuong:</span> ví dụ thay đổi sang repo khác thì làm thế nào?
+<a name="l-91"></a><span class="tm">14:37:49</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> đúng rồi, kiểu như thế
+<a name="l-92"></a><span class="tm">14:38:04</span><span class="nk"> &lt;heroandtn3&gt;</span> thật ra commit thì ko cần
+<a name="l-93"></a><span class="tm">14:38:09</span><span class="nk"> &lt;heroandtn3&gt;</span> chỉ quan tâm đến cái push thôi
+<a name="l-94"></a><span class="tm">14:38:56</span><span class="nk"> &lt;boss14420&gt;</span> Sao không cần ? Lúc lưu file vừa edit chẳng hạn
+<a name="l-95"></a><span class="tm">14:39:45</span><span class="nk"> &lt;Cuong&gt;</span> thay đổi repo thì phải sang thư mục khác làm việc thôi chứ, git ăn theo thư mục local của mình mà
+<a name="l-96"></a><span class="tm">14:39:57</span><span class="nk"> &lt;Cuong&gt;</span> chú đổi thư mục rồi gọi git_init
+<a name="l-97"></a><span class="tm">14:39:58</span><span class="nk"> &lt;Cuong&gt;</span> git_add
+<a name="l-98"></a><span class="tm">14:40:42</span><span class="nk"> &lt;boss14420&gt;</span> Thôi lạc đề rồi, nói chung là cần có đối tượng repo với các phương thức thao tác với git
+<a name="l-99"></a><span class="tm">14:40:55</span><span class="nk"> &lt;boss14420&gt;</span> còn chi tiết ntn tí nữa nói sau
+<a name="l-100"></a><span class="tm">14:41:16</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Cuong:</span> anh ko hiểu
+<a name="l-101"></a><span class="tm">14:41:46</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ em đổi remote
+<a name="l-102"></a><span class="tm">14:41:54</span><span class="nk"> &lt;heroandtn3&gt;</span> để upload lên các host khác nhau
+<a name="l-103"></a><span class="tm">14:42:20</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> ừ thật ra là có cần
+<a name="l-104"></a><span class="tm">14:42:51</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng tớ ko định gọi thẳng commit luôn
+<a name="l-105"></a><span class="tm">14:43:09</span><span class="nk"> &lt;heroandtn3&gt;</span> mà chỉ cần gọi add_post, add_page, edit_post,...
+<a name="l-106"></a><span class="tm">14:43:17</span><span class="nk"> &lt;heroandtn3&gt;</span> là module Git tự động làm, nó làm gì thì làm :D
+<a name="l-107"></a><span class="tm">14:43:31</span><span class="nk"> &lt;boss14420&gt;</span> không phải add_post, add_page, ... gọi đến commit à ?
+<a name="l-108"></a><span class="tm">14:46:47</span><span class="nk"> &lt;heroandtn3&gt;</span> thì tớ muốn trừu tượng hóa đấy mà
+<a name="l-109"></a><span class="tm">14:47:05</span><span class="nk"> &lt;heroandtn3&gt;</span> ở đây chỉ gọi thế thôi
+<a name="l-110"></a><span class="tm">14:47:10</span><span class="nk"> &lt;heroandtn3&gt;</span> chứ nó commit hay ko thì còn tùy
+<a name="l-111"></a><span class="tm">14:47:16</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ nếu cài trên di động
+<a name="l-112"></a><span class="tm">14:47:22</span><span class="nk"> &lt;boss14420&gt;</span> Thì phải cần thuộc tính repo có các phương thức đó để mấy thứ của Blog nó dùng
+<a name="l-113"></a><span class="tm">14:47:38</span><span class="nk"> &lt;heroandtn3&gt;</span> thì nó có thể ko commit hoặc làm gì đó khác
+<a name="l-114"></a><span class="tm">14:47:45</span><span class="nk"> &lt;heroandtn3&gt;</span> uh
+<a name="l-115"></a><span class="tm">14:48:27</span><span class="nk"> &lt;boss14420&gt;</span> thôi, vậy qua Setting
+<a name="l-116"></a><span class="tm">14:48:33</span><span class="nk"> &lt;boss14420&gt;</span> có vài thứ để nói
+<a name="l-117"></a><span class="tm">14:49:05</span><span class="nk"> &lt;boss14420&gt;</span> Thứ nhất là các option của Jekyll có thể tùy ý thêm vào
+<a name="l-118"></a><span class="tm">14:49:16</span><span class="nk"> &lt;boss14420&gt;</span> và nó có thể được phân cấp
+<a name="l-119"></a><span class="tm">14:49:37</span><span class="nk"> &lt;boss14420&gt;</span> vậy nên tổ chức lớp ntn cho hợp lý để dễ truy xuất sau này ?
+<a name="l-120"></a><span class="tm">14:51:23</span><span class="nk"> &lt;heroandtn3&gt;</span> các cái có sẵn của nó thì tớ đều thêm vào
+<a name="l-121"></a><span class="tm">14:51:38</span><span class="nk"> &lt;heroandtn3&gt;</span> các cái tùy chọn thì mình sẽ lưu ở 1 lớp là Custom
+<a name="l-122"></a><span class="tm">14:52:05</span><span class="nk"> &lt;heroandtn3&gt;</span> các setting có sẵn là Global, Build, Server
+<a name="l-123"></a><span class="tm">14:52:14</span><span class="nk"> &lt;heroandtn3&gt;</span> thêm 1 cái tùy chọn là Custom là ok
+<a name="l-124"></a><span class="tm">14:52:17</span><span class="nk"> &lt;boss14420&gt;</span> Tổ chức phân cấp ntn ?
+<a name="l-125"></a><span class="tm">14:52:43</span><span class="nk"> &lt;boss14420&gt;</span> Có thể xem xét tính năng introspection của python không ?
+<a name="l-126"></a><span class="tm">14:53:19</span><span class="nk"> &lt;boss14420&gt;</span> Trong python người ta có thể tạo lớp, đối tượng từ code
+<a name="l-127"></a><span class="tm">14:53:37</span><span class="nk"> &lt;boss14420&gt;</span> chứ không phải viết ra tường minh
+<a name="l-128"></a><span class="tm">14:53:43</span><span class="nk"> &lt;heroandtn3&gt;</span> Phân cấp tức là trong Setting có 3 cái setting chuẩn là global, build và server, và 1 cái tùy chọn là custom
+<a name="l-129"></a><span class="tm">14:54:12</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> tính năng introspection là gì?
+<a name="l-130"></a><span class="tm">14:54:34</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> còn tạo lớp thì đằng nào chả viết code
+<a name="l-131"></a><span class="tm">14:54:39</span><span class="nk"> &lt;boss14420&gt;</span> là tính năng tạo lớp, đối tượng trong khi chạy
+<a name="l-132"></a><span class="tm">14:54:43</span><span class="nk"> &lt;heroandtn3&gt;</span> mình cần viết tường minh và riêng ra 1 chỗ
+<a name="l-133"></a><span class="tm">14:54:52</span><span class="nk"> &lt;heroandtn3&gt;</span> để cái khác tái sử dụng
+<a name="l-134"></a><span class="tm">14:55:02</span><span class="nk"> &lt;heroandtn3&gt;</span> chứ ko phải là chỗ nào dùng thì viết code tạo 1 lớp
+<a name="l-135"></a><span class="tm">14:56:34</span><span class="nk"> &lt;boss14420&gt;</span> Giả sử bây giờ trong file cấu hình yaml
+<a name="l-136"></a><span class="tm">14:57:19</span><span class="nk"> &lt;boss14420&gt;</span> Mà thôi
+<a name="l-137"></a><span class="tm">14:57:30</span><span class="nk"> &lt;boss14420&gt;</span> mở file cấu hình của jk bootstrap ra xem đi
+<a name="l-138"></a><span class="tm">14:57:48</span><span class="nk"> &lt;boss14420&gt;</span> Nhận thấy là mấy cái option này nó có chia level
+<a name="l-139"></a><span class="tm">14:58:08</span><span class="nk"> &lt;boss14420&gt;</span> bằng cách dòng sau thụt lề sang phải so với dòng trước
+<a name="l-140"></a><span class="tm">14:58:23</span><span class="nk"> &lt;boss14420&gt;</span> truy xuất bằng các JB.comments.provider
+<a name="l-141"></a><span class="tm">14:58:29</span><span class="nk"> &lt;boss14420&gt;</span> bằng cách
+<a name="l-142"></a><span class="tm">14:58:38</span><span class="nk"> &lt;boss14420&gt;</span> vậy thì nên tổ chức CTDL ntn ?
+<a name="l-143"></a><span class="tm">15:00:40</span><span class="nk"> &lt;heroandtn3&gt;</span> tức là lưu dữ liệu thế nào để truy xuất?
+<a name="l-144"></a><span class="tm">15:00:56</span><span class="nk"> &lt;boss14420&gt;</span> ừ
+<a name="l-145"></a><span class="tm">15:01:20</span><span class="nk"> &lt;boss14420&gt;</span> Chú ý là dữ liệu cũng phải thể hiện được sự phân cấp đó
+<a name="l-146"></a><span class="tm">15:02:02</span><span class="nk"> &lt;heroandtn3&gt;</span> cái đó là phần cài đặt cụ thể
+<a name="l-147"></a><span class="tm">15:02:08</span><span class="nk"> &lt;heroandtn3&gt;</span> mình chưa xét đến
+<a name="l-148"></a><span class="tm">15:02:21</span><span class="nk"> &lt;heroandtn3&gt;</span> đây là đang xét module của mình có những gì
+<a name="l-149"></a><span class="tm">15:02:33</span><span class="nk"> &lt;heroandtn3&gt;</span> để các module khác tương tác với nhau
+<a name="l-150"></a><span class="tm">15:03:02</span><span class="nk"> &lt;boss14420&gt;</span> Đây là điều cần phải chỉ rõ. Giả sử module khác cần truy xuất giá trị 1 thuộc tính nào đó thì làm ntn ?
+<a name="l-151"></a><span class="tm">15:03:37</span><span class="nk"> &lt;heroandtn3&gt;</span> đơn giản
+<a name="l-152"></a><span class="tm">15:03:46</span><span class="nk"> &lt;heroandtn3&gt;</span> gọi Blog.setting
+<a name="l-153"></a><span class="tm">15:03:55</span><span class="nk"> &lt;heroandtn3&gt;</span> trong setting có get_setting
+<a name="l-154"></a><span class="tm">15:04:07</span><span class="nk"> &lt;heroandtn3&gt;</span> setting.&lt;tên thuộc tính&gt;
+<a name="l-155"></a><span class="tm">15:04:22</span><span class="nk"> &lt;boss14420&gt;</span> nếu đó là thuộc tính custom ?
+<a name="l-156"></a><span class="tm">15:05:37</span><span class="nk"> &lt;heroandtn3&gt;</span> setting.custom.&lt;tên&gt;
+<a name="l-157"></a><span class="tm">15:06:09</span><span class="nk"> &lt;heroandtn3&gt;</span> cái này cậu học hướng đối tượng thì phải biết chứ nhỉ :-?
+<a name="l-158"></a><span class="tm">15:06:28</span><span class="nk"> &lt;boss14420&gt;</span> Vấn đề là &lt;tên&gt; này không được xác định trong lúc code
+<a name="l-159"></a><span class="tm">15:07:01</span><span class="nk"> &lt;heroandtn3&gt;</span> sao lại ko?
+<a name="l-160"></a><span class="tm">15:07:18</span><span class="nk"> &lt;heroandtn3&gt;</span> các biến của nó phải tuân theo chuẩn
+<a name="l-161"></a><span class="tm">15:07:41</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ giờ muốn thêm 1 thuộc tính là author trong custom
+<a name="l-162"></a><span class="tm">15:07:46</span><span class="nk"> &lt;boss14420&gt;</span> Ta đâu có biết người dùng sẽ thêm thuộc tính gì trong file config của họ ?
+<a name="l-163"></a><span class="tm">15:07:58</span><span class="nk"> &lt;heroandtn3&gt;</span> thì code của class đó phải là custom.author
+<a name="l-164"></a><span class="tm">15:08:17</span><span class="nk"> &lt;boss14420&gt;</span> Chú ý thời điểm
+<a name="l-165"></a><span class="tm">15:08:19</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> đấy là vấn đề tương thích giữa blog có sẵn và blog theo chuẩn jekyll
+<a name="l-166"></a><span class="tm">15:08:26</span><span class="nk"> &lt;heroandtn3&gt;</span> nhầm
+<a name="l-167"></a><span class="tm">15:08:30</span><span class="nk"> &lt;heroandtn3&gt;</span> theo chuẩn jekit
+<a name="l-168"></a><span class="tm">15:08:41</span><span class="nk"> &lt;heroandtn3&gt;</span> vấn đề đó thì mình bàn sau mà
+<a name="l-169"></a><span class="tm">15:08:43</span><span class="nk"> &lt;boss14420&gt;</span> lại bó buộc ??
+<a name="l-170"></a><span class="tm">15:08:58</span><span class="nk"> &lt;heroandtn3&gt;</span> ko thì làm sao giải quyết được?
+<a name="l-171"></a><span class="tm">15:09:31</span><span class="nk"> &lt;boss14420&gt;</span> Thực ra dự định ban đầu là cho GUI để chỉnh sửa thêm xóa tùy ý trong setting
+<a name="l-172"></a><span class="tm">15:09:43</span><span class="nk"> &lt;boss14420&gt;</span> phải nghĩ cách giải quyết chứ
+<a name="l-173"></a><span class="tm">15:09:59</span><span class="nk"> &lt;boss14420&gt;</span> có thể dùng dict
+<a name="l-174"></a><span class="tm">15:10:22</span><span class="nk"> &lt;heroandtn3&gt;</span> thế thì GUI cũng ko biết nó là gì
+<a name="l-175"></a><span class="tm">15:10:39</span><span class="nk"> &lt;heroandtn3&gt;</span> nó chỉ đọc thấy có author
+<a name="l-176"></a><span class="tm">15:10:46</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng ko biết author có í nghĩa gì
+<a name="l-177"></a><span class="tm">15:10:56</span><span class="nk"> &lt;boss14420&gt;</span> Thì GUI không cần phải biết
+<a name="l-178"></a><span class="tm">15:11:12</span><span class="nk"> &lt;boss14420&gt;</span> người dùng tự thêm vào thì tự họ quyết định việc dùng nó
+<a name="l-179"></a><span class="tm">15:11:36</span><span class="nk"> &lt;heroandtn3&gt;</span> thế thì giải quyết đơn giản
+<a name="l-180"></a><span class="tm">15:11:49</span><span class="nk"> &lt;heroandtn3&gt;</span> tạo 1 cái list lưu custom setting
+<a name="l-181"></a><span class="tm">15:12:12</span><span class="nk"> &lt;heroandtn3&gt;</span> đọc được cái setting nào mà nó ko hiểu thì cho vào list
+<a name="l-182"></a><span class="tm">15:12:19</span><span class="nk"> &lt;boss14420&gt;</span> dict hay list ?
+<a name="l-183"></a><span class="tm">15:12:21</span><span class="nk"> &lt;heroandtn3&gt;</span> rồi hiển thị lên cho người dùng sửa
+<a name="l-184"></a><span class="tm">15:12:35</span><span class="nk"> &lt;heroandtn3&gt;</span> ừ dict
+<a name="l-185"></a><span class="tm">15:12:41</span><span class="nk"> &lt;boss14420&gt;</span> rồi còn kiểu abc.def rồi thì abc.def.ghi nữa
+<a name="l-186"></a><span class="tm">15:12:51</span><span class="nk"> &lt;boss14420&gt;</span> chẳng lẽ dict sẽ có dạng như:
+<a name="l-187"></a><span class="tm">15:13:20</span><span class="nk"> &lt;boss14420&gt;</span> { 'abc' : 1, 'abc.def' : 2 } ?
+<a name="l-188"></a><span class="tm">15:14:06</span><span class="nk"> &lt;heroandtn3&gt;</span> ko hiểu í cậu lắm
+<a name="l-189"></a><span class="tm">15:14:23</span><span class="nk"> &lt;boss14420&gt;</span> Đã nói rồi đấy, setting trong jk có tính phân cấp
+<a name="l-190"></a><span class="tm">15:14:24</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu abc.def thì sao?
+<a name="l-191"></a><span class="tm">15:14:47</span><span class="nk"> &lt;boss14420&gt;</span> lưu kiểu này không thể hiện được tính phân cấp của nó
+<a name="l-192"></a><span class="tm">15:15:03</span><span class="nk"> &lt;boss14420&gt;</span> à
+<a name="l-193"></a><span class="tm">15:15:06</span><span class="nk"> &lt;boss14420&gt;</span> mà cũng được
+<a name="l-194"></a><span class="tm">15:15:12</span><span class="nk"> &lt;boss14420&gt;</span> nhưng xử lý hơi mệt
+<a name="l-195"></a><span class="tm">15:15:30</span><span class="nk"> &lt;boss14420&gt;</span> Nhưng vẫn còn một cách khác
+<a name="l-196"></a><span class="tm">15:15:36</span><span class="nk"> &lt;heroandtn3&gt;</span> là cách gì?
+<a name="l-197"></a><span class="tm">15:16:10</span><span class="nk"> &lt;boss14420&gt;</span> python có thể thêm lớp, thuộc tính "động", tức là thêm vào lúc runtime chứ không phải code-time
+<a name="l-198"></a><span class="tm">15:16:22</span><span class="nk"> &lt;boss14420&gt;</span> ta có thể truy cập theo kiểu
+<a name="l-199"></a><span class="tm">15:16:30</span><span class="nk"> &lt;boss14420&gt;</span> setting.abc.def = ...
+<a name="l-200"></a><span class="tm">15:16:52</span><span class="nk"> &lt;boss14420&gt;</span> thử nghiên cứu đi
+<a name="l-201"></a><span class="tm">15:16:56</span><span class="nk"> &lt;boss14420&gt;</span> http://stackoverflow.com/questions/1325673/python-how-to-add-property-to-a-class-dynamically
+<a name="l-202"></a><span class="tm">15:17:10</span><span class="nk"> &lt;heroandtn3&gt;</span> cái đó lúc nào cài đặt cụ thể rồi tính
+<a name="l-203"></a><span class="tm">15:17:35</span><span class="nk"> &lt;boss14420&gt;</span> http://stackoverflow.com/questions/10967551/how-do-i-dynamically-create-properties-in-python
+<a name="l-204"></a><span class="tm">15:17:43</span><span class="nk"> &lt;boss14420&gt;</span> Không
+<a name="l-205"></a><span class="tm">15:17:43</span><span class="nk"> &lt;heroandtn3&gt;</span> vì tớ nghĩ nếu bài về cài đặt cụ thể thì có rất nhiều vấn đề khác
+<a name="l-206"></a><span class="tm">15:17:46</span><span class="nk"> &lt;heroandtn3&gt;</span> chứ ko riêng gì cái này
+<a name="l-207"></a><span class="tm">15:17:55</span><span class="nk"> &lt;boss14420&gt;</span> đây không chỉ là vấn đề cài đặt
+<a name="l-208"></a><span class="tm">15:18:14</span><span class="nk"> &lt;boss14420&gt;</span> đã nói rồi đấy. Hai cách khác nhau dẫn đến giao diện với module khác cũng khác nhau
+<a name="l-209"></a><span class="tm">15:18:50</span><span class="nk"> &lt;boss14420&gt;</span> một bên là truy cập qua dict, một bên là truy cập theo kiểu &lt;lớp&gt;.&lt;thuộc tính&gt;
+<a name="l-210"></a><span class="tm">15:18:58</span><span class="nk"> &lt;boss14420&gt;</span> phải nghiên cứu kỹ
+<a name="l-211"></a><span class="tm">15:19:37</span><span class="nk"> &lt;boss14420&gt;</span> http://stackoverflow.com/questions/10967551/how-do-i-dynamically-create-properties-in-python
+<a name="l-212"></a><span class="tm">15:19:41</span><span class="nk"> &lt;boss14420&gt;</span> đây nữa
+<a name="l-213"></a><span class="tm">15:19:53</span><span class="nk"> &lt;heroandtn3&gt;</span> thì cái dict đó
+<a name="l-214"></a><span class="tm">15:20:05</span><span class="nk"> &lt;heroandtn3&gt;</span> đằng nào cũng sẽ cho vào trong setting
+<a name="l-215"></a><span class="tm">15:20:36</span><span class="nk"> &lt;heroandtn3&gt;</span> mình cũng sẽ gọi theo kiểu setting.custom.get[i]
+<a name="l-216"></a><span class="tm">15:20:40</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ nghĩ thế
+<a name="l-217"></a><span class="tm">15:20:48</span><span class="nk"> &lt;boss14420&gt;</span> cụ thể hơn là đây: http://docs.python.org/3.3/reference/datamodel.html#customizing-attribute-access
+<a name="l-218"></a><span class="tm">15:20:58</span><span class="nk"> &lt;heroandtn3&gt;</span> chứ phần GUI ko quan tâm nó là dict hay list hay thuộc tính
+<a name="l-219"></a><span class="tm">15:21:04</span><span class="nk"> &lt;boss14420&gt;</span> gọi theo kiểu kia ngắn hơn
+<a name="l-220"></a><span class="tm">15:21:17</span><span class="nk"> &lt;boss14420&gt;</span> không chỉ GUI cần cái này, module khác cũng có thể cần
+<a name="l-221"></a><span class="tm">15:21:41</span><span class="nk"> &lt;heroandtn3&gt;</span> nhưng để đảm bảo nguyên tắc OOP thì cái khác ko được tự gọi
+<a name="l-222"></a><span class="tm">15:21:47</span><span class="nk"> &lt;heroandtn3&gt;</span> mà phải thông qua setting hết chứ
+<a name="l-223"></a><span class="tm">15:22:10</span><span class="nk"> &lt;boss14420&gt;</span> thì thông qua setting đấy thôi
+<a name="l-224"></a><span class="tm">15:22:10</span><span class="nk"> &lt;heroandtn3&gt;</span> được rồi mấy cái này tớ sẽ tìm hiểu để đưa ra hướng giải quyết
+<a name="l-225"></a><span class="tm">15:22:18</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-226"></a><span class="tm">15:22:36</span><span class="nk"> &lt;boss14420&gt;</span> OK
+<a name="l-227"></a><span class="tm">15:22:40</span><span class="nk"> &lt;boss14420&gt;</span> note đi
+<a name="l-228"></a><span class="tm">15:23:52</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#action </span><span class="cmdline">Tìm hiểu vấn đề lưu trữ custom setting</span>
+<a name="l-229"></a><span class="tm">15:25:04</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#action </span><span class="cmdline">Thêm các phần liên quan đến Git, Comment, Theme</span>
+<a name="l-230"></a><span class="tm">15:25:26</span><span class="nk"> &lt;heroandtn3&gt;</span> phần của tớ còn vấn đề gì nữa ko?
+<a name="l-231"></a><span class="tm">15:25:51</span><span class="nk"> &lt;boss14420&gt;</span> lớp Post
+<a name="l-232"></a><span class="tm">15:26:00</span><span class="nk"> &lt;boss14420&gt;</span> quên
+<a name="l-233"></a><span class="tm">15:26:02</span><span class="nk"> &lt;boss14420&gt;</span> có rồi
+<a name="l-234"></a><span class="tm">15:26:10</span><span class="nk"> &lt;boss14420&gt;</span> thuộc tính path
+<a name="l-235"></a><span class="tm">15:26:15</span><span class="nk"> &lt;boss14420&gt;</span> à
+<a name="l-236"></a><span class="tm">15:26:25</span><span class="nk"> &lt;boss14420&gt;</span> cần method full_path()
+<a name="l-237"></a><span class="tm">15:26:43</span><span class="nk"> &lt;boss14420&gt;</span> chỉ vị trí của file mã nguồn của post đó
+<a name="l-238"></a><span class="tm">15:27:44</span><span class="nk"> &lt;Chien&gt;</span> Chào mọi người, sorry mọi người vì mưa to quá bây giờ ms về đến nhà@@
+<a name="l-239"></a><span class="tm">15:28:02</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> full_path có thể suy ra từ path nên tớ ko cho vào
+<a name="l-240"></a><span class="tm">15:28:15</span><span class="nk"> &lt;heroandtn3&gt;</span> path tớ định dùng là tương đối
+<a name="l-241"></a><span class="tm">15:28:43</span><span class="nk"> &lt;heroandtn3&gt;</span> còn full_path thì chỉ cần lấy cái tương đối ghép với path của thư mục _posts là được
+<a name="l-242"></a><span class="tm">15:28:45</span><span class="nk"> &lt;heroandtn3&gt;</span> à
+<a name="l-243"></a><span class="tm">15:28:53</span><span class="nk"> &lt;heroandtn3&gt;</span> cũng nên cho vào để các cái khác tiện dùng
+<a name="l-244"></a><span class="tm">15:28:53</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-245"></a><span class="tm">15:29:36</span><span class="nk"> &lt;boss14420&gt;</span> thôi, có lẽ module jekyll thế là được rồi
+<a name="l-246"></a><span class="tm">15:30:04</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-247"></a><span class="tm">15:30:14</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#action </span><span class="cmdline">Thêm full_path cho Post, Page</span>
+<a name="l-248"></a><span class="tm">15:32:09</span><span class="nk"> &lt;heroandtn3&gt;</span> boss14420 báo cáo tiếp đi
+<a name="l-249"></a><span class="tm">15:33:09</span><span class="nk"> &lt;boss14420&gt;</span> thì nhiệm vụ của mình là hoàn thiện GUI với sửa lỗi xử lý ngôn ngữ
+<a name="l-250"></a><span class="tm">15:34:21</span><span class="nk"> &lt;boss14420&gt;</span> mấy ngày qua chỉ có sửa GUI, vẫn đang làm nên không có gì mới để báo cáo
+<a name="l-251"></a><span class="tm">15:34:28</span><span class="nk"> &lt;boss14420&gt;</span> dự định GUI sẽ kiểu ntn: http://ckeditor.com/demo
+<a name="l-252"></a><span class="tm">15:35:15</span><span class="nk"> &lt;Chien&gt;</span> đẹp đó boss14420 !
+<a name="l-253"></a><span class="tm">15:35:23</span><span class="nk"> &lt;heroandtn3&gt;</span> làm được giống CKEditor thì hơi bị bá đạo đấy
+<a name="l-254"></a><span class="tm">15:35:24</span><span class="nk"> &lt;heroandtn3&gt;</span> :D
+<a name="l-255"></a><span class="tm">15:35:53</span><span class="nk"> &lt;boss14420&gt;</span> Hình dạng thôi
+<a name="l-256"></a><span class="tm">15:36:04</span><span class="nk"> &lt;boss14420&gt;</span> mà GUI thì cái nào cũng kiểu như vậy
+<a name="l-257"></a><span class="tm">15:36:15</span><span class="nk"> &lt;Chien&gt;</span> đẹp hơn so với cái mặc định của jekyll rồi mà :D
+<a name="l-258"></a><span class="tm">15:37:47</span><span class="nk"> &lt;boss14420&gt;</span> mặc định của jekyll là cái gì ?
+<a name="l-259"></a><span class="tm">15:38:04</span><span class="nk"> &lt;Chien&gt;</span> à, hình dạng thôi
+<a name="l-260"></a><span class="tm">15:39:04</span><span class="nk"> &lt;heroandtn3&gt;</span> mấy cái GUI cho Markdown ví dụ như retext, github đều khá đơn giản
+<a name="l-261"></a><span class="tm">15:39:15</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu làm được giống như CKEditor hoặc gần giống
+<a name="l-262"></a><span class="tm">15:39:19</span><span class="nk"> &lt;heroandtn3&gt;</span> thì sẽ là 1 sự khác biệt
+<a name="l-263"></a><span class="tm">15:39:37</span><span class="nk"> &lt;heroandtn3&gt;</span> mình muốn hỏi là quá trình làm có vướng mắc gì cần trao đổi ko boss14420?
+<a name="l-264"></a><span class="tm">15:40:28</span><span class="nk"> &lt;boss14420&gt;</span> có nhưng có thể giải quyết được.
+<a name="l-265"></a><span class="tm">15:40:36</span><span class="nk"> &lt;boss14420&gt;</span> khi nào có gì sẽ báo lên group
+<a name="l-266"></a><span class="tm">15:41:18</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-267"></a><span class="tm">15:41:50</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="topic">#topic </span><span class="topicline">Thành báo cáo module Editor</span>
+<a name="l-268"></a><span class="tm">15:42:10</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="cmd">#info </span><span class="cmdline">Làm giống CKEditor và đang triển khai</span>
+<a name="l-269"></a><span class="tm">15:42:16</span><span class="nk"> &lt;heroandtn3&gt;</span> giờ chuyển sang phần của Chien đi
+<a name="l-270"></a><span class="tm">15:42:26</span><span class="nk"> &lt;Chien&gt;</span> ok
+<a name="l-271"></a><span class="tm">15:42:34</span><span class="nk"> &lt;Chien&gt;</span> vậy là xong hết 1 lượt mọi người rồi hả?
+<a name="l-272"></a><span class="tm">15:42:54</span><span class="nk"> &lt;boss14420&gt;</span> mới xong phần của Sang thôi
+<a name="l-273"></a><span class="tm">15:43:07</span><span class="nk"> &lt;Chien&gt;</span> của t thì trên tinh thần như trc thì t thấy chỉ làm đơn giản như thế này:
+<a name="l-274"></a><span class="tm">15:43:09</span><span class="nk"> &lt;Chien&gt;</span> https://github.com/JeKitProject/MHST2013/wiki/Module-B%C3%ACnh-lu%E1%BA%ADn-v%E1%BB%9Bi-Disqus:-Thi%E1%BA%BFt-k%E1%BA%BF
+<a name="l-275"></a><span class="tm">15:43:19</span><span class="nk"> &lt;Chien&gt;</span> vậy là xong phần của 2 ng rồi
+<a name="l-276"></a><span class="tm">15:43:57</span><span class="nk"> &lt;Chien&gt;</span> có vấn đề gì thì t sửa ngay hnay :)
+<a name="l-277"></a><span class="tm">15:44:17</span><span class="nk"> &lt;boss14420&gt;</span> <span class="topic">#topic </span><span class="topicline">Chiến báo cáo thiết kế module bình luận</span>
+<a name="l-278"></a><span class="tm">15:44:56</span><span class="nk"> &lt;Chien&gt;</span> đã đưa về 1 class duy nhất là Api
+<a name="l-279"></a><span class="tm">15:45:06</span><span class="nk"> &lt;Chien&gt;</span> và các thuộc tính như ở trang :D
+<a name="l-280"></a><span class="tm">15:45:36</span><span class="nk"> &lt;Chien&gt;</span> à, các phương thức, moij ng xem sao?
+<a name="l-281"></a><span class="tm">15:45:41</span><span class="nk"> &lt;boss14420&gt;</span> tên metho get_all_comments tối nghĩa
+<a name="l-282"></a><span class="tm">15:46:19</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> câu hỏi đầu tiên: class Comment của cậu đâu?
+<a name="l-283"></a><span class="tm">15:46:24</span><span class="nk"> &lt;boss14420&gt;</span> sao không là get_lastest_comments ?
+<a name="l-284"></a><span class="tm">15:46:37</span><span class="nk"> &lt;boss14420&gt;</span> Rồi kiểu giá trị trả về ?
+<a name="l-285"></a><span class="tm">15:47:02</span><span class="nk"> &lt;Chien&gt;</span> về cái tên thì ok, sẽ đổi
+<a name="l-286"></a><span class="tm">15:47:14</span><span class="nk"> &lt;Chien&gt;</span> <span class="hi">heroandtn3:</span> chỉ có 1 class thôi mà
+<a name="l-287"></a><span class="tm">15:47:24</span><span class="nk"> &lt;Chien&gt;</span> ko làm những cái cấp thấp mà?
+<a name="l-288"></a><span class="tm">15:47:41</span><span class="nk"> &lt;Chien&gt;</span> kiểu giá trị trả về, bổ sung đây :D
+<a name="l-289"></a><span class="tm">15:50:09</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> vậy làm thế nào tớ biết 1 Comment của cậu có những gì bên trong?
+<a name="l-290"></a><span class="tm">15:52:04</span><span class="nk"> &lt;Chien&gt;</span> có những gì bên trong? Chỉ cần gọi hàm get_comment_by_id(id)
+<a name="l-291"></a><span class="tm">15:54:23</span><span class="nk"> &lt;heroandtn3&gt;</span> hàm đó trả về cái gì?
+<a name="l-292"></a><span class="tm">15:55:45</span><span class="nk"> &lt;Chien&gt;</span> trả về đối tượng comment gồm các thuộc tính ngày, nội dung, tác giả
+<a name="l-293"></a><span class="tm">15:55:52</span><span class="nk"> &lt;Chien&gt;</span> phải ghi cả những cái này à?!
+<a name="l-294"></a><span class="tm">15:56:10</span><span class="nk"> &lt;boss14420&gt;</span> Chỉ cần ghi là đối tượng comment
+<a name="l-295"></a><span class="tm">15:56:20</span><span class="nk"> &lt;Chien&gt;</span> ok, đã ghi rồi đấy
+<a name="l-296"></a><span class="tm">15:56:29</span><span class="nk"> &lt;boss14420&gt;</span> còn chi tiết thế nào thì thuộc về thiết kế lớp comment
+<a name="l-297"></a><span class="tm">15:56:30</span><span class="nk"> &lt;Chien&gt;</span> đã sửa xong trong link nhé :)
+<a name="l-298"></a><span class="tm">15:57:07</span><span class="nk"> &lt;Chien&gt;</span> còn phải thiết kế chi tiêts cả nó cơ à, t tưởng bảo ko phải nêu ra cấp thấp :v
+<a name="l-299"></a><span class="tm">15:57:24</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">boss14420:</span> nói như cậu thì vẫn phải có lớp comment đúng ko :))
+<a name="l-300"></a><span class="tm">15:57:38</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Chien:</span> cái comment là cái mà thằng khác sẽ dùng
+<a name="l-301"></a><span class="tm">15:57:42</span><span class="nk"> &lt;boss14420&gt;</span> Phải biết lớp comment có cái gì thì mới xem thông tin được chứ ?
+<a name="l-302"></a><span class="tm">15:57:50</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu cậu không nêu ra thì làm sao biết mà sử dụng :3
+<a name="l-303"></a><span class="tm">15:58:56</span><span class="nk"> &lt;Chien&gt;</span> ok, t sửa ngay đây! Sorry sorry, hôm qua Sang ko bảo t luôn :
+<a name="l-304"></a><span class="tm">15:59:41</span><span class="nk"> &lt;heroandtn3&gt;</span> :P
+<a name="l-305"></a><span class="tm">16:00:09</span><span class="nk"> &lt;heroandtn3&gt;</span> cả cái tên method như boss14420 bảo nữa
+<a name="l-306"></a><span class="tm">16:00:12</span><span class="nk"> &lt;heroandtn3&gt;</span> note vào đi
+<a name="l-307"></a><span class="tm">16:00:32</span><span class="nk"> &lt;heroandtn3&gt;</span> 1 điều nữa là mấy method kiểu như delete, aprove thì có thể đưa vào trong lớp comment
+<a name="l-308"></a><span class="tm">16:00:56</span><span class="nk"> &lt;heroandtn3&gt;</span> update cũng có thể đưa vào
+<a name="l-309"></a><span class="tm">16:01:19</span><span class="nk"> &lt;Chien&gt;</span> cái tên t cũng vừa sửa rồi
+<a name="l-310"></a><span class="tm">16:01:48</span><span class="nk"> &lt;Chien&gt;</span> <span class="cmd">#agreed </span><span class="cmdline">Đưa delete, approve, update vào lớp comment</span>
+<a name="l-311"></a><span class="tm">16:03:42</span><span class="nk"> &lt;heroandtn3&gt;</span> còn gì nữa ko nhỉ
+<a name="l-312"></a><span class="tm">16:03:50</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ thì thấy chưa có vấn đề gì
+<a name="l-313"></a><span class="tm">16:04:52</span><span class="nk"> &lt;Chien&gt;</span> t hỏi 1 chút
+<a name="l-314"></a><span class="tm">16:05:02</span><span class="nk"> &lt;Chien&gt;</span> cái này phải là đối tượng comment
+<a name="l-315"></a><span class="tm">16:05:06</span><span class="nk"> &lt;Chien&gt;</span> sao lại nói là thiết kế lớp?
+<a name="l-316"></a><span class="tm">16:05:32</span><span class="nk"> &lt;Chien&gt;</span> lớp thì chỉ có 1 lớp duy nhất là Api bao gồm các method xử lý thôi chứ?
+<a name="l-317"></a><span class="tm">16:05:42</span><span class="nk"> &lt;heroandtn3&gt;</span> đối tượng là 1 thể hiện của lớp
+<a name="l-318"></a><span class="tm">16:05:57</span><span class="nk"> &lt;heroandtn3&gt;</span> ví dụ có lớp Xe đạp
+<a name="l-319"></a><span class="tm">16:06:04</span><span class="nk"> &lt;heroandtn3&gt;</span> là chung cho tất cả các xe đạp
+<a name="l-320"></a><span class="tm">16:06:18</span><span class="nk"> &lt;heroandtn3&gt;</span> còn đối tượng Xe đạp của Chiến
+<a name="l-321"></a><span class="tm">16:06:27</span><span class="nk"> &lt;heroandtn3&gt;</span> là 1 xe đạp cụ thể
+<a name="l-322"></a><span class="tm">16:06:35</span><span class="nk"> &lt;Chien&gt;</span> vậy khái niệm lớp nói ở đây ko phải là Class trong code à?
+<a name="l-323"></a><span class="tm">16:06:43</span><span class="nk"> &lt;heroandtn3&gt;</span> chính là nó mà
+<a name="l-324"></a><span class="tm">16:06:54</span><span class="nk"> &lt;Chien&gt;</span> nếu thế thì lúc trc thống nhất chỉ có 1 lớp
+<a name="l-325"></a><span class="tm">16:07:00</span><span class="nk"> &lt;Chien&gt;</span> bây giờ lại tòi ra 2 sao?
+<a name="l-326"></a><span class="tm">16:07:16</span><span class="nk"> &lt;heroandtn3&gt;</span> ơ tớ bảo 1 lớp à
+<a name="l-327"></a><span class="tm">16:07:18</span><span class="nk"> &lt;heroandtn3&gt;</span> :))
+<a name="l-328"></a><span class="tm">16:07:21</span><span class="nk"> &lt;heroandtn3&gt;</span> ko nhớ nữa
+<a name="l-329"></a><span class="tm">16:07:45</span><span class="nk"> &lt;Chien&gt;</span> uh, bảo 1 lớp
+<a name="l-330"></a><span class="tm">16:07:54</span><span class="nk"> &lt;Chien&gt;</span> mà thực ra nếu đưa các cái kia vào cũng chỉ cần 1 lớp
+<a name="l-331"></a><span class="tm">16:08:11</span><span class="nk"> &lt;Chien&gt;</span> vậy phải thêm từng mô tả vào các method hả heroandtn3 ?
+<a name="l-332"></a><span class="tm">16:08:12</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu cậu đưa vào thế nào cho hợp lí thì tốt
+<a name="l-333"></a><span class="tm">16:08:20</span><span class="nk"> &lt;heroandtn3&gt;</span> ừ đúng rồi
+<a name="l-334"></a><span class="tm">16:08:29</span><span class="nk"> &lt;heroandtn3&gt;</span> giá trị trả về, các biến truyền vào
+<a name="l-335"></a><span class="tm">16:08:33</span><span class="nk"> &lt;heroandtn3&gt;</span> đều phải ghi rõ hết
+<a name="l-336"></a><span class="tm">16:08:49</span><span class="nk"> &lt;Chien&gt;</span> nếu vậy thì phần thiết kế của t đủ mà
+<a name="l-337"></a><span class="tm">16:09:12</span><span class="nk"> &lt;Chien&gt;</span> chỉ thiếu đối tượng bao gồm những gì
+<a name="l-338"></a><span class="tm">16:09:21</span><span class="nk"> &lt;Chien&gt;</span> giờ viết vào đâu đc?
+<a name="l-339"></a><span class="tm">16:10:44</span><span class="nk"> &lt;heroandtn3&gt;</span> viết lên wiki đấy
+<a name="l-340"></a><span class="tm">16:10:52</span><span class="nk"> &lt;heroandtn3&gt;</span> giống như class API của cậu vậy
+<a name="l-341"></a><span class="tm">16:11:47</span><span class="nk"> &lt;heroandtn3&gt;</span> https://github.com/JeKitProject/MHST2013/wiki/L%E1%BB%9Bp-Setting
+<a name="l-342"></a><span class="tm">16:11:57</span><span class="nk"> &lt;heroandtn3&gt;</span> hoặc làm giống tớ
+<a name="l-343"></a><span class="tm">16:11:58</span><span class="nk"> &lt;heroandtn3&gt;</span> :))
+<a name="l-344"></a><span class="tm">16:12:43</span><span class="nk"> &lt;Chien&gt;</span> ý t là bây giờ  đã có class API, thực chất chính là class Comment, vậy thì t chỉ cần nêu các thuộc tính của các đối tượng trả về là ok rồi đúng ko?
+<a name="l-345"></a><span class="tm">16:13:01</span><span class="nk"> &lt;Chien&gt;</span> của c thì nhiều class ms làm thế đc, đây có mỗi 1 class mà :p
+<a name="l-346"></a><span class="tm">16:14:49</span><span class="nk"> &lt;heroandtn3&gt;</span> class API nên đổi tên là CommentService
+<a name="l-347"></a><span class="tm">16:14:59</span><span class="nk"> &lt;heroandtn3&gt;</span> tức là các dịch vụ liên quan đến comment
+<a name="l-348"></a><span class="tm">16:15:27</span><span class="nk"> &lt;heroandtn3&gt;</span> và thêm 1 lớp nữa là Comment để mô tả đối tượng comment có những gì
+<a name="l-349"></a><span class="tm">16:16:31</span><span class="nk"> &lt;Chien&gt;</span> uh, tại vì tuần trc thống nhất là 1 lớp rồi, đúng là chưa đủ chi tiết, t sửa đây :)
+<a name="l-350"></a><span class="tm">16:18:05</span><span class="nk"> &lt;boss14420&gt;</span> thôi để sau
+<a name="l-351"></a><span class="tm">16:18:19</span><span class="nk"> &lt;boss14420&gt;</span> họp là để báo cáo những việc đã làm chứ không phải để làm
+<a name="l-352"></a><span class="tm">16:18:27</span><span class="nk"> &lt;Chien&gt;</span> còn gì để báo cáo nữa sao? :D
+<a name="l-353"></a><span class="tm">16:18:51</span><span class="nk"> &lt;Chien&gt;</span> <span class="cmd">#agreed </span><span class="cmdline">Thêm 1 lớp mô tả đối tượng comment</span>
+<a name="l-354"></a><span class="tm">16:19:21</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-355"></a><span class="tm">16:19:30</span><span class="nk"> &lt;heroandtn3&gt;</span> phần của Chien còn ai có ý kiến gì ko
+<a name="l-356"></a><span class="tm">16:19:38</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu ko gì đến phần của Guest26307
+<a name="l-357"></a><span class="tm">16:20:05</span><span class="nk"> &lt;Chien&gt;</span> a Cuong vừa onl báo cáo chưa?
+<a name="l-358"></a><span class="tm">16:21:02</span><span class="nk"> &lt;boss14420&gt;</span> chưa
+<a name="l-359"></a><span class="tm">16:21:15</span><span class="nk"> &lt;Guest26307&gt;</span> ok
+<a name="l-360"></a><span class="tm">16:21:42</span><span class="nk"> &lt;Guest26307&gt;</span> giờ tớ sẽ thiết kế một cái template mẫu
+<a name="l-361"></a><span class="tm">16:21:49</span><span class="nk"> &lt;Guest26307&gt;</span> dựng khung chuẩn
+<a name="l-362"></a><span class="tm">16:22:20</span><span class="nk"> &lt;heroandtn3&gt;</span> anh Cường ko tham dự
+<a name="l-363"></a><span class="tm">16:22:30</span><span class="nk"> &lt;heroandtn3&gt;</span> ko tham dự cuộc thi í
+<a name="l-364"></a><span class="tm">16:22:35</span><span class="nk"> &lt;heroandtn3&gt;</span> nên phần đó tớ làm
+<a name="l-365"></a><span class="tm">16:22:36</span><span class="nk"> &lt;boss14420&gt;</span> <span class="topic">#topic </span><span class="topicline">Sơn báo cáo về module giao diện</span>
+<a name="l-366"></a><span class="tm">16:22:37</span><span class="nk"> &lt;Guest26307&gt;</span> cần API liên quan đến giao diện
+<a name="l-367"></a><span class="tm">16:22:39</span><span class="nk"> &lt;Chien&gt;</span> ok, Guest26307  tiếp đi
+<a name="l-368"></a><span class="tm">16:23:03</span><span class="nk"> &lt;Guest26307&gt;</span> như các thẻ header, footer,...
+<a name="l-369"></a><span class="tm">16:23:20</span><span class="nk"> &lt;Guest26307&gt;</span> các thuộc tính liên quan màu sắc, chiều dài, rộng ,...
+<a name="l-370"></a><span class="tm">16:24:35</span><span class="nk"> &lt;Guest26307&gt;</span> chương trình sẽ sửa đổi giao diện thông qua các phương thức mà API cung cấp
+<a name="l-371"></a><span class="tm">16:25:36</span><span class="nk"> &lt;boss14420&gt;</span> API khồng có sẵn đâu
+<a name="l-372"></a><span class="tm">16:26:04</span><span class="nk"> &lt;boss14420&gt;</span> Về vấn đề này trước đây đã bàn thì có 2 hướng
+<a name="l-373"></a><span class="tm">16:26:07</span><span class="nk"> &lt;Chien&gt;</span> t cũng nghĩ ko có sẵn
+<a name="l-374"></a><span class="tm">16:26:24</span><span class="nk"> &lt;boss14420&gt;</span> thứ nhất là tạo sẵn một số mẫu rồi cho người dùng chọn
+<a name="l-375"></a><span class="tm">16:26:52</span><span class="nk"> &lt;boss14420&gt;</span> thứ hai là tạo GUI để người ta tùy chọn chỉnh sửa giao diện một cách trực quan
+<a name="l-376"></a><span class="tm">16:27:10</span><span class="nk"> &lt;Guest26307&gt;</span> cách thứ 2 có vẻ hợp lý hơn
+<a name="l-377"></a><span class="tm">16:27:44</span><span class="nk"> &lt;boss14420&gt;</span> và khó hơn
+<a name="l-378"></a><span class="tm">16:28:16</span><span class="nk"> &lt;boss14420&gt;</span> Cách thực hiện thì thử tham khảo một số chương trình tạo GUI hoặc dịch vụ khác
+<a name="l-379"></a><span class="tm">16:28:34</span><span class="nk"> &lt;Guest26307&gt;</span> nếu ko ít nhất mình có thể tạo cho người dùng khả năng thay đổi qua màu sắc, hoặc hình ảnh giao diện chứ không
+<a name="l-380"></a><span class="tm">16:28:39</span><span class="nk"> &lt;boss14420&gt;</span> Mình nghĩ nên định sẵn một số thành phần cơ bản của layout
+<a name="l-381"></a><span class="tm">16:28:52</span><span class="nk"> &lt;Guest26307&gt;</span> dùng fix cứng một giao diện thì cực kì bất tiện
+<a name="l-382"></a><span class="tm">16:29:06</span><span class="nk"> &lt;boss14420&gt;</span> những thành phần này có một số thuộc tính: màu sắc, nền, dài, rộng, ...
+<a name="l-383"></a><span class="tm">16:29:29</span><span class="nk"> &lt;boss14420&gt;</span> rồi tạo GUI cho phép kéo thả, tùy chỉnh vị trí các thành phần cơ bản này
+<a name="l-384"></a><span class="tm">16:29:57</span><span class="nk"> &lt;heroandtn3&gt;</span> đồng ý với ý của boss14420
+<a name="l-385"></a><span class="tm">16:30:05</span><span class="nk"> &lt;Guest26307&gt;</span> nhất trí
+<a name="l-386"></a><span class="tm">16:30:24</span><span class="nk"> &lt;heroandtn3&gt;</span> vấn đề là Guest26307 cần tìm ra cơ chế để thay đổi giao diện
+<a name="l-387"></a><span class="tm">16:30:27</span><span class="nk"> &lt;boss14420&gt;</span> Sẽ có 2 tùy chọn tạo theme: bằng code hoặc bằng kéo thả trực quan. Nếu đã chọn một cách thì sẽ phải đi theo cách đó
+<a name="l-388"></a><span class="tm">16:30:47</span><span class="nk"> &lt;heroandtn3&gt;</span> bên bootstrap nó làm thế nào đấy, Guest26307 tìm hiểu xem
+<a name="l-389"></a><span class="tm">16:31:05</span><span class="nk"> &lt;boss14420&gt;</span> bootstrap nó tạo sẵn một số giao diện
+<a name="l-390"></a><span class="tm">16:31:06</span><span class="nk"> &lt;heroandtn3&gt;</span> cái này tớ đã nói với cậu từ hôm trước rồi
+<a name="l-391"></a><span class="tm">16:31:18</span><span class="nk"> &lt;Guest26307&gt;</span> cơ chế chung là ntn:
+<a name="l-392"></a><span class="tm">16:31:51</span><span class="nk"> &lt;Guest26307&gt;</span> định sẵn thuộc tính, tên trường, ...
+<a name="l-393"></a><span class="tm">16:32:01</span><span class="nk"> &lt;Guest26307&gt;</span> bằng biến
+<a name="l-394"></a><span class="tm">16:32:11</span><span class="nk"> &lt;boss14420&gt;</span> <span class="hi">Guest26307:</span> nên tham khảo một số mẫu giao diện sẵn để xác định các "thành phần cơ bản" là gì. Giống như kéo thả tạo GUI trong lập trình ấy.
+<a name="l-395"></a><span class="tm">16:32:47</span><span class="nk"> &lt;boss14420&gt;</span> Mình nghĩ có một số thành phần sau: post content, comments, page header, ...
+<a name="l-396"></a><span class="tm">16:32:51</span><span class="nk"> &lt;Guest26307&gt;</span> phần kéo thả khó đấy
+<a name="l-397"></a><span class="tm">16:33:00</span><span class="nk"> &lt;heroandtn3&gt;</span> kiểu như theo 1 cấu trúc định sẵn
+<a name="l-398"></a><span class="tm">16:33:10</span><span class="nk"> &lt;heroandtn3&gt;</span> chỉ khác 1 chút ở màu mè, font chữ,...
+<a name="l-399"></a><span class="tm">16:33:24</span><span class="nk"> &lt;heroandtn3&gt;</span> có thể cho ng dùng chỉnh 1 số cái đơn giản như vậy
+<a name="l-400"></a><span class="tm">16:33:35</span><span class="nk"> &lt;heroandtn3&gt;</span> còn kéo thả thì có thể tham khảo 1 số phần mềm khác
+<a name="l-401"></a><span class="tm">16:33:44</span><span class="nk"> &lt;heroandtn3&gt;</span> như cái mà Chien hôm trước nói
+<a name="l-402"></a><span class="tm">16:33:48</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ o nhớ link nữa
+<a name="l-403"></a><span class="tm">16:33:56</span><span class="nk"> &lt;boss14420&gt;</span> Cứ xác định thành phần trước. Còn làm kéo thả như nào thì khi nào đến sẽ có sách để tham khảo.
+<a name="l-404"></a><span class="tm">16:34:26</span><span class="nk"> &lt;boss14420&gt;</span> Với Qt thì việc này không khó
+<a name="l-405"></a><span class="tm">16:34:38</span><span class="nk"> &lt;Chien&gt;</span> là weebly
+<a name="l-406"></a><span class="tm">16:34:43</span><span class="nk"> &lt;Chien&gt;</span> weebly.com!
+<a name="l-407"></a><span class="tm">16:36:37</span><span class="nk"> &lt;heroandtn3&gt;</span> mà Sơn đã tạo được blog Jekyll để demo chưa?
+<a name="l-408"></a><span class="tm">16:37:05</span><span class="nk"> &lt;Guest26307&gt;</span> giống ntn là ok rồi: wix.com
+<a name="l-409"></a><span class="tm">16:38:50</span><span class="nk"> &lt;heroandtn3&gt;</span> <span class="hi">Guest26307:</span> trả lời câu của tớ đi?
+<a name="l-410"></a><span class="tm">16:39:23</span><span class="nk"> &lt;Guest26307&gt;</span> ah, cài xong jekyll rồi
+<a name="l-411"></a><span class="tm">16:39:35</span><span class="nk"> &lt;Guest26307&gt;</span> blog vẫn chưa xong
+<a name="l-412"></a><span class="tm">16:39:57</span><span class="nk"> &lt;Chien&gt;</span> Guest26307,  thử vào weebly tạo web đi
+<a name="l-413"></a><span class="tm">16:40:04</span><span class="nk"> &lt;Chien&gt;</span> sẽ thấy nhiều cái hay đấy
+<a name="l-414"></a><span class="tm">16:40:07</span><span class="nk"> &lt;Guest26307&gt;</span> ok
+<a name="l-415"></a><span class="tm">16:40:16</span><span class="nk"> &lt;Guest26307&gt;</span> giống wix.com
+<a name="l-416"></a><span class="tm">16:40:43</span><span class="nk"> &lt;heroandtn3&gt;</span> vẫn chưa xong thì làm sao làm được :(
+<a name="l-417"></a><span class="tm">16:41:15</span><span class="nk"> &lt;heroandtn3&gt;</span> http://jekyllrb.com/docs/home/
+<a name="l-418"></a><span class="tm">16:41:24</span><span class="nk"> &lt;heroandtn3&gt;</span> theo cái này thì 15' là có ngay 1 blog demo
+<a name="l-419"></a><span class="tm">16:48:02</span><span class="nk"> &lt;boss14420&gt;</span> Nếu đã cài xong jekll thì chả có lý do gì để chưa xong blog
+<a name="l-420"></a><span class="tm">16:48:45</span><span class="nk"> &lt;Guest26307&gt;</span> ok, đang cài lại
+<a name="l-421"></a><span class="tm">16:49:05</span><span class="nk"> &lt;Guest26307&gt;</span> mấy bữa lười quá
+<a name="l-422"></a><span class="tm">16:51:30</span><span class="nk"> &lt;Chien&gt;</span> phần này hay và khó, Guest26307  cố gắng lên!
+<a name="l-423"></a><span class="tm">16:51:42</span><span class="nk"> &lt;Chien&gt;</span> làm tốt là tạo khác biệt đấy :d
+<a name="l-424"></a><span class="tm">16:53:28</span><span class="nk"> &lt;heroandtn3&gt;</span> ok
+<a name="l-425"></a><span class="tm">16:53:51</span><span class="nk"> &lt;heroandtn3&gt;</span> nếu không có gì thì cuộc họp kết thúc tại đây
+<a name="l-426"></a><span class="tm">16:53:58</span><span class="nk"> &lt;Chien&gt;</span> heroandtn3,  bình tĩnh
+<a name="l-427"></a><span class="tm">16:54:09</span><span class="nk"> &lt;heroandtn3&gt;</span> mọi người nhớ đăng lên nhiệm vụ của mình vào mail của boss14420 nhé
+<a name="l-428"></a><span class="tm">16:54:11</span><span class="nk"> &lt;heroandtn3&gt;</span> ơi
+<a name="l-429"></a><span class="tm">16:54:12</span><span class="nk"> &lt;heroandtn3&gt;</span> :D
+<a name="l-430"></a><span class="tm">16:54:18</span><span class="nk"> &lt;Chien&gt;</span> 31/7 này là có 1 cái hẹn nộp gì đó liên quan đến dự án phải ko?
+<a name="l-431"></a><span class="tm">16:54:35</span><span class="nk"> &lt;Chien&gt;</span> nhiệm vụ ok
+<a name="l-432"></a><span class="tm">16:55:03</span><span class="nk"> &lt;heroandtn3&gt;</span> thế à
+<a name="l-433"></a><span class="tm">16:55:09</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ ko rõ lắm
+<a name="l-434"></a><span class="tm">16:55:23</span><span class="nk"> &lt;heroandtn3&gt;</span> cậu có link nào về cái đó ko
+<a name="l-435"></a><span class="tm">16:55:57</span><span class="nk"> &lt;Chien&gt;</span> có chứ, về tiến độ thì hình như qua 31 tháng 7 là 1 giai đoạn
+<a name="l-436"></a><span class="tm">16:55:59</span><span class="nk"> &lt;Chien&gt;</span> chờ t chút
+<a name="l-437"></a><span class="tm">16:58:54</span><span class="nk"> &lt;Chien&gt;</span> http://vfossa.vn/vi/mhst/2013/Khoi-dong-cuoc-thi-Mua-he-sang-tao-2013-49/
+<a name="l-438"></a><span class="tm">16:58:59</span><span class="nk"> &lt;Chien&gt;</span> đây rồi, đúng là 1 mốc
+<a name="l-439"></a><span class="tm">16:59:05</span><span class="nk"> &lt;Chien&gt;</span> 31/7 hết giai đoạn 1!
+<a name="l-440"></a><span class="tm">16:59:21</span><span class="nk"> &lt;Chien&gt;</span> Giai đoạn 1 (15/6 – 31/7/2013) : Các đội lọt qua sơ tuyển nhận một nửa số tiền tài trợ của BTC và bắt tay thực hiện dự án. Ngày 30/7/2013: hướng dẫn viên chính (mentor) gửi phiếu đánh giá (theo mẫu) tiến độ thực hiện dự án do mình hướng dẫn về cho BTC và kiến nghị về việc có cho đội dự án tiếp tục hay không.
+<a name="l-441"></a><span class="tm">17:02:18</span><span class="nk"> &lt;heroandtn3&gt;</span> uh
+<a name="l-442"></a><span class="tm">17:02:26</span><span class="nk"> &lt;heroandtn3&gt;</span> cái này phải bảo anh mentor thôi
+<a name="l-443"></a><span class="tm">17:02:32</span><span class="nk"> &lt;heroandtn3&gt;</span> tớ sẽ mail lên group
+<a name="l-444"></a><span class="tm">17:05:35</span><span class="nk"> &lt;heroandtn3&gt;</span> còn vấn đề gì nữa ko?
+<a name="l-445"></a><span class="tm">17:05:55</span><span class="nk"> &lt;boss14420&gt;</span> ko
+<a name="l-446"></a><span class="tm">17:05:59</span><span class="nk"> &lt;Chien&gt;</span> ok, ko có vấn đề gì đâu
+<a name="l-447"></a><span class="tm">17:06:04</span><span class="nk"> &lt;boss14420&gt;</span> <span class="cmd">#endmeeting</span><span class="cmdline"></span></pre>
+</body></html>
